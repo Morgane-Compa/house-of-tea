@@ -1,0 +1,49 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--black);
+    // height: 242px;
+    height: 15.13rem;
+    width: 100%;
+}
+
+.title {
+    font-family: var(--font-title);
+    font-size: clamp(1rem, 4vw, 3.125rem);
+    font-weight: 100;
+    color: var(--white);
+    cursor: pointer;
+    // margin: 38px 0px 31px 85px;
+    margin: 2.375rem 0rem 1.937rem 5.312rem;
+}
+
+.subtitle {
+    font-family: var(--text);
+    color: var(--white);
+    font-size: clamp(0.6rem, 2.41vw, 1.875rem);
+    // margin-left: 85px;
+    margin-left: 5.31rem;
+}
+
+.cart {
+    height: 5.125rem;
+    //width: 5.125rem;
+    //margin: 44px 79px 47px 0px;
+    margin: 2.75rem 4.94rem 2.94rem 0rem;
+    cursor: pointer;
+    // @media screen and (max-width: 900px)
+    // {
+    //     height: 3rem;
+    // }
+}
+
+.redo {
+    font-family: var(--text);
+    color: var(--white);
+    font-size: clamp(0.528rem, 2.12vw, 1.687rem);
+    text-decoration: underline;
+    font-weight: 100;
+    // margin-right: 48px;
+    margin-right: 3rem;
+    cursor: pointer;
+}
