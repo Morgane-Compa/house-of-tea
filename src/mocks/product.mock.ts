@@ -1,12 +1,15 @@
 type CategoryType = 'infusions' | 'drinks' | 'sides';
 type SubCategoryType = 'tea' | 'tisane' | 'coffee' | 'chocolate' | 'juice' | 'pastry' | 'dessert';
 type AllergenType = 'tanin' | 'théine' | 'caféine'| 'fruit à coques' | 'lactose' |'gluten' | 'fructose' | 'vegan' | 'sans gluten'; 
+
 export interface ISizeChoice {
     id: number;
     name: string;
     icon: string;
     price: number;
 } 
+
+// Mette un / le chemin relatif
 export interface IImage {
     src: string;
     alt: string;
@@ -39,11 +42,13 @@ export interface IProduct {
     image: IImage;
     allergens: AllergenType[];
     category: ICategory;
+    subCategory: SubCategoryType;
     isCustomizable: boolean;
     customization? : {
         isIntense: boolean;
         extras: IExtraIngredients[]
-    }
+    };
+    isAvalable: boolean
 
 }
 export const CATEGORIES: ICategory[] = [];
