@@ -41,14 +41,14 @@ export interface IProduct {
     price: number;
     image: IImage;
     allergens: AllergenType[];
-    category: ICategory;
+    category: number;
     subCategory: SubCategoryType;
     isCustomizable: boolean;
     customization? : {
         isIntense: boolean;
         extras: IExtraIngredients[]
     };
-    isAvalable: boolean
+    isAvailable: boolean
 
 }
 export const CATEGORIES: ICategory[] = [];
