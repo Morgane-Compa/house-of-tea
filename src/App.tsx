@@ -8,6 +8,7 @@ import BackButton from "components/BackButton/BackButton";
 import { NavLink } from "react-router-dom";
 import ProductListPage from "pages/ProductListPage/ProductListPage";
 import { NAV_LINKS } from "mocks/navigation.mock";
+import QuantityPicker from "components/QuantityPicker/QuantityPicker";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Header />
       <Hero />
       <BackButton />
+      <QuantityPicker />
       <main>
       <ul className={style.navigation}> Menu temporaire : 
         {NAV_LINKS.map((navLink) =>  <li key={navLink.id}><NavLink  className={({isActive}) => isActive ? style.activeLink : ""}to={navLink.path}>{navLink.name}</NavLink></li>)}
