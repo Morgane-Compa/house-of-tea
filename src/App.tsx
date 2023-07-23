@@ -17,6 +17,7 @@ function App() {
       <Hero />
       <BackButton />
       <QuantityPicker />
+      
       <main>
       <ul className={style.navigation}> Menu temporaire : 
         {NAV_LINKS.map((navLink) =>  <li key={navLink.id}><NavLink  className={({isActive}) => isActive ? style.activeLink : ""}to={navLink.path}>{navLink.name}</NavLink></li>)}
