@@ -11,11 +11,18 @@ import { NAV_LINKS } from "mocks/navigation.mock";
 import QuantityPicker from "components/QuantityPicker/QuantityPicker";
 
 function App() {
+
+  const submit = () => {
+    // Mettre la méthode de retour
+    console.log("submit");
+  };
+
   return (
+
     <>
       <Header />
       <Hero />
-      <BackButton />
+      <BackButton callback={submit}/>
       <QuantityPicker />
       
       <main>
