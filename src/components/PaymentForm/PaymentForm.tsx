@@ -1,6 +1,12 @@
+import CallToActionButton from "components/CallToActionButton/CallToActionButton";
 import style from "./PaymentForm.module.scss";
 
 const PaymentForm = () => {
+
+  const submit = () => {
+    console.log("submit");
+  };
+
   return (
     <form className={style.form}>
       <div className={style.container}>
@@ -43,10 +49,8 @@ const PaymentForm = () => {
             />
           </div>
         </div>
-        <span className={style.total}>
-            Total: 19,60€
-        </span>
-        <input type="submit" value="Payer" />
+        <span className={style.total}>Total: 19,60€</span>
+        <CallToActionButton title="Payer" callback={submit} />
       </div>
     </form>
   );
