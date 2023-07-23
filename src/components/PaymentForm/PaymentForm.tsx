@@ -4,6 +4,7 @@ import style from "./PaymentForm.module.scss";
 const PaymentForm = () => {
 
   const submit = () => {
+    // Méthode de soumission du formulaire
     console.log("submit");
   };
 
