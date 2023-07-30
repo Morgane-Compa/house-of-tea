@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { CurrencyFormater } from "utilities/CurrencyFormater";
 import style from "./SizeCustomizationButton.module.scss";
-import './SizeCustomizationButton.module.scss';
+import "./SizeCustomizationButton.module.scss";
 
 interface SizeCustomizationButtonProps {
+  id: number;
   icon: string;
   price: any;
 }
 
 const SizeCustomizationButton = (props: SizeCustomizationButtonProps) => {
-  const { icon, price } = props;
+  const { id, icon, price } = props;
   const [isSelected, setIsSelected] = useState(false);
 
   function handleClick() {
@@ -20,15 +21,12 @@ const SizeCustomizationButton = (props: SizeCustomizationButtonProps) => {
   return (
     <button
       onClick={handleClick}
-      className={
-        `${isSelected === true ? style.yellow : style.white}`
-      }
+      value={id}
+      className={`${isSelected === true ? style.yellow : style.white}`}
     >
-      <div>
-        <img src={icon} alt="size" className={style.icon}/>
-      </div>
-      <div>
-        <span className={style.price}>{CurrencyFormater(price)}</span>
+      <div className={style.responsive}>
+        <img src={icon} alt="size" className={style.icon} />
+        <div className={style.price}>{CurrencyFormater(price)}</div>
       </div>
     </button>
   );

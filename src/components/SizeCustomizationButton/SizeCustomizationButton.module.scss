@@ -1,20 +1,24 @@
 .yellow {
   background-color: var(--yellow);
-  width: 19.93rem;
-  height: 19.93rem;
+  //   width: 19.93rem;
+  //   height: 19.93rem;
+  width: 15rem;
+  height: 15rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
 .white {
   background-color: var(--white);
-  width: 19.93rem;
-  height: 19.93rem;
+  //   width: 19.93rem;
+  //   height: 19.93rem;
+  width: 15rem;
+  height: 15rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -24,11 +28,11 @@
 }
 
 @media screen and (max-width: 900px) {
-  .yellow {
-    width: 5.87rem;
-    height: 5.87rem;
+  .icon {
+    transform: scale(50%);
   }
 
+  .yellow,
   .white {
     width: 5.87rem;
     height: 5.87rem;
@@ -37,5 +41,7 @@
   .price {
     font-family: var(--font-text);
     font-size: 1.125rem;
+    margin-top: -1rem;
+    margin-bottom: 0.5rem;
   }
 }
