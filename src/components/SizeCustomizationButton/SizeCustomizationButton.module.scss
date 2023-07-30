@@ -1,0 +1,41 @@
+.yellow {
+  background-color: var(--yellow);
+  width: 19.93rem;
+  height: 19.93rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.white {
+  background-color: var(--white);
+  width: 19.93rem;
+  height: 19.93rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.price {
+  font-family: var(--font-text);
+  font-size: 2.125rem;
+}
+
+@media screen and (max-width: 900px) {
+  .yellow {
+    width: 5.87rem;
+    height: 5.87rem;
+  }
+
+  .white {
+    width: 5.87rem;
+    height: 5.87rem;
+  }
+
+  .price {
+    font-family: var(--font-text);
+    font-size: 1.125rem;
+  }
+}
