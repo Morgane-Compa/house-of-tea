@@ -1,9 +1,10 @@
-import style from './ProductDetailsPage.module.scss'
+import style from "./ProductDetailsPage.module.scss";
 
 const ProductDetailsPage = () => {
-    return(
-        <></>
-    )
-}
+  return (
+    <>
+    </>
+  );
+};
 
-export default ProductDetailsPage
+export default ProductDetailsPage;
