@@ -10,18 +10,21 @@ interface SizeCustomizationButtonProps {
 }
 
 const SizeCustomizationButton = (props: SizeCustomizationButtonProps) => {
+
   const { id, icon, price } = props;
   const [isSelected, setIsSelected] = useState(false);
+  const [buttonId, setButtonId] = useState(id);
 
   function handleClick() {
     setIsSelected(!isSelected);
+    setButtonId(id);
     console.log(isSelected);
+    console.log(buttonId);
   }
 
   return (
     <button
       onClick={handleClick}
-      value={id}
       className={`${isSelected === true ? style.yellow : style.white}`}
     >
       <div className={style.responsive}>
