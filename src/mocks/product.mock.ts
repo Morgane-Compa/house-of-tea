@@ -47,6 +47,7 @@ export interface IExtraIngredients {
   id: number;
   name: string;
   image: IImage;
+  price: number;
   maxQuantity: number;
 }
 
@@ -177,6 +178,7 @@ export const PRODUCTS: IProduct[] = [
             src: "/assets/products/extras/sucre-removebg-preview 1.svg",
             alt: "image de sucre pour extra",
           },
+          price: 3,
           maxQuantity: 10,
         },
         {
@@ -186,6 +188,7 @@ export const PRODUCTS: IProduct[] = [
             src: "/assets/products/extras/Milk in different containers vector illustrations set.svg",
             alt: "image de lait pour extra",
           },
+          price: 0,
           maxQuantity: 5,
         },
         {
@@ -195,6 +198,7 @@ export const PRODUCTS: IProduct[] = [
             src: "/assets/products/extras/nids-abeilles-frais.svg",
             alt: "image de miel pour extra",
           },
+          price: 0,
           maxQuantity: 5,
         },
         {
@@ -204,6 +208,7 @@ export const PRODUCTS: IProduct[] = [
             src: "/assets/products/extras/citron.svg",
             alt: "image de citron pour extra",
           },
+          price: 0,
           maxQuantity: 2,
         },
         {
@@ -213,6 +218,7 @@ export const PRODUCTS: IProduct[] = [
             src: "/assets/products/extras/feuilles-menthe-fraiche-isolees.svg",
             alt: "image de feuille de menthe pour extra",
           },
+          price: 0,
           maxQuantity: 5,
         },
         {
@@ -222,6 +228,7 @@ export const PRODUCTS: IProduct[] = [
             src: "/assets/products/extras/cannelle-anis-removebg-preview 1.svg",
             alt: "image de baton de cannelle pour extra",
           },
+          price: 0,
           maxQuantity: 1,
         },
         {
@@ -231,6 +238,7 @@ export const PRODUCTS: IProduct[] = [
             src: "/assets/products/extras/baton-vanille.svg",
             alt: "image de gousse de vanille pour extra",
           },
+          price: 0,
           maxQuantity: 1,
         },
         {
@@ -240,6 +248,7 @@ export const PRODUCTS: IProduct[] = [
             src: "/assets/products/extras/baies-fraiches-forets-blanc (1).svg",
             alt: "image de fruits rouges pour extra",
           },
+          price: 0,
           maxQuantity: 3,
         },
       ],

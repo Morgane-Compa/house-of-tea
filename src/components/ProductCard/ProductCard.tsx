@@ -26,6 +26,7 @@ const ProductCard = () => {
             src: "",
             alt: "",
           },
+          price:0,
           maxQuantity: 5,
         },
       ],
