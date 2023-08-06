@@ -37,7 +37,7 @@ const ExtraCard = (props: IExtraCardProps) => {
         <div className={style.container}>
             <div className={style.infoContainer}>
                 <div>
-                    <img src={image} alt={name} />
+                    <img src={image} alt={name} className={style.responsive} />
                 </div>
                 <div>
                     <p>{name}</p>

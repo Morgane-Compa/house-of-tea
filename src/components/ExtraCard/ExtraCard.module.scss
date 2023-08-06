@@ -14,4 +14,21 @@
         background-color: var(--white);
         margin-bottom: 15px;
     }
+
+    .responsive {
+        max-width: 100%;
+        height: auto;
+    }   
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        width: 6.75rem;
+        height: 12rem;
+    }
+
+    .infoContainer {
+     width: 100%;
+     height: auto;
+    } 
 }
