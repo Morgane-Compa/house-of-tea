@@ -1,7 +1,5 @@
 .yellow {
   background-color: var(--yellow);
-  //   width: 19.93rem;
-  //   height: 19.93rem;
   width: 15rem;
   height: 15rem;
   display: flex;
@@ -12,8 +10,6 @@
 
 .white {
   background-color: var(--white);
-  //   width: 19.93rem;
-  //   height: 19.93rem;
   width: 15rem;
   height: 15rem;
   display: flex;
@@ -28,9 +24,6 @@
 }
 
 @media screen and (max-width: 900px) {
-  .icon {
-    transform: scale(50%);
-  }
 
   .yellow,
   .white {
