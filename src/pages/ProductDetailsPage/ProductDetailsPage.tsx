@@ -1,6 +1,7 @@
 import SizeChoiceList from "components/SizeChoiceList/SizeChoiceList";
 import style from "./ProductDetailsPage.module.scss";
 import ExtraCard from "components/ExtraCard/ExtraCard";
+import TemperatureChoiceList from "components/TemperatureChoiceList/TemperatureChoiceList";
 
 const ProductDetailsPage = () => {
 
@@ -8,6 +9,7 @@ const ProductDetailsPage = () => {
     <>
     <SizeChoiceList />
     {/* Créer un map sur le mock extras */}
+    <TemperatureChoiceList />
     <div className={style.extraContainer}>
     <ExtraCard name={"sugar"} image={"/assets/products/extras/citron.svg"} price={0}/>
     <ExtraCard name={"vanille"} image={"/assets/products/extras/baton-vanille.svg"} price={2}/>
