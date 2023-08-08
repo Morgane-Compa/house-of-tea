@@ -9,26 +9,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 206px;
-        height: 286px;
+        width: 12.875rem;
+        height: 17.875rem;
         background-color: var(--white);
-        margin-bottom: 15px;
-    }
-
-    .responsive {
-        max-width: 100%;
-        height: auto;
-    }   
+        margin-bottom: 0.9375rem;
+    } 
 }
 
 @media screen and (max-width: 900px) {
     .container {
-        width: 6.75rem;
-        height: 12rem;
+        transform: scale(0.7);
     }
-
-    .infoContainer {
-     width: 100%;
-     height: auto;
-    } 
 }
