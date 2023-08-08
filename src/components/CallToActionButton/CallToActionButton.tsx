@@ -2,13 +2,13 @@ import style from './CallToActionButton.module.scss';
 
 interface CallToActionButtonProps {
     title: string;
-    callback: () => void;
+    //callback: () => void; // pas besoin puisque submit
 }
 
 const CallToActionButton = (props: CallToActionButtonProps) => {
-    const {title, callback} = props;
 
-    return(<button type="submit" onClick={callback} className={style.submit}>{title}</button>)
+    const {title} = props;
+    return <button type="submit" className={style.submit}>{title}</button>
 }
 
 export default CallToActionButton;

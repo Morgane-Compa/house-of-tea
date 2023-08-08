@@ -4,12 +4,15 @@ interface QuantityPickerProps {
   increment: () => void;
   totalPicker: any;
   decrement: () => void;
+  returnName?: () => void;
 }
 
 const QuantityPicker = (props: QuantityPickerProps) => {
+
   const { increment, totalPicker, decrement } = props;
+
   return (
-    <div className={style.picker}>
+    <div className={style.picker} >
       <button className={style.decrease} onClick={decrement}>
         -
       </button>

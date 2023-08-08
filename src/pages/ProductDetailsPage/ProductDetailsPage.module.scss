@@ -1,6 +1,66 @@
 .extraContainer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
 }
+
+.intense {
+    text-align: center;
+    font-family: var(--font-text);
+    font-size: 3.75rem;
+    font-weight: 100;
+    margin-bottom: 3.125rem;
+}
+
+.interligne {
+    border-bottom: 2px solid var(--black);
+    width: 50%;
+    margin-bottom: 4.93rem;
+    margin-top: 4.93rem;
+}
+
+.total {
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4.93rem;
+
+    .totalPrice {
+        font-size: 3.4375rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .extraContainer {
+        gap: 0rem;
+    }
+
+    .intense {
+        font-size: 2.125rem;
+    }
+
+    .interligne {
+        width: 30%;
+        margin-bottom: 2.875rem;
+    }
+
+    .total {
+        width: 19.25rem;
+        height: auto;
+        margin-bottom: 2.8125rem;
+
+        .totalPrice {
+            font-size: 1.25rem;
+        }
+        
+        .picker {
+            transform: scale(0.7);
+        }
+   }
+  }

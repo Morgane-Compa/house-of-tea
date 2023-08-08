@@ -7,7 +7,7 @@ const ExtraList = () => {
     return (
         <div className={style.container}>
             {PRODUCTS[0].customization?.extras.map((extra, index) => {
-                console.log(index);
+                //console.log(index);
                 return <ExtraCard key={index} 
                 name={extra.name} 
                 image={extra.image.src} 
