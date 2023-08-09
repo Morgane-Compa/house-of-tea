@@ -6,6 +6,7 @@ import ExtraList from "components/ExtraList/ExtraList";
 import CallToActionButton from "components/CallToActionButton/CallToActionButton";
 import QuantityPicker from "components/QuantityPicker/QuantityPicker";
 import { useState } from "react";
+import { type } from "os";
 
 
 const ProductDetailsPage = () => {
@@ -28,9 +29,53 @@ const ProductDetailsPage = () => {
     setPicker(picker - 1);
   };
 
+  // ************* Données du formulaire *****************
+  // Je crée un type pour créer mon produit customizé
+  type custom = {
+    size: string,
+    temp: string,
+    intensity: string,
+    extra: [
+      {
+        name: string,
+        quantity: number,
+        price: number
+      }
+    ]
+  };
+
+  // Je récupère les données du formulaire dans un objet 
+  let customizedObject: custom = 
+    {
+      size: "",
+      temp: "",
+      intensity: "",
+      extra: [
+        {
+          name: "",
+          quantity: 0,
+          price: 0
+        }
+      ]
+    };
+
+
   function handleSubmit(event: { preventDefault: () => void; }) {
     event.preventDefault();
-    console.log("Formlaire envoyé !!!");
+    // Au submit, je modifie customizedObject avec les datas du form
+    customizedObject = {
+      size: "",
+      temp: "",
+      intensity: "",
+      extra: [
+        {
+          name: "",
+          quantity: 0,
+          price: 0
+        }
+      ]
+    }
+    console.log(customizedObject);
   }
 
   return (

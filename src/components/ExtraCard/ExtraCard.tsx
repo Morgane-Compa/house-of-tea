@@ -15,20 +15,34 @@ const ExtraCard = (props: IExtraCardProps) => {
 
     // ************* QuantityPicker (extraCard) *****************
     const [picker, setPicker] = useState(Number);
+    const [extraName, setExtraName] = useState("");
+    const [extraPrice, setExtraPrice] = useState(0);
     const total = picker;
 
     const increment = () => {
+        setPicker(picker + 1);
+        setExtraName(name);
+        console.log(extraName);
+        setExtraPrice(price);
+        console.log(extraPrice * total);
+        console.log(picker);
         if (picker === 6) {
             return;
         }
-        setPicker(picker + 1);
+        return extraName && extraPrice * total && picker;
     };
 
     const decrement = () => {
+        setPicker(picker - 1);
+        setExtraName(name);
+        console.log(extraName);
+        setExtraPrice(price);
+        console.log(extraPrice * total);
+        console.log(picker);
         if (picker === 0) {
             return;
         }
-        setPicker(picker - 1);
+        return extraName && extraPrice * total && picker;
     };
 
     const { name, image, price } = props;
@@ -46,10 +60,9 @@ const ExtraCard = (props: IExtraCardProps) => {
                     <span>{CurrencyFormater(price)}</span>
                 </div>
             </div>
+            {/* Il faut que je communique au picker le name et le price */}
             <QuantityPicker increment={increment}
-                decrement={decrement}
-                totalPicker={total}
-            />
+            decrement={decrement} totalPicker={total}            />
         </div>
     )
 }
