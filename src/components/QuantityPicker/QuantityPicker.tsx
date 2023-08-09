@@ -13,11 +13,11 @@ const QuantityPicker = (props: QuantityPickerProps) => {
 
   return (
     <div className={style.picker} >
-      <button className={style.decrease} onClick={decrement}>
+      <button type="button" className={style.decrease} onClick={decrement}>
         -
       </button>
       <span className={style.quantity}>{totalPicker}</span>
-      <button className={style.increase} onClick={increment}>
+      <button type="button" className={style.increase} onClick={increment}>
         +
       </button>
     </div>

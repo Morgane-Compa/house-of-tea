@@ -35,7 +35,6 @@ const SizeChoiceList = () => {
   function handleOnClick(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     const size: HTMLButtonElement = event.currentTarget;
-
     if(size.id === "small") {
       setIsSmall(true)
       setIsMid(false)
@@ -51,25 +50,26 @@ const SizeChoiceList = () => {
       setIsMid(false)
       setIsBig(true)
     }
-
     console.log(size.id);
+    console.log(size.value);
+    return size.id && Number(size.value);
   }
 
   return (
     <div className={style.container}>
-      <button className={isSmall ? style.yellow : style.white} id="small" onClick={handleOnClick}>
+      <button className={isSmall ? style.yellow : style.white} id="small" value="0" onClick={handleOnClick}>
       <div className={style.responsive}>
         <img src="../assets/icons/small-cup.svg" alt="size" className={style.icon} />
         <div className={style.price}>Regular</div>
       </div>
       </button>
-      <button className={isMid ? style.yellow : style.white}  id="mid" onClick={handleOnClick}>
+      <button className={isMid ? style.yellow : style.white}  id="mid" value="2" onClick={handleOnClick}>
       <div className={style.responsive}>
         <img src="../assets/icons/mid-cup.svg" alt="size" className={style.icon} />
         <div className={style.price}>{CurrencyFormater(2)}</div>
       </div>
       </button>
-      <button className={isBig ? style.yellow : style.white}  id="big" onClick={handleOnClick}>
+      <button className={isBig ? style.yellow : style.white}  id="big" value="4" onClick={handleOnClick}>
       <div className={style.responsive}>
         <img src="../assets/icons/big-cup.svg" alt="size" className={style.icon} />
         <div className={style.price}>{CurrencyFormater(4)}</div>

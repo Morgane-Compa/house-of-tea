@@ -178,7 +178,7 @@ export const PRODUCTS: IProduct[] = [
             src: "/assets/products/extras/sucre-removebg-preview 1.svg",
             alt: "image de sucre pour extra",
           },
-          price: 3,
+          price: 0,
           maxQuantity: 10,
         },
         {
@@ -198,7 +198,7 @@ export const PRODUCTS: IProduct[] = [
             src: "/assets/products/extras/nids-abeilles-frais.svg",
             alt: "image de miel pour extra",
           },
-          price: 0,
+          price: 3,
           maxQuantity: 5,
         },
         {
@@ -208,7 +208,7 @@ export const PRODUCTS: IProduct[] = [
             src: "/assets/products/extras/citron.svg",
             alt: "image de citron pour extra",
           },
-          price: 0,
+          price: 1,
           maxQuantity: 2,
         },
         {
@@ -218,7 +218,7 @@ export const PRODUCTS: IProduct[] = [
             src: "/assets/products/extras/feuilles-menthe-fraiche-isolees.svg",
             alt: "image de feuille de menthe pour extra",
           },
-          price: 0,
+          price: 2,
           maxQuantity: 5,
         },
         {
@@ -228,7 +228,7 @@ export const PRODUCTS: IProduct[] = [
             src: "/assets/products/extras/cannelle-anis-removebg-preview 1.svg",
             alt: "image de baton de cannelle pour extra",
           },
-          price: 0,
+          price: 3,
           maxQuantity: 1,
         },
         {
@@ -238,7 +238,7 @@ export const PRODUCTS: IProduct[] = [
             src: "/assets/products/extras/baton-vanille.svg",
             alt: "image de gousse de vanille pour extra",
           },
-          price: 0,
+          price: 4,
           maxQuantity: 1,
         },
         {
@@ -248,7 +248,7 @@ export const PRODUCTS: IProduct[] = [
             src: "/assets/products/extras/baies-fraiches-forets-blanc (1).svg",
             alt: "image de fruits rouges pour extra",
           },
-          price: 0,
+          price: 3,
           maxQuantity: 3,
         },
       ],
