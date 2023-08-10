@@ -1,3 +1,6 @@
+// ajoute une propriété isSelected category et subCategory
+// ajouter prix aux extras
+
 type CategoryType = 'infusions' | 'drinks' | 'sides';
 type SubCategoryType = 'tea' | 'tisane' | 'coffee' | 'chocolate' | 'juice' | 'pastry' | 'dessert';
 type AllergenType = 'tanin' | 'théine' | 'caféine' | 'fruit à coques' | 'lactose' | 'gluten' | 'fructose' | 'vegan' | 'sans gluten';
