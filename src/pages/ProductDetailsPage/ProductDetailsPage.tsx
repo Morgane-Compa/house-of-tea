@@ -6,7 +6,6 @@ import ExtraList from "components/ExtraList/ExtraList";
 import CallToActionButton from "components/CallToActionButton/CallToActionButton";
 import QuantityPicker from "components/QuantityPicker/QuantityPicker";
 import { useState } from "react";
-import { type } from "os";
 
 
 const ProductDetailsPage = () => {

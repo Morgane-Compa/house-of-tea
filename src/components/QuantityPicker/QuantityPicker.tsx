@@ -1,10 +1,9 @@
 import style from "./QuantityPicker.module.scss";
 
 interface QuantityPickerProps {
-  increment: () => void;
   totalPicker: any;
+  increment: () => void;
   decrement: () => void;
-  returnName?: () => void;
 }
 
 const QuantityPicker = (props: QuantityPickerProps) => {
