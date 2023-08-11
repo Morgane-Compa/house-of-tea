@@ -6,6 +6,7 @@ import ExtraList from "components/ExtraList/ExtraList";
 import CallToActionButton from "components/CallToActionButton/CallToActionButton";
 import QuantityPicker from "components/QuantityPicker/QuantityPicker";
 import { useState } from "react";
+import ProductDetailCard from "components/ProductDetailCard/ProductDetailCard";
 
 
 const ProductDetailsPage = () => {
@@ -80,6 +81,7 @@ const ProductDetailsPage = () => {
   return (
     <>
       <form className={style.extraContainer} onSubmit={handleSubmit}>
+        <ProductDetailCard />
         <span className={style.interligne}></span>
         <SizeChoiceList />
         <span className={style.interligne}></span>
