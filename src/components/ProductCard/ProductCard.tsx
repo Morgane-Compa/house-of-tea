@@ -1,38 +1,9 @@
-import { IProduct } from "mocks/product.mock";
+import { IProduct, PRODUCTS } from "mocks/product.mock";
 import style from "./ProductCard.module.scss";
 import { formatNumber } from "services/globalMethods";
 
 const ProductCard = () => {
-  const product: IProduct = {
-    id: 1,
-    name: "Thé noir",
-    description: "Thé noir d'Inde de qualité",
-    price: 4.9,
-    image: {
-      src: "/assets/products/teas/black-tea.svg",
-      alt: "the-noir",
-    },
-    allergens: ["tanin", "théine"],
-    category: 1,
-    subCategory: "tea",
-    isCustomizable: true,
-    customization: {
-      isIntense: true,
-      extras: [
-        {
-          id: 1,
-          name: "sucre",
-          image: {
-            src: "",
-            alt: "",
-          },
-          price:0,
-          maxQuantity: 5,
-        },
-      ],
-    },
-    isAvailable: true,
-  };
+  const product: IProduct = PRODUCTS[0];
 
   const formatedPrice = formatNumber(product.price);
   return (
