@@ -2,10 +2,10 @@ import style from "./App.module.scss";
 import Header from "components/Header/Header";
 import Hero from "components/Hero/Hero";
 import Footer from "components/Footer/Footer";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, NavLink } from "react-router-dom";
 import BackButton from "components/BackButton/BackButton";
-import { NavLink } from "react-router-dom";
 import { NAV_LINKS } from "mocks/navigation.mock";
+
 
 function App() {
 
