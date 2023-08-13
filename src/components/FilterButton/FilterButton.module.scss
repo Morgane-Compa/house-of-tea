@@ -1,0 +1,12 @@
+.filterButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: unset;
+    height: 11rem;
+    justify-content: space-between;
+
+    span{
+        font-size: 1.5rem;
+    }
+}
