@@ -1,5 +1,5 @@
-type CategoryType = "infusions" | "drinks" | "sides";
-type SubCategoryType =
+export type CategoryType = "infusions" | "drinks" | "sides";
+export type SubCategoryType =
   | "tea"
   | "tisane"
   | "coffee"

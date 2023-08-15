@@ -1,9 +1,12 @@
-import { IProduct, PRODUCTS } from "mocks/product.mock";
+import { IProduct} from "mocks/product.mock";
 import style from "./ProductCard.module.scss";
 import { formatNumber } from "services/globalMethods";
 
-const ProductCard = () => {
-  const product: IProduct = PRODUCTS[0];
+interface ProductCardProps {
+    product: IProduct
+}
+const ProductCard = (props: ProductCardProps) => {
+  const {product} = props;
 
   const formatedPrice = formatNumber(product.price);
   return (
