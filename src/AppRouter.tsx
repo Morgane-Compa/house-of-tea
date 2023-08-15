@@ -4,7 +4,7 @@ import HomePage from "pages/HomePage/HomePage"
 import NotFoundPage from "pages/NotFoundPage/NotFoundPage"
 import PaymentPage from "pages/PaymentPage/PaymentPage"
 import ProductDetailsPage from "pages/ProductDetailsPage/ProductDetailsPage"
-import ProductListPage from "pages/ProductListPage/ProductListPage"
+import ProductListPage, { productsLoader } from "pages/ProductListPage/ProductListPage"
 import RecapPage from "pages/RecapPage/RecapPage"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
@@ -21,7 +21,8 @@ const AppRouter = () => {
                 },
                 {
                     path: '/products',
-                    element: <ProductListPage /> 
+                    element: <ProductListPage />,
+                    loader: productsLoader
                 },
                 {
                     path: '/product-details',
