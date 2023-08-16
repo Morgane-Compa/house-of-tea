@@ -1,9 +1,12 @@
-import style from './PaymentPage.module.scss'
+import PaymentForm from "components/PaymentForm/PaymentForm";
+import style from "./PaymentPage.module.scss";
 
 const PaymentPage = () => {
-    return(
-        <></>
-    )
-}
+  return (
+    <>
+      <PaymentForm />
+    </>
+  );
+};
 
-export default PaymentPage
+export default PaymentPage;

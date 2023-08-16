@@ -1,0 +1,21 @@
+.productCard{
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 24.375rem;
+    padding-bottom: 2.5rem;
+    .infos{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        h2{
+            font-size: 2.5rem;
+        }
+        span{
+            font-size: 1.5rem;
+        }
+    }
+}

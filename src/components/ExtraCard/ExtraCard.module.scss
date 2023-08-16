@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .infoContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 12.875rem;
+        height: 17.875rem;
+        background-color: var(--white);
+        margin-bottom: 0.9375rem;
+    } 
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        transform: scale(0.7);
+    }
+}

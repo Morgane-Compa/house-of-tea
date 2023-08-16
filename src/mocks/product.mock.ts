@@ -1,9 +1,22 @@
-// ajoute une propriété isSelected category et subCategory
-// ajouter prix aux extras
-
-type CategoryType = 'infusions' | 'drinks' | 'sides';
-type SubCategoryType = 'tea' | 'tisane' | 'coffee' | 'chocolate' | 'juice' | 'pastry' | 'dessert';
-type AllergenType = 'tanin' | 'théine' | 'caféine' | 'fruit à coques' | 'lactose' | 'gluten' | 'fructose' | 'vegan' | 'sans gluten';
+export type CategoryType = "infusions" | "drinks" | "sides";
+export type SubCategoryType =
+  | "tea"
+  | "tisane"
+  | "coffee"
+  | "chocolate"
+  | "juice"
+  | "pastry"
+  | "dessert";
+type AllergenType =
+  | "tanin"
+  | "théine"
+  | "caféine"
+  | "fruit à coques"
+  | "lactose"
+  | "gluten"
+  | "fructose"
+  | "vegan"
+  | "sans gluten";
 
 export interface ISizeChoice {
   id: number;
@@ -27,7 +40,7 @@ export interface ICategory {
   id: number;
   type: CategoryType;
   name: string;
-  subCategories: ISubCategory[]
+  subCategories: ISubCategory[];
 }
 
 export interface IExtraIngredients {
@@ -50,10 +63,9 @@ export interface IProduct {
   isCustomizable: boolean;
   customization?: {
     isIntense: boolean;
-    extras: IExtraIngredients[]
+    extras: IExtraIngredients[];
   };
-  isAvailable: boolean
-
+  isAvailable: boolean;
 }
 export const CATEGORIES: ICategory[] = [
   {
@@ -67,8 +79,8 @@ export const CATEGORIES: ICategory[] = [
         name: "Thés",
         image: {
           src: "/assets/subcategory-images/tea-subcategory.svg",
-          alt: "sous catégorie thés "
-        }
+          alt: "sous catégorie thés ",
+        },
       },
       {
         id: 2,
@@ -76,10 +88,10 @@ export const CATEGORIES: ICategory[] = [
         name: "Tisanes",
         image: {
           src: "/asset/subcategory-image/tisane-subcategory.svg",
-          alt: "sous catégorie tisanes "
-        }
-      }
-    ]
+          alt: "sous catégorie tisanes ",
+        },
+      },
+    ],
   },
   {
     id: 2,
@@ -92,8 +104,8 @@ export const CATEGORIES: ICategory[] = [
         name: "Cafés",
         image: {
           src: "/assets/subcategory-images/coffee-subcategory.svg",
-          alt: "sous catégorie cafés "
-        }
+          alt: "sous catégorie cafés ",
+        },
       },
       {
         id: 4,
@@ -101,8 +113,8 @@ export const CATEGORIES: ICategory[] = [
         name: "Chocolats",
         image: {
           src: "/asset/subcategory-image/hot-chocolate-subcategory.svg",
-          alt: "sous catégorie chocolats "
-        }
+          alt: "sous catégorie chocolats ",
+        },
       },
       {
         id: 5,
@@ -110,10 +122,10 @@ export const CATEGORIES: ICategory[] = [
         name: "Jus",
         image: {
           src: "/asset/subcategory-image/juice-subcategory.svg",
-          alt: "sous catégorie jus de fruits "
-        }
-      }
-    ]
+          alt: "sous catégorie jus de fruits ",
+        },
+      },
+    ],
   },
   {
     id: 3,
@@ -126,8 +138,8 @@ export const CATEGORIES: ICategory[] = [
         name: "Patisseries",
         image: {
           src: "/assets/subcategory-images/pastry-subcategory.svg",
-          alt: "sous catégorie patisseries "
-        }
+          alt: "sous catégorie patisseries ",
+        },
       },
       {
         id: 7,
@@ -135,14 +147,15 @@ export const CATEGORIES: ICategory[] = [
         name: "Desserts",
         image: {
           src: "/asset/subcategory-image/desserts-subcategory.svg",
-          alt: "sous catégorie desserts "
-        }
-      }
-    ]
+          alt: "sous catégorie desserts ",
+        },
+      },
+    ],
   },
 ];
 
 export const PRODUCTS: IProduct[] = [
+  
   // thés
   {
     id: 1,
@@ -345,7 +358,7 @@ export const PRODUCTS: IProduct[] = [
     isAvailable: true,
   },
 
-
+  
   // cafés
   {
     id: 3,

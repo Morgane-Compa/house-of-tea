@@ -1,0 +1,40 @@
+.picker {
+    display: flex;
+    align-items: center;
+    height: 3.25rem;
+    width: auto;
+    font-size: 1.5rem;
+
+    .increase {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3.31rem;
+        width: 3.31rem;
+        background-color: var(--yellow);
+        border-bottom-right-radius: 20%;
+        border-top-right-radius: 20%;
+        font-size: 1.875rem;
+    }
+
+    .decrease {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3.31rem;
+        width: 3.31rem;
+        background-color: var(--yellow);
+        border-bottom-left-radius: 20%;
+        border-top-left-radius: 20%;
+        font-size: 1.875rem;
+    }
+
+    .quantity {
+        width: 2.81rem;
+        display: flex;
+        justify-content: center;
+        font-family: var(--font-inter);
+        color: var(--black);
+
+    }
+}

@@ -1,0 +1,22 @@
+.submit {
+    width: 95%;
+    // width: 69.625rem;
+    height: 7.0625rem;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    background-color: var(--yellow);
+    border-radius: 0.94rem;
+    font-family: var(--font-text);
+    font-size: 3.125rem;
+    color: var(--black);
+}
+
+@media screen and (max-width: 900px) {
+    .submit {
+        width: 20.56rem;
+        height: 2.875rem;
+        font-size: 1.25rem;
+        border-radius: 0;
+    }
+}
