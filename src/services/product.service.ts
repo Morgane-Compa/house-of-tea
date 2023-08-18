@@ -10,6 +10,6 @@ export const getAllProducts = (): IProduct[] => {
 export const getProductsByCategory = (categoryId:number): IProduct[] => {
     return PRODUCTS.filter(product => product.category === categoryId);
 }
-export const getProductsBySubCategory = (products: IProduct[],subCategory: SubCategoryType ): IProduct[] => {
-    return products.filter(product => product.subCategory === subCategory);
+export const getProductsBySubCategory = (subCategory: SubCategoryType ): IProduct[] => {
+    return PRODUCTS.filter(product => product.subCategory === subCategory);
 }
