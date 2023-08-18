@@ -8,5 +8,10 @@
 
     span{
         font-size: 1.5rem;
+       &.active{
+            color: var(--yellow);
+            // text-decoration: underline;
+        }
     }
+    
 }

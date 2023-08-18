@@ -2,7 +2,7 @@ import style from "./App.module.scss";
 import Header from "components/Header/Header";
 import Hero from "components/Hero/Hero";
 import Footer from "components/Footer/Footer";
-import { Outlet, useNavigate, NavLink } from "react-router-dom";
+import { Outlet, useNavigate, NavLink, useLocation } from "react-router-dom";
 import BackButton from "components/BackButton/BackButton";
 import { NAV_LINKS } from "mocks/navigation.mock";
 
@@ -14,14 +14,16 @@ function App() {
   const back = (): void => {
     navigate(-1);
   };
+  const location = useLocation();
 
   return (
     <>
       <Header />
       <Hero />
-      <BackButton callback={back} />
+      {location.pathname!=='/products' && <BackButton callback={back} />}
 
       <main>
+          <Outlet />
         <ul className={style.navigation}>
           {" "}
           Menu temporaire :
@@ -36,7 +38,6 @@ function App() {
             </li>
           ))}
         </ul>
-        <Outlet />
       </main>
       <Footer />
     </>

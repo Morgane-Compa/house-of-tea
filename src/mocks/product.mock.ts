@@ -35,11 +35,13 @@ export interface ISubCategory {
   type: SubCategoryType;
   name: string;
   image: IImage;
+  isSelected: boolean;
 }
 export interface ICategory {
   id: number;
   type: CategoryType;
   name: string;
+  isSelected: boolean;
   subCategories: ISubCategory[];
 }
 
@@ -72,6 +74,7 @@ export const CATEGORIES: ICategory[] = [
     id: 1,
     type: "infusions",
     name: "Autour du thé",
+    isSelected: false,
     subCategories: [
       {
         id: 1,
@@ -81,15 +84,17 @@ export const CATEGORIES: ICategory[] = [
           src: "/assets/subcategory-images/tea-subcategory.svg",
           alt: "sous catégorie thés ",
         },
+        isSelected: false
       },
       {
         id: 2,
         type: "tisane",
         name: "Tisanes",
         image: {
-          src: "/asset/subcategory-image/tisane-subcategory.svg",
+          src: "/assets/subcategory-images/tisane-subcategory.svg",
           alt: "sous catégorie tisanes ",
         },
+        isSelected: false
       },
     ],
   },
@@ -97,6 +102,7 @@ export const CATEGORIES: ICategory[] = [
     id: 2,
     type: "drinks",
     name: "Boissons",
+    isSelected: false,
     subCategories: [
       {
         id: 3,
@@ -106,24 +112,27 @@ export const CATEGORIES: ICategory[] = [
           src: "/assets/subcategory-images/coffee-subcategory.svg",
           alt: "sous catégorie cafés ",
         },
+        isSelected: false
       },
       {
         id: 4,
         type: "chocolate",
         name: "Chocolats",
         image: {
-          src: "/asset/subcategory-image/hot-chocolate-subcategory.svg",
+          src: "/assets/subcategory-images/hot-chocolate-subcategory.svg",
           alt: "sous catégorie chocolats ",
         },
+        isSelected: false
       },
       {
         id: 5,
         type: "juice",
         name: "Jus",
         image: {
-          src: "/asset/subcategory-image/juice-subcategory.svg",
+          src: "/assets/subcategory-images/juice-subcategory.svg",
           alt: "sous catégorie jus de fruits ",
         },
+        isSelected: false
       },
     ],
   },
@@ -131,6 +140,7 @@ export const CATEGORIES: ICategory[] = [
     id: 3,
     type: "sides",
     name: "Accompagnements",
+    isSelected: false,
     subCategories: [
       {
         id: 6,
@@ -140,15 +150,17 @@ export const CATEGORIES: ICategory[] = [
           src: "/assets/subcategory-images/pastry-subcategory.svg",
           alt: "sous catégorie patisseries ",
         },
+        isSelected: false
       },
       {
         id: 7,
         type: "dessert",
         name: "Desserts",
         image: {
-          src: "/asset/subcategory-image/desserts-subcategory.svg",
+          src: "/assets/subcategory-images/desserts-subcategory.svg",
           alt: "sous catégorie desserts ",
         },
+        isSelected: false
       },
     ],
   },
