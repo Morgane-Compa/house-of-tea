@@ -100,7 +100,7 @@ const ProductDetailsPage = () => {
             <QuantityPicker increment={increment} decrement={decrement} totalPicker={total} />
           </div>
         </div>
-        <CallToActionButton title={"Ajouter au panier"} />
+        <CallToActionButton title={"Ajouter au panier"}/>
       </form >
     </>
   );
