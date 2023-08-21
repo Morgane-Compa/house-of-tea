@@ -7,6 +7,8 @@ import CallToActionButton from "components/CallToActionButton/CallToActionButton
 import QuantityPicker from "components/QuantityPicker/QuantityPicker";
 import { useState } from "react";
 import ProductDetailCard from "components/ProductDetailCard/ProductDetailCard";
+import { useCartContext } from "contextes/CartContext";
+import { PRODUCTS } from "mocks/product.mock";
 
 
 const ProductDetailsPage = () => {
@@ -14,6 +16,9 @@ const ProductDetailsPage = () => {
   // ************* QuantityPicker (extraCard) *****************
   const [picker, setPicker] = useState(Number);
   const total = picker;
+  const {addToCart} = useCartContext();
+  const testProduct = PRODUCTS[0];
+  const testQuantity = 1;
 
   const increment = () => {
     if (picker === 6) {
@@ -100,7 +105,7 @@ const ProductDetailsPage = () => {
             <QuantityPicker increment={increment} decrement={decrement} totalPicker={total} />
           </div>
         </div>
-        <CallToActionButton title={"Ajouter au panier"}/>
+        <CallToActionButton title={"Ajouter au panier"} callback={() => {addToCart(testProduct, testQuantity)}}/>
       </form >
     </>
   );

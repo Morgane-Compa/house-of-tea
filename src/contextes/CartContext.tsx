@@ -1,28 +1,24 @@
-import { IProduct, ISizeChoice } from "mocks/product.mock";
+import { IProduct} from "mocks/product.mock";
 import { createContext, useContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid"
 
 // Le produit de mon panier
-export interface Iproduct {
+export interface ICartProduct {
     id: string,
     product: IProduct,
-    size?: ISizeChoice,
-    intensity?: string,
-    temperature?: string,
     quantity: number
 }
 
 // Mon panier
 interface ICart {
-    products: Iproduct[];
+cartProducts: ICartProduct[];
     // on importe notre fonction addToCart dans le produit et on dit quelle ne renvoie rien
-    addToCart: (newproduct: IProduct, newquantity: number, newSize?: ISizeChoice, newIntensity?: string,
-        newTemperature?: string) => void
+    addToCart: (newproduct: IProduct, newquantity: number) => void
 };
 
 // On créer un Panier vide par defaut
 const defaultCart: ICart = {
-    products: [],
+    cartProducts: [],
     // DefaultCart est de type ICart donc on doit aussi déclarer les fonctions qu'on à mis dans notre type et les déclarer comme vide 
     addToCart: () => { }
 };
@@ -41,28 +37,27 @@ const CartProvider = (props: CartProviderProps) => {
     const { children } = props;
 
     // Une Fois le contexte et le provider, on peux faire des fonction avec des hook pour ajouter au panier, afficher les prix...
-    const [cardProducts, setProducts] = useState<Iproduct[]>([])
+    const [cardProducts, setProducts] = useState<ICartProduct[]>([])
 
     // dans mes arguments j'importe le type de mon mock
-    const addToCart = (newproduct: IProduct, newquantity: number, newSize?: ISizeChoice, newIntensity?: string, newTemperature?: string) => {
+    const addToCart = (newproduct: IProduct, newquantity: number) => {
 
-        const newCartProduct: Iproduct = {
+        const newCartProduct: ICartProduct = {
             id: uuidv4(),
             product: newproduct,
             quantity: newquantity,
-            //Je ne sais pas comment signifier que les données si dessous sont optionnelle
-            size: newSize,
-            intensity: newIntensity,
-            temperature: newTemperature
         }
 
+        const newCart = [...cardProducts, newCartProduct];
+
         // On récupère le tableau du panier et on en créer un nouveau dans lequel on met notre tableau existant + le nouveau produit
-        setProducts([...cardProducts, newCartProduct])
+        setProducts(newCart);
+        // console.log("mon produit", newproduct)
     }
 
     // Je définit mon panier 
     const cart: ICart = {
-        products: [],
+        cartProducts: cardProducts,
         addToCart
     }
     return <CartContext.Provider value={cart}>{children}</CartContext.Provider>
