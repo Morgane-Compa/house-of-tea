@@ -15,7 +15,7 @@ const NotFoundPage = () => {
                     <h2>Oups,</h2>
                     <p>Il semble que ce produit ne soit plus disponible</p>
 
-                    <CallToActionButton title={"Choisir un autre produit"} />
+                    
                 </div>
             </main>
             <Footer />

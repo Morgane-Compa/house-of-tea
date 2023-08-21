@@ -51,7 +51,7 @@ const PaymentForm = () => {
           </div>
         </div>
         <span className={style.total}>Total: 19,60€</span>
-        <CallToActionButton title="Payer" />
+        {/* <CallToActionButton title="Payer" /> */}
       </div>
     </form>
   );

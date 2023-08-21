@@ -3,10 +3,18 @@ import style from "./CartProductCard.module.scss";
 import { formatNumber } from "services/globalMethods";
 import QuantityPicker from "components/QuantityPicker/QuantityPicker";
 import { useState } from "react";
+import { ICartProduct } from "contextes/CartContext";
 
-const CartProductCard = () => {
-  const product: IProduct = PRODUCTS[0];
+interface CartProductCardProps {
+  cartProduct: ICartProduct 
+}
+
+const CartProductCard = (props: CartProductCardProps) => {
+  // const product: IProduct = PRODUCTS[0];
+  const {cartProduct} = props;
+  const { product} = cartProduct;
   const formatedPrice = formatNumber(product.price);
+
 
   const extrasMock: { extra: string; quantity: number }[] = [
     {
