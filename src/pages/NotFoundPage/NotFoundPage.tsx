@@ -1,7 +1,7 @@
 import Header from 'components/Header/Header'
 import style from './NotFoundPage.module.scss'
 import Footer from 'components/Footer/Footer'
-import CallToActionButton from 'components/CallToActionButton/CallToActionButton'
+import { Link } from 'react-router-dom'
 
 const NotFoundPage = () => {
     return (
@@ -14,8 +14,8 @@ const NotFoundPage = () => {
                 <div className={style.content}>
                     <h2>Oups,</h2>
                     <p>Il semble que ce produit ne soit plus disponible</p>
-
                     
+                    <Link to='/products' className={style.button}>Choisir un autre produit</Link>
                 </div>
             </main>
             <Footer />
