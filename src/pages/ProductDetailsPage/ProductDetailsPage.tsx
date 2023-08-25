@@ -12,6 +12,7 @@ import { PRODUCTS } from "mocks/product.mock";
 import { useParams } from "react-router-dom";
 
 const ProductDetailsPage: React.FC = () => {
+
   // ******************************************************************
   // ************* QuantityPicker pour nombre d'items *****************
   const [picker, setPicker] = useState(Number);
@@ -33,11 +34,21 @@ const ProductDetailsPage: React.FC = () => {
     }
     setPicker(picker - 1);
   };
+
   // ******************************************************************
   // ************* Remontées des sélections utlisateurs ***************
   // *** ID ***
   const { id } = useParams<{ id: string }>();
   const productId = id;
+  // Si l'id n'existe pas, je gère l'erreur (Si message "may be undefined" et rejet de l'id : 
+  // => la gestion de l'éventuelle erreur requise)
+  if (!id) {
+    return <div>Invalid product ID</div>;
+  }
+  // Je passe l'ID de string à Number
+  const parsedId = parseInt(id, 10);
+  // Je vais chercher quel idProduit correspond à l'id de l'url
+  const product = PRODUCTS.find(product => product.id === parsedId);
   if (productId) {
     console.log("Le produit sélectionné à l'id ", productId)
   } else {
@@ -72,13 +83,22 @@ const ProductDetailsPage: React.FC = () => {
         <ProductDetailCard />
         <span className={style.interligne}></span>
         <SizeChoiceList sendSizeToDetailsPage={handleCallBackSize} />
-        <span className={style.interligne}></span>
-        <TemperatureChoiceList sendTempToDetailsPage={handleCallBackTemp} />
-        <span className={style.interligne}></span>
-        <p className={style.intense}>Intensité</p>
-        <IntensityChoiceList sendIntensityToDetailsPage={handleCallBackIntensity} />
-        <span className={style.interligne}></span>
-        <ExtraList />
+        {/* Condition apparition de l'intensité */}
+        {
+          product?.customization?.isIntense ?
+            <>
+              <span className={style.interligne}></span>
+              <TemperatureChoiceList sendTempToDetailsPage={handleCallBackTemp} />
+              <span className={style.interligne}></span>
+              <p className={style.intense}>Intensité</p>
+              <IntensityChoiceList sendIntensityToDetailsPage={handleCallBackIntensity} />
+              <span className={style.interligne}></span>
+              <ExtraList />
+            </>
+            :
+            <></>
+
+        }
         <span className={style.interligne}></span>
         <div className={style.total}>
           <div className={style.totalPrice}>
