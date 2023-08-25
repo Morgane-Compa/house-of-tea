@@ -13,14 +13,16 @@ export interface ICartProduct {
 interface ICart {
 cartProducts: ICartProduct[];
     // on importe notre fonction addToCart dans le produit et on dit quelle ne renvoie rien
-    addToCart: (newproduct: IProduct, newquantity: number) => void
+    addToCart: (newproduct: IProduct, newquantity: number) => void;
+    removeOneById: (productId: string) => void
 };
 
 // On créer un Panier vide par defaut
 const defaultCart: ICart = {
     cartProducts: [],
     // DefaultCart est de type ICart donc on doit aussi déclarer les fonctions qu'on à mis dans notre type et les déclarer comme vide 
-    addToCart: () => { }
+    addToCart: () => { },
+    removeOneById: () => { }
 };
 
 const CartContext = createContext<ICart>(defaultCart)
@@ -30,6 +32,8 @@ interface CartProviderProps {
     // On ne met pas le | JSX.Element[] car on ne veut récupérer un seul élément HTML
     children: JSX.Element;
 }
+
+
 
 // Mon provier qui engloble le contexte pour l'utiliser ailleurs (mon paquet cadeau)
 const CartProvider = (props: CartProviderProps) => {
@@ -55,13 +59,22 @@ const CartProvider = (props: CartProviderProps) => {
         // console.log("mon produit", newproduct)
     }
 
+
+    const removeOneById = (productId: string) => {
+        const updatedCart = cardProducts.filter(product => product.id !== productId);
+        setProducts(updatedCart);
+    };
+
     // Je définit mon panier 
     const cart: ICart = {
         cartProducts: cardProducts,
-        addToCart
+        addToCart,
+        removeOneById
     }
     return <CartContext.Provider value={cart}>{children}</CartContext.Provider>
 }
+
+
 
 // Attention de bien exporter le contexte grâce à cette fonction
 export const useCartContext = () => {

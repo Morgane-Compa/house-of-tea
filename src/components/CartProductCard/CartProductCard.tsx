@@ -3,16 +3,16 @@ import style from "./CartProductCard.module.scss";
 import { formatNumber } from "services/globalMethods";
 import QuantityPicker from "components/QuantityPicker/QuantityPicker";
 import { useState } from "react";
-import { ICartProduct } from "contextes/CartContext";
+import { ICartProduct, useCartContext } from "contextes/CartContext";
 
 interface CartProductCardProps {
-  cartProduct: ICartProduct 
+  cartProduct: ICartProduct
 }
 
 const CartProductCard = (props: CartProductCardProps) => {
   // const product: IProduct = PRODUCTS[0];
-  const {cartProduct} = props;
-  const { product} = cartProduct;
+  const { cartProduct } = props;
+  const { product } = cartProduct;
   const formatedPrice = formatNumber(product.price);
 
 
@@ -48,6 +48,16 @@ const CartProductCard = (props: CartProductCardProps) => {
     }
     setPicker(picker - 1);
   };
+
+
+  // ************* CartContext fonction *****************
+  // ************* enlever un produit par son id *****************
+  const { removeOneById } = useCartContext();
+
+  const handleRemoveOne = (productId: string) => {
+    removeOneById(productId);
+  };
+
   return (
     <article className={style.card}>
       <div className={style.details}>
@@ -67,7 +77,10 @@ const CartProductCard = (props: CartProductCardProps) => {
           decrement={decrement}
           totalPicker={total}
         />
-        <img src="/assets/icons/bin.svg" alt="bin icon" />
+        <button className={style.trashButton} onClick={() => handleRemoveOne(cartProduct.id)}>
+          <img src="/assets/icons/bin.svg" alt="bin icon" />
+        </button>
+
       </div>
     </article>
   );
