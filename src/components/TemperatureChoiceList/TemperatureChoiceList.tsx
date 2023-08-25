@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import style from './TemperatureChoiceList.module.scss'
 
-const TemperatureChoiceList = () => {
+const TemperatureChoiceList = (props: any) => {
     const [isHot, setIsHot] = useState(true);
     const [isCold, setIsCold] = useState(false);
 
@@ -11,14 +11,16 @@ const TemperatureChoiceList = () => {
       const temp: HTMLButtonElement = event.currentTarget;
   
       if(temp.id === "hot") {
+        props.sendTempToDetailsPage("chaud")
         setIsHot(true)
         setIsCold(false)
       }
       if(temp.id === "cold") {
+        props.sendTempToDetailsPage("glacé")
         setIsHot(false)
         setIsCold(true)
       }
-      console.log(temp.id);
+      // console.log(temp.id);
     }
   
     return (

@@ -9,14 +9,14 @@ import { useState } from "react";
 import ProductDetailCard from "components/ProductDetailCard/ProductDetailCard";
 import { useCartContext } from "contextes/CartContext";
 import { PRODUCTS } from "mocks/product.mock";
+import { useParams } from "react-router-dom";
 
-
-const ProductDetailsPage = () => {
-
-  // ************* QuantityPicker (extraCard) *****************
+const ProductDetailsPage: React.FC = () => {
+  // ******************************************************************
+  // ************* QuantityPicker pour nombre d'items *****************
   const [picker, setPicker] = useState(Number);
   const total = picker;
-  const {addToCart} = useCartContext();
+  const { addToCart } = useCartContext();
   const testProduct = PRODUCTS[0];
   const testQuantity = 1;
 
@@ -33,79 +33,63 @@ const ProductDetailsPage = () => {
     }
     setPicker(picker - 1);
   };
-
-  // ************* Données du formulaire *****************
-  // Je crée un type pour créer mon produit customizé
-  type custom = {
-    size: string,
-    temp: string,
-    intensity: string,
-    extra: [
-      {
-        name: string,
-        quantity: number,
-        price: number
-      }
-    ]
-  };
-
-  // Je récupère les données du formulaire dans un objet 
-  let customizedObject: custom = 
-    {
-      size: "",
-      temp: "",
-      intensity: "",
-      extra: [
-        {
-          name: "",
-          quantity: 0,
-          price: 0
-        }
-      ]
-    };
-
-
-  function handleSubmit(event: { preventDefault: () => void; }) {
-    event.preventDefault();
-    // Au submit, je modifie customizedObject avec les datas du form
-    customizedObject = {
-      size: "",
-      temp: "",
-      intensity: "",
-      extra: [
-        {
-          name: "",
-          quantity: 0,
-          price: 0
-        }
-      ]
-    }
-    console.log(customizedObject);
+  // ******************************************************************
+  // ************* Remontées des sélections utlisateurs ***************
+  // *** ID ***
+  const { id } = useParams<{ id: string }>();
+  const productId = id;
+  if (productId) {
+    console.log("Le produit sélectionné à l'id ", productId)
+  } else {
+    console.log("pas de produit correspondant");
   }
+  // *** SIZE ***
+  // const [size, setSize] = useState<number>();
+  let size: number;
+  const handleCallBackSize = (data: number) => {
+    // setSize(data);
+    size = data;
+    console.log("Le prix de la size sélectionnée est de", size, "€");
+  }
+  // *** TEMPERATURE ***
+  let temp: String;
+  const handleCallBackTemp = (data: String) => {
+    temp = data;
+    console.log("La température de la boisson sélectionnée est", temp);
+  }
+  // *** INTENSITY ***
+  let intensity: String;
+  const handleCallBackIntensity = (data: String) => {
+    intensity = data;
+    console.log("L'intensité de la boisson sélectionnée est", intensity);
+  }
+  // *** EXTRALIST ***
+  // *** OBJET CUSTOMIZE ***
 
   return (
     <>
-      <form className={style.extraContainer} onSubmit={handleSubmit}>
+      <form className={style.extraContainer}>
         <ProductDetailCard />
         <span className={style.interligne}></span>
-        <SizeChoiceList />
+        <SizeChoiceList sendSizeToDetailsPage={handleCallBackSize} />
         <span className={style.interligne}></span>
-        <TemperatureChoiceList />
+        <TemperatureChoiceList sendTempToDetailsPage={handleCallBackTemp} />
         <span className={style.interligne}></span>
         <p className={style.intense}>Intensité</p>
-        <IntensityChoiceList />
+        <IntensityChoiceList sendIntensityToDetailsPage={handleCallBackIntensity} />
         <span className={style.interligne}></span>
         <ExtraList />
         <span className={style.interligne}></span>
         <div className={style.total}>
           <div className={style.totalPrice}>
+            {/* Récupérer les datas des childs pour le total */}
             9.90€
           </div>
           <div className={style.picker}>
             <QuantityPicker increment={increment} decrement={decrement} totalPicker={total} />
           </div>
         </div>
-        <CallToActionButton title={"Ajouter au panier"} callback={() => {addToCart(testProduct, testQuantity)}}/>
+        <CallToActionButton title={"Ajouter au panier"} callback={() => { addToCart(testProduct, testQuantity) }} />
       </form >
     </>
   );

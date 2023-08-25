@@ -1,7 +1,8 @@
 import { useState } from "react";
-import style from './IntensityChoiceList.module.scss'
 
-const IntensityChoiceList = () => {
+import style from './IntensityChoiceList.module.scss';
+
+const IntensityChoiceList = (props: any) => {
 
     const [isSoft, setIsSoft] = useState(true);
     const [isRegular, setIsRegular] = useState(false);
@@ -12,21 +13,24 @@ const IntensityChoiceList = () => {
     const intensity: HTMLButtonElement = event.currentTarget;
     
     if(intensity.id === "soft") {
+      props.sendIntensityToDetailsPage("soft")
       setIsSoft(true)
       setIsRegular(false)
       setIsStrong(false)
     }
     if(intensity.id === "regular") {
+      props.sendIntensityToDetailsPage("regular")
       setIsSoft(false)
       setIsRegular(true)
       setIsStrong(false)
     }
     if(intensity.id === "strong") {
+      props.sendIntensityToDetailsPage("strong")
       setIsSoft(false)
       setIsRegular(false)
       setIsStrong(true)
     }
-    console.log(intensity.id);
+    // console.log(intensity.id);
     }
     
       return (
