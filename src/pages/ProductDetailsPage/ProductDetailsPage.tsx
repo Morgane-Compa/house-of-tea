@@ -117,7 +117,7 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
               <QuantityPicker increment={increment} decrement={decrement} totalPicker={total} />
             </div>
           </div>
-          <CallToActionButton title={"Ajouter au panier"} callback={() => { addToCart(testProduct, testQuantity) }} />
+          <CallToActionButton buttonType={undefined} title={"Ajouter au panier"} callback={() => { addToCart(testProduct, testQuantity) }} />
         </form >
         :
         // Faire une redirection à la 404 ou plutôt en amont dans la page products au moment du click sur le produit
