@@ -51,9 +51,9 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
   // Je vais chercher quel idProduit correspond à l'id de l'url
   const product = PRODUCTS.find(product => product.id === parsedId);
   if (productId) {
-    console.log("Le produit sélectionné à l'id ", productId)
+    // console.log("Le produit sélectionné à l'id ", productId)
   } else {
-    console.log("pas de produit correspondant");
+    // console.log("pas de produit correspondant");
   }
   // *** SIZE ***
   // const [size, setSize] = useState<number>();
@@ -61,19 +61,19 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
   const handleCallBackSize = (data: number) => {
     // setSize(data);
     size = data;
-    console.log("Le prix de la size sélectionnée est de", size, "€");
+    // console.log("Le prix de la size sélectionnée est de", size, "€");
   }
   // *** TEMPERATURE ***
   let temp: String;
   const handleCallBackTemp = (data: String) => {
     temp = data;
-    console.log("La température de la boisson sélectionnée est", temp);
+    // console.log("La température de la boisson sélectionnée est", temp);
   }
   // *** INTENSITY ***
   let intensity: String;
   const handleCallBackIntensity = (data: String) => {
     intensity = data;
-    console.log("L'intensité de la boisson sélectionnée est", intensity);
+    // console.log("L'intensité de la boisson sélectionnée est", intensity);
   }
   // *** EXTRALIST ***
 
@@ -117,7 +117,7 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
               <QuantityPicker increment={increment} decrement={decrement} totalPicker={total} />
             </div>
           </div>
-          <CallToActionButton buttonType={undefined} title={"Ajouter au panier"} callback={() => { addToCart(testProduct, testQuantity) }} />
+          <CallToActionButton buttonType="button" title={"Ajouter au panier"} callback={() => { addToCart(testProduct, testQuantity) }} />
         </form >
         :
         // Faire une redirection à la 404 ou plutôt en amont dans la page products au moment du click sur le produit
