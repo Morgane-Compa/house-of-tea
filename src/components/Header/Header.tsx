@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import style from "./Header.module.scss";
 
 const Header = () => {
@@ -13,9 +14,9 @@ const Header = () => {
             alt="Cart"
             className={style.cart}
           />
-        <a href="/" className={style.redo}>
+        <Link to="/cart" className={style.redo}>
           Recommencer la commande
-        </a>
+        </Link>
       </div>
     </header>
   );
