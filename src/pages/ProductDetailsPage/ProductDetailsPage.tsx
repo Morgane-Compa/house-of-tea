@@ -10,12 +10,13 @@ import ProductDetailCard from "components/ProductDetailCard/ProductDetailCard";
 import { useCartContext } from "contextes/CartContext";
 import { PRODUCTS } from "mocks/product.mock";
 import { useParams } from "react-router-dom";
+import { CurrencyFormater } from "utilities/CurrencyFormater";
 
-const ProductDetailsPage: React.FC = () => {
+const ProductDetailsPage: React.FC = (extraPrice) => {
 
   // ******************************************************************
   // ************* QuantityPicker pour nombre d'items *****************
-  const [picker, setPicker] = useState(Number);
+  const [picker, setPicker] = useState(1);
   const total = picker;
   const { addToCart } = useCartContext();
   const testProduct = PRODUCTS[0];
@@ -75,42 +76,53 @@ const ProductDetailsPage: React.FC = () => {
     console.log("L'intensité de la boisson sélectionnée est", intensity);
   }
   // *** EXTRALIST ***
+
   // *** OBJET CUSTOMIZE ***
 
   return (
     <>
-      <form className={style.extraContainer}>
-        <ProductDetailCard />
-        <span className={style.interligne}></span>
-        <SizeChoiceList sendSizeToDetailsPage={handleCallBackSize} />
-        {/* Condition apparition de l'intensité */}
-        {
-          product?.customization?.isIntense ?
-            <>
-              <span className={style.interligne}></span>
-              <TemperatureChoiceList sendTempToDetailsPage={handleCallBackTemp} />
-              <span className={style.interligne}></span>
-              <p className={style.intense}>Intensité</p>
-              <IntensityChoiceList sendIntensityToDetailsPage={handleCallBackIntensity} />
-              <span className={style.interligne}></span>
-              <ExtraList />
-            </>
-            :
-            <></>
-
-        }
-        <span className={style.interligne}></span>
-        <div className={style.total}>
-          <div className={style.totalPrice}>
-            {/* Récupérer les datas des childs pour le total */}
-            9.90€
+      {product?.isAvailable ?
+        <form className={style.extraContainer}>
+          <ProductDetailCard />
+           {/* Condition apparition de la taille */}
+          {
+            product?.category === 1 ? 
+            <> <span className={style.interligne}></span>
+            <SizeChoiceList sendSizeToDetailsPage={handleCallBackSize} /></>
+          :
+          <></>
+          }
+          {/* Condition apparition de la température et de l'intensité */}
+          {
+            product?.customization? 
+              <>
+                <span className={style.interligne}></span>
+                <TemperatureChoiceList sendTempToDetailsPage={handleCallBackTemp} />
+                <span className={style.interligne}></span>
+                <p className={style.intense}>Intensité</p>
+                <IntensityChoiceList sendIntensityToDetailsPage={handleCallBackIntensity} />
+                <span className={style.interligne}></span>
+                <ExtraList />
+              </>
+              :
+              <></>
+          }
+          <span className={style.interligne}></span>
+          <div className={style.total}>
+            <div className={style.totalPrice}>
+              {/* Récupérer les datas des childs pour le total */}
+              {CurrencyFormater(product?.price * total)}
+            </div>
+            <div className={style.picker}>
+              <QuantityPicker increment={increment} decrement={decrement} totalPicker={total} />
+            </div>
           </div>
-          <div className={style.picker}>
-            <QuantityPicker increment={increment} decrement={decrement} totalPicker={total} />
-          </div>
-        </div>
-        <CallToActionButton title={"Ajouter au panier"} callback={() => { addToCart(testProduct, testQuantity) }} />
-      </form >
+          <CallToActionButton title={"Ajouter au panier"} callback={() => { addToCart(testProduct, testQuantity) }} />
+        </form >
+        :
+        // Faire une redirection à la 404 ou plutôt en amont dans la page products au moment du click sur le produit
+        <p>Le produit est momentanément indisponible.</p>
+      }
     </>
   );
 };

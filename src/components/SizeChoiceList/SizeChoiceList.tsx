@@ -41,19 +41,19 @@ const SizeChoiceList = (props: any) => {
       <button className={isSmall ? style.yellow : style.white} id="small" value="0" onClick={getSize}>
       <div className={style.responsive}>
         <img src="../assets/icons/small-cup.svg" alt="size" className={style.icon} />
-        <div className={style.price}>Regular</div>
+        <div className={style.price}>+{CurrencyFormater(0)}</div>
       </div>
       </button>
       <button className={isMid ? style.yellow : style.white}  id="mid" value="2" onClick={getSize}>
       <div className={style.responsive}>
         <img src="../assets/icons/mid-cup.svg" alt="size" className={style.icon} />
-        <div className={style.price}>{CurrencyFormater(2)}</div>
+        <div className={style.price}>+{CurrencyFormater(2)}</div>
       </div>
       </button>
       <button className={isBig ? style.yellow : style.white}  id="big" value="4" onClick={getSize}>
       <div className={style.responsive}>
         <img src="../assets/icons/big-cup.svg" alt="size" className={style.icon} />
-        <div className={style.price}>{CurrencyFormater(4)}</div>
+        <div className={style.price}>+{CurrencyFormater(4)}</div>
       </div>
       </button>
     </div>

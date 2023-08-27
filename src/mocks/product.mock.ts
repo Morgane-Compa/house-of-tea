@@ -173,7 +173,7 @@ export const PRODUCTS: IProduct[] = [
     id: 1,
     name: "Thé des moines",
     description: "Thé vert et noir floral",
-    price: 30,
+    price: 3,
     image: {
       src: "/assets/products/teas/thé blanc.svg",
       alt: "image du thé des moines",
@@ -433,7 +433,7 @@ export const PRODUCTS: IProduct[] = [
     category: 2,
     subCategory: "chocolate",
     isCustomizable: false,
-    isAvailable: true,
+    isAvailable: false,
   },
 
 

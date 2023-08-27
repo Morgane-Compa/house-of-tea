@@ -13,42 +13,50 @@ interface IExtraCardProps {
 
 const ExtraCard = (props: IExtraCardProps) => {
     
-    const { name, image, price, maxQuantity } = props;
+    const { name, image, price, maxQuantity} = props;
 
+    
     // ************* QuantityPicker (extraCard) *****************
-
     const [picker, setPicker] = useState(Number);
-    const [extraName, setExtraName] = useState("");
-    const [extraPrice, setExtraPrice] = useState(0);
-    const total = picker;
+    const [extraName, setExtraName] = useState<String>("");
+    const [extraPrice, setExtraPrice] = useState(Number);
+    // let picker: number = 0;
+    // let extraName: string = "";
+    // let extraPrice: number = 0;
 
     const increment = () => {
         if (picker !== maxQuantity) {
-            setPicker(picker + 1);
             setExtraName(name);
-            //console.log(extraName);
-            setExtraPrice(price);
-            //console.log(extraPrice * total);
-            //console.log(picker);
+            setPicker(picker + 1);
+            setExtraPrice(price*picker);
+            // extraName = name;
+            // picker++;
+            // extraPrice = price*picker;
+            console.log(extraName);
+            console.log(picker);
+            console.log(extraPrice);
         } else {
             console.log("limite atteinte");
             return;
         }
-        return extraName && extraPrice * total && picker;
+        return extraName && extraPrice && picker;
     };
 
     const decrement = () => {
         if (picker !== 0) {
-            setPicker(picker - 1);
             setExtraName(name);
-            //console.log(extraName);
-            setExtraPrice(price);
-            //console.log(extraPrice * total);
-            //console.log(picker);
+            setPicker(picker - 1);
+            setExtraPrice(price*picker);
+            // extraName = name;
+            // picker--;
+            // extraPrice = price*picker;
+            console.log(extraName);
+            console.log(picker);
+            console.log(extraPrice);
         } else {
             return;
         }
-        return extraName && extraPrice * total && picker;
+        return extraName && extraPrice && picker;
     };
 
 
@@ -67,7 +75,7 @@ const ExtraCard = (props: IExtraCardProps) => {
             </div>
             {/* Il faut que je communique au picker le name et le price */}
             <QuantityPicker increment={increment}
-            decrement={decrement} totalPicker={total} />
+            decrement={decrement} totalPicker={picker} />
         </div>
     )
 }
