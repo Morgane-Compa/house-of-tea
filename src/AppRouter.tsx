@@ -3,7 +3,7 @@ import CartPage from "pages/CartPage/CartPage"
 import HomePage from "pages/HomePage/HomePage"
 import NotFoundPage from "pages/NotFoundPage/NotFoundPage"
 import PaymentPage from "pages/PaymentPage/PaymentPage"
-import ProductDetailsPage from "pages/ProductDetailsPage/ProductDetailsPage"
+import ProductDetailsPage, { oneProductLoader } from "pages/ProductDetailsPage/ProductDetailsPage"
 import ProductListPage, { productsLoader } from "pages/ProductListPage/ProductListPage"
 import RecapPage from "pages/RecapPage/RecapPage"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
@@ -26,11 +26,12 @@ const AppRouter = () => {
                 },
                 {
                     path: '/product-details',
-                    element: <ProductDetailsPage /> 
+                    element: <ProductDetailsPage />
                 },
                 {
                     path: '/product/:id',
-                    element: <ProductDetailsPage /> 
+                    element: <ProductDetailsPage />,
+                    loader: oneProductLoader
                 },
                 {
                     path: '/cart',
