@@ -47,7 +47,7 @@ const PaymentForm = () => {
           {...register("cardNumber", {
             required: "Ce champ est requis",
             pattern: {
-              value: /[0-9](16)/,
+              value: /^[0-9]*$/,
               message: "Ce champ n'accepte que des valeurs numériques",
             },
             maxLength: {
@@ -96,7 +96,7 @@ const PaymentForm = () => {
             {...register("cvv", {
               required: "Ce champ est requis",
               pattern: {
-                value: /[0-9]+/,
+                value: /^[0-9]*$/,
                 message: "Ce champ doit contenir 3 caractères numériques",
               },
               maxLength: {
