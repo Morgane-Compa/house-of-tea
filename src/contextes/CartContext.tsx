@@ -61,7 +61,7 @@ const CartProvider = (props: CartProviderProps) => {
     const [cardProducts, setProducts] = useState<ICartProduct[]>([])
 
     // dans mes arguments j'importe le type de mon mock
-    const addToCart = (newproduct: IFormValue, newquantity: number, ) => {
+    const addToCart = (newproduct: IFormValue, newquantity: number ) => {
 
         const newCartProduct: ICartProduct = {
             id: uuidv4(), 
@@ -72,12 +72,16 @@ const CartProvider = (props: CartProviderProps) => {
             temp: newproduct.temp,
             extras: newproduct.extras
         }
+        //je regarde si le produit n'existe pas déja
+        const foundProduct = cardProducts.find((p) => p.product === newCartProduct.product);
 
-        const newCart = [...cardProducts, newCartProduct];
-
-        // On récupère le tableau du panier et on en créer un nouveau dans lequel on met notre tableau existant + le nouveau produit
-        setProducts(newCart);
-        // console.log("mon produit", newproduct)
+        // Si mon produit n'existe pas, le créer
+        if (!foundProduct) {
+            setProducts([...cardProducts, newCartProduct]);
+        }else { //Si mon produit existe, ajouter +1 a sa quantité
+             foundProduct.quantity += 1;
+             setProducts([...cardProducts]);
+        }
     }
 
     // ma fonction pour ne retirer qu'un seul produit de mon panier 
