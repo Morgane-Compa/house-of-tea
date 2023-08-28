@@ -6,9 +6,15 @@ const CartPage = () => {
     const { cartProducts } = useCartContext();
     console.log(cartProducts);
     return (
-        <ul>
-            {cartProducts.map((item) => <li key={item.id}> <CartProductCard cartProduct={item} /></li>)}
-        </ul>
+        <main>
+            <div className={style.firstSection}>
+                <h2>Panier</h2>
+                <span>Vider le panier</span>
+            </div>
+            <ul>
+                {cartProducts.map((item) => <li key={item.id}> <CartProductCard cartProduct={item} /></li>)}
+            </ul>
+        </main>
 
     )
 }
