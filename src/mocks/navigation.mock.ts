@@ -17,26 +17,21 @@ export const NAV_LINKS: INavigation[] = [
     },
     {
         id: 3,
-        name: 'Détail',
-        path: '/product-details',
-    },
-    {
-        id: 4,
         name: 'Panier',
         path: '/cart',
     },
     {
-        id: 5,
+        id: 4,
         name: 'Paiement',
         path: '/payment',
     },
     {
-        id: 6,
+        id: 5,
         name: 'Récap',
         path: '/recap',
     },
     {
-        id: 7,
+        id: 6,
         name: '404',
         path: '/ezfrgd',
     },

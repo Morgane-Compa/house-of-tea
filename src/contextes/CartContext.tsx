@@ -11,6 +11,7 @@ export interface ICartProduct {
     finalPrice: number,
     size?: string,
     temp?: string,
+    intensity?: string,
     extras?:
         {
             name : string,
@@ -70,6 +71,7 @@ const CartProvider = (props: CartProviderProps) => {
             finalPrice: newproduct.finalPrice,
             size: newproduct.size,
             temp: newproduct.temp,
+            intensity: newproduct.intensity,
             extras: newproduct.extras
         }
         //je regarde si le produit n'existe pas déja

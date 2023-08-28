@@ -4,24 +4,18 @@
     gap: 1.5rem
 }
 
-.yellow {
-    background-color: var(--yellow);
-    width: 15rem;
-    height: 15rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-  }
-  
-.white {
+.button {
   background-color: var(--white);
-      width: 15rem;
-    height: 15rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
+  width: 15rem;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.isActive {
+  background-color: var(--yellow);
 }
 
   .price {

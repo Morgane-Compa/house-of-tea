@@ -23,6 +23,7 @@ export interface ISizeChoice {
   name: string;
   icon: string;
   price: number;
+  isSelected: boolean
 }
 
 
@@ -541,18 +542,21 @@ export const SIZE_CHOICE: ISizeChoice[] = [
     name: "Petit",
     icon: "/assets/icons/small-cup.svg",
     price: 0,
+    isSelected: true
   },
   {
     id: 2,
     name: "Moyen",
     icon: "/assets/icons/mid-cup.svg",
-    price: 1,
+    price: 2,
+    isSelected: false
   },
   {
     id: 3,
     name: "Grand",
     icon: "/assets/icons/big-cup.svg",
-    price: 2,
+    price: 4,
+    isSelected: false
   },
 ];
 
