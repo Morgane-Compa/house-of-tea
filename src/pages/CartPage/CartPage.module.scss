@@ -16,3 +16,22 @@
         font-size: 35px;
     }
 }
+
+.ProductCard {
+    li {
+        margin-bottom: 47px;
+    }
+}
+
+.lastSection {
+    width: 73.25rem;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+        font-family: var(--font-text);
+        font-size: 50px;
+    }
+}

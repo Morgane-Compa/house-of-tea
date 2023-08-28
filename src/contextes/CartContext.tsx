@@ -1,4 +1,4 @@
-import { IExtraIngredients, IProduct, ISizeChoice} from "mocks/product.mock";
+import { IProduct} from "mocks/product.mock";
 import { IFormValue } from "pages/ProductDetailsPage/ProductDetailsPage";
 import { createContext, useContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid"
@@ -26,6 +26,8 @@ cartProducts: ICartProduct[];
     addToCart: (newproduct: IFormValue, newquantity: number) => void;
     removeOneById: (productId: string) => void;
     removeAll: () => void;
+    GetTotalProduct: () => number;
+    getTotalCartPrice: () => number
 };
 
 // On créer un Panier vide par defaut
@@ -34,8 +36,11 @@ const defaultCart: ICart = {
     // DefaultCart est de type ICart donc on doit aussi déclarer les fonctions qu'on à mis dans notre type et les déclarer comme vide 
     addToCart: () => { },
     removeOneById: () => { },
-    removeAll: () => { }
-};
+    removeAll: () => { },
+    // ici on va retourner un chiffre par defaut, ici on met 0 par defaut car quand le panier est vide il y a 0 produits
+    GetTotalProduct: () => 0,
+    getTotalCartPrice: () => 0
+}
 
 const CartContext = createContext<ICart>(defaultCart)
 
@@ -86,13 +91,28 @@ const CartProvider = (props: CartProviderProps) => {
         setProducts([]); // Retire tous les éléments du panier
     }; 
 
+    // Ma fonction pour retourner le nombre de produits dans mon panier
+    const GetTotalProduct = () => {
+        return cardProducts.reduce((total, cartProduct) => total + cartProduct.quantity, 0);
+    };
+
+    // Ma fonction pour retourner le prix total de mon panier
+    const getTotalCartPrice = () => {
+        return cardProducts.reduce((totalPrice, cartProduct) => {
+            return totalPrice + cartProduct.product.price * cartProduct.quantity;
+        }, 0);
+    };
+
 
     // Je définit mon panier 
     const cart: ICart = {
         cartProducts: cardProducts,
+        // Mes fonctions
         addToCart,
         removeOneById,
-        removeAll
+        removeAll,
+        GetTotalProduct,
+        getTotalCartPrice,
     }
     return <CartContext.Provider value={cart}>{children}</CartContext.Provider>
 }
