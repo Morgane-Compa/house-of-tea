@@ -1,0 +1,18 @@
+.payment {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  &-choice {
+    display: flex;
+    justify-content: center;
+  }
+  &-option {
+    background-color: var(--white);
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
+  }
+}
+
+.isSelected{
+    background-color: var(--yellow);
+}
