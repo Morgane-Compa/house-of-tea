@@ -1,4 +1,4 @@
-import { IProduct} from "mocks/product.mock";
+import { IProduct } from "mocks/product.mock";
 import { IFormValue } from "pages/ProductDetailsPage/ProductDetailsPage";
 import { createContext, useContext, useState } from "react";
 import { formatNumber } from "services/globalMethods";
@@ -14,22 +14,24 @@ export interface ICartProduct {
     temp?: string,
     intensity?: string,
     extras?:
-        {
-            name : string,
-            quantity : number,
-        } []
+    {
+        name: string,
+        quantity: number,
+    }[]
 
 }
 
 // Mon panier
 interface ICart {
-cartProducts: ICartProduct[];
+    cartProducts: ICartProduct[];
     // on importe notre fonction addToCart dans le produit et on dit quelle ne renvoie rien
     addToCart: (newproduct: IFormValue, newquantity: number) => void;
     removeOneById: (productId: string) => void;
+    removeOnlyOne: (product: IProduct) => void;
     removeAll: () => void;
     GetTotalProduct: () => number;
-    getTotalCartPrice: () => number
+    getTotalCartPrice: () => number;
+    getProductQuantity: (productId: string) => number;
 };
 
 // On créer un Panier vide par defaut
@@ -38,10 +40,12 @@ const defaultCart: ICart = {
     // DefaultCart est de type ICart donc on doit aussi déclarer les fonctions qu'on à mis dans notre type et les déclarer comme vide 
     addToCart: () => { },
     removeOneById: () => { },
+    removeOnlyOne: () => { },
     removeAll: () => { },
     // ici on va retourner un chiffre par defaut, ici on met 0 par defaut car quand le panier est vide il y a 0 produits
     GetTotalProduct: () => 0,
-    getTotalCartPrice: () => 0
+    getTotalCartPrice: () => 0,
+    getProductQuantity: () => 0,
 }
 
 const CartContext = createContext<ICart>(defaultCart)
@@ -63,10 +67,10 @@ const CartProvider = (props: CartProviderProps) => {
     const [cardProducts, setProducts] = useState<ICartProduct[]>([])
 
     // dans mes arguments j'importe le type de mon mock
-    const addToCart = (newproduct: IFormValue, newquantity: number ) => {
+    const addToCart = (newproduct: IFormValue, newquantity: number) => {
 
         const newCartProduct: ICartProduct = {
-            id: uuidv4(), 
+            id: uuidv4(),
             product: newproduct.product,
             quantity: newquantity,
             finalPrice: newproduct.finalPrice,
@@ -81,22 +85,40 @@ const CartProvider = (props: CartProviderProps) => {
         // Si mon produit n'existe pas, le créer
         if (!foundProduct) {
             setProducts([...cardProducts, newCartProduct]);
-        }else { //Si mon produit existe, ajouter +1 a sa quantité
-             foundProduct.quantity += 1;
-             setProducts([...cardProducts]);
+        } else { //Si mon produit existe, ajouter +1 a sa quantité
+            foundProduct.quantity += 1;
+            setProducts([...cardProducts]);
         }
     }
 
-    // ma fonction pour ne retirer qu'un seul produit de mon panier 
+    // ma fonction pour retirer un produit par son Id (si il y a deux produit avec la même id il les retirera tout les deux) 
     const removeOneById = (productId: string) => {
         const updatedCart = cardProducts.filter(product => product.id !== productId);
         setProducts(updatedCart);
     };
 
+    // Ma fonction pour ne retirer qu''un seul produit
+    const removeOnlyOne = (product: IProduct) => {
+        //je regarde si le produit n'existe pas déja
+         const foundProduct = cardProducts.find((p) => p.product.id === product.id);
+        // Si mon produit n'existe pas alors ne rien retourner
+        if(!foundProduct) {
+            return;
+        } else {
+            // if (foundProduct.quantity > 1) {
+                foundProduct.quantity -= 1;
+                setProducts([...cardProducts]);
+            // } else {
+                
+            //     setProducts([...cardProducts]);
+            // }
+        } 
+    }
+
     // Ma fonction pour vider tout le panier
     const removeAll = () => {
         setProducts([]); // Retire tous les éléments du panier
-    }; 
+    };
 
     // Ma fonction pour retourner le nombre de produits dans mon panier
     const GetTotalProduct = () => {
@@ -111,6 +133,12 @@ const CartProvider = (props: CartProviderProps) => {
         return formatNumber(totalPrice);
     };
 
+    // Ma fonction pour récupérer la quantité d'un produit de mon panier
+    const getProductQuantity = (productId: string) => {
+        const cartProduct = cardProducts.find(product => product.id === productId);
+        return cartProduct ? cartProduct.quantity : 0;
+    };
+
 
     // Je définit mon panier 
     const cart: ICart = {
@@ -118,9 +146,11 @@ const CartProvider = (props: CartProviderProps) => {
         // Mes fonctions
         addToCart,
         removeOneById,
+        removeOnlyOne,
         removeAll,
         GetTotalProduct,
         getTotalCartPrice,
+        getProductQuantity
     }
     return <CartContext.Provider value={cart}>{children}</CartContext.Provider>
 }
