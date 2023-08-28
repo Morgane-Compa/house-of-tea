@@ -1,4 +1,5 @@
-import { IProduct} from "mocks/product.mock";
+import { IExtraIngredients, IProduct, ISizeChoice} from "mocks/product.mock";
+import { IFormValue } from "pages/ProductDetailsPage/ProductDetailsPage";
 import { createContext, useContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid"
 
@@ -6,14 +7,23 @@ import { v4 as uuidv4 } from "uuid"
 export interface ICartProduct {
     id: string,
     product: IProduct,
-    quantity: number
+    quantity: number,
+    finalPrice: number,
+    size?: string,
+    temp?: string,
+    extras?:
+        {
+            name : string,
+            quantity : number,
+        } []
+
 }
 
 // Mon panier
 interface ICart {
 cartProducts: ICartProduct[];
     // on importe notre fonction addToCart dans le produit et on dit quelle ne renvoie rien
-    addToCart: (newproduct: IProduct, newquantity: number) => void;
+    addToCart: (newproduct: ICartProduct, newquantity: number) => void;
     removeOneById: (productId: string) => void;
     removeAll: () => void;
 };
@@ -46,12 +56,16 @@ const CartProvider = (props: CartProviderProps) => {
     const [cardProducts, setProducts] = useState<ICartProduct[]>([])
 
     // dans mes arguments j'importe le type de mon mock
-    const addToCart = (newproduct: IProduct, newquantity: number) => {
+    const addToCart = (newproduct: IFormValue, newquantity: number, ) => {
 
         const newCartProduct: ICartProduct = {
-            id: uuidv4(),
-            product: newproduct,
+            id: uuidv4(), 
+            product: newproduct.product,
             quantity: newquantity,
+            finalPrice: newproduct.finalPrice,
+            size: newproduct.size,
+            temp: newproduct.temp,
+            extras: newproduct.extras
         }
 
         const newCart = [...cardProducts, newCartProduct];

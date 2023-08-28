@@ -8,9 +8,26 @@ import QuantityPicker from "components/QuantityPicker/QuantityPicker";
 import { useState } from "react";
 import ProductDetailCard from "components/ProductDetailCard/ProductDetailCard";
 import { useCartContext } from "contextes/CartContext";
-import { PRODUCTS } from "mocks/product.mock";
+import { IProduct, ISizeChoice, PRODUCTS } from "mocks/product.mock";
 import { useParams } from "react-router-dom";
 import { CurrencyFormater } from "utilities/CurrencyFormater";
+
+
+
+  export interface IFormValue {
+    product: IProduct,
+    finalPrice: number,
+    size?: string,
+    temp?: string,
+    extras?:
+        {
+            name : string,
+            quantity : number,
+        } []
+
+}
+
+
 
 const ProductDetailsPage: React.FC = (extraPrice) => {
 
@@ -19,7 +36,24 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
   const [picker, setPicker] = useState(1);
   const total = picker;
   const { addToCart } = useCartContext();
-  const testProduct = PRODUCTS[0];
+
+  const testProduct: IFormValue = {
+      product: PRODUCTS[0],
+      finalPrice: 2,
+      size: 'Moyen',
+      temp: 'chaud',
+      extras: [
+        {
+          name : "Lait",
+          quantity : 2
+        },
+        {
+          name : "Miel",
+          quantity : 2
+        }
+      ]
+
+  }
   const testQuantity = 1;
 
   const increment = () => {
