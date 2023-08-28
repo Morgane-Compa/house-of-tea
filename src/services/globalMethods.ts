@@ -2,6 +2,6 @@
 prend en paramètre le nombre à formater */
 
 export const formatNumber = (numberToFormat: number) => {
-    numberToFormat = parseFloat(numberToFormat.toFixed(2));
-    return numberToFormat;
+    const result = parseFloat(String(numberToFormat)).toFixed(2);
+    return Number(result);
 }

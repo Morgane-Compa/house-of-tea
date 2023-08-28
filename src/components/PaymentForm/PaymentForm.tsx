@@ -2,6 +2,7 @@ import CallToActionButton from "components/CallToActionButton/CallToActionButton
 import style from "./PaymentForm.module.scss";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useCartContext } from "contextes/CartContext";
 
 interface FormValue {
   ownerName: string;
@@ -10,6 +11,7 @@ interface FormValue {
   cvv: string;
 }
 const PaymentForm = () => {
+  const {getTotalCartPrice} = useCartContext();
   const {
     register,
     handleSubmit,
@@ -21,6 +23,7 @@ const PaymentForm = () => {
     console.log(data);
     navigate("/recap");
   };
+
   const navigate = useNavigate();
 
   return (
@@ -114,7 +117,7 @@ const PaymentForm = () => {
           )}
         </div>
       </div>
-      <span className={style.total}>Total: 19,60€</span>
+      <span className={style.total}>Total: {getTotalCartPrice()}€</span>
       <CallToActionButton
         buttonType="submit"
         title="Payer"

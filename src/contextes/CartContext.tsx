@@ -1,6 +1,7 @@
 import { IProduct} from "mocks/product.mock";
 import { IFormValue } from "pages/ProductDetailsPage/ProductDetailsPage";
 import { createContext, useContext, useState } from "react";
+import { formatNumber } from "services/globalMethods";
 import { v4 as uuidv4 } from "uuid"
 
 // Le produit de mon panier
@@ -104,9 +105,10 @@ const CartProvider = (props: CartProviderProps) => {
 
     // Ma fonction pour retourner le prix total de mon panier
     const getTotalCartPrice = () => {
-        return cardProducts.reduce((totalPrice, cartProduct) => {
+        const totalPrice = cardProducts.reduce((totalPrice, cartProduct) => {
             return totalPrice + cartProduct.product.price * cartProduct.quantity;
         }, 0);
+        return formatNumber(totalPrice);
     };
 
 

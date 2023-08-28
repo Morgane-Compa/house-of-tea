@@ -6,5 +6,5 @@ const CURRENCY_FORMATER = new Intl.NumberFormat(undefined, {
 // la fonction s'adapte au type qui vient
 
 export function CurrencyFormater (number: number) {
-    return CURRENCY_FORMATER.format(number);
+    return Number(CURRENCY_FORMATER.format(number));
 }
