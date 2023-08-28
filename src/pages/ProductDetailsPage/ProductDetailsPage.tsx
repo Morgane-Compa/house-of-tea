@@ -32,7 +32,7 @@ import { CurrencyFormater } from "utilities/CurrencyFormater";
 const ProductDetailsPage: React.FC = (extraPrice) => {
 
   // ******************************************************************
-  // ************* QuantityPicker pour nombre d'items *****************
+  // ************* Gneneral QuantityPicker pour nombre d'items *****************
   const [picker, setPicker] = useState(1);
   const total = picker;
   const { addToCart } = useCartContext();
@@ -90,45 +90,59 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
     // console.log("pas de produit correspondant");
   }
   // *** SIZE ***
-  // const [size, setSize] = useState<number>();
-  let size: number;
+  const [size, setSize] = useState<number>();
+  // let size: number = 0;
   const handleCallBackSize = (data: number) => {
-    // setSize(data);
-    size = data;
-    // console.log("Le prix de la size sélectionnée est de", size, "€");
+    setSize(data);
+    // size = data;
+    console.log("Le prix de la size sélectionnée est de", size, "€");
+    //return size;
   }
   // *** TEMPERATURE ***
-  let temp: String;
+  //let temp: String = "";
+  const [temp, setTemp] = useState<string>();
   const handleCallBackTemp = (data: String) => {
-    temp = data;
-    // console.log("La température de la boisson sélectionnée est", temp);
+    setTemp(data);
+    //temp = data;
+    console.log("La température de la boisson sélectionnée est", temp);
+    // temp;
   }
   // *** INTENSITY ***
-  let intensity: String;
+  let int: String = "";
+  const [int, setInt] = useState<string>();
   const handleCallBackIntensity = (data: String) => {
-    intensity = data;
-    // console.log("L'intensité de la boisson sélectionnée est", intensity);
+    setInt(data);
+    // int = data;
+    console.log("L'intensité de la boisson sélectionnée est", int);
+    //return int;
   }
   // *** EXTRALIST ***
 
   // *** OBJET CUSTOMIZE ***
+  const landingProduct = {
+    productId,
+    size : size,
+    temperature : temp,
+    intensity : int
+  }
+  console.log(landingProduct);
 
   return (
     <>
       {product?.isAvailable ?
         <form className={style.extraContainer}>
           <ProductDetailCard />
-           {/* Condition apparition de la taille */}
+          {/* Condition apparition de la taille */}
           {
-            product?.category === 1 ? 
-            <> <span className={style.interligne}></span>
-            <SizeChoiceList sendSizeToDetailsPage={handleCallBackSize} /></>
-          :
-          <></>
+            product?.category === 1 ?
+              <> <span className={style.interligne}></span>
+                <SizeChoiceList sendSizeToDetailsPage={handleCallBackSize} /></>
+              :
+              <></>
           }
           {/* Condition apparition de la température et de l'intensité */}
           {
-            product?.customization? 
+            product?.customization ?
               <>
                 <span className={style.interligne}></span>
                 <TemperatureChoiceList sendTempToDetailsPage={handleCallBackTemp} />
