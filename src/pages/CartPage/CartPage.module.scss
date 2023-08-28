@@ -1,5 +1,18 @@
 .firstSection {
+    width: 73.25rem;
+    padding: 2rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    h2 {
+        font-size: 60px;
+        font-weight: 700;
+        font-family: var(--font-text);
+    }
+
+    span {
+        font-family: var(--font-text);
+        font-size: 35px;
+    }
 }
