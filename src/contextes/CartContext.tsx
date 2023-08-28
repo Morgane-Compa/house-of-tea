@@ -14,7 +14,8 @@ interface ICart {
 cartProducts: ICartProduct[];
     // on importe notre fonction addToCart dans le produit et on dit quelle ne renvoie rien
     addToCart: (newproduct: IProduct, newquantity: number) => void;
-    removeOneById: (productId: string) => void
+    removeOneById: (productId: string) => void;
+    removeAll: () => void;
 };
 
 // On créer un Panier vide par defaut
@@ -22,7 +23,8 @@ const defaultCart: ICart = {
     cartProducts: [],
     // DefaultCart est de type ICart donc on doit aussi déclarer les fonctions qu'on à mis dans notre type et les déclarer comme vide 
     addToCart: () => { },
-    removeOneById: () => { }
+    removeOneById: () => { },
+    removeAll: () => { }
 };
 
 const CartContext = createContext<ICart>(defaultCart)
@@ -59,17 +61,24 @@ const CartProvider = (props: CartProviderProps) => {
         // console.log("mon produit", newproduct)
     }
 
-
+    // ma fonction pour ne retirer qu'un seul produit de mon panier 
     const removeOneById = (productId: string) => {
         const updatedCart = cardProducts.filter(product => product.id !== productId);
         setProducts(updatedCart);
     };
 
+    // Ma fonction pour vider tout le panier
+    const removeAll = () => {
+        setProducts([]); // Retire tous les éléments du panier
+    }; 
+
+
     // Je définit mon panier 
     const cart: ICart = {
         cartProducts: cardProducts,
         addToCart,
-        removeOneById
+        removeOneById,
+        removeAll
     }
     return <CartContext.Provider value={cart}>{children}</CartContext.Provider>
 }
