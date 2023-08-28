@@ -23,7 +23,7 @@ export interface ICartProduct {
 interface ICart {
 cartProducts: ICartProduct[];
     // on importe notre fonction addToCart dans le produit et on dit quelle ne renvoie rien
-    addToCart: (newproduct: ICartProduct, newquantity: number) => void;
+    addToCart: (newproduct: IFormValue, newquantity: number) => void;
     removeOneById: (productId: string) => void;
     removeAll: () => void;
 };
