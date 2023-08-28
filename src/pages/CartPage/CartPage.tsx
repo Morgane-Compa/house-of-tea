@@ -3,13 +3,13 @@ import style from './CartPage.module.scss'
 import { useCartContext } from 'contextes/CartContext'
 
 const CartPage = () => {
-    const { cartProducts } = useCartContext();
+    const { cartProducts, removeAll } = useCartContext();
     console.log(cartProducts);
     return (
         <main>
             <div className={style.firstSection}>
                 <h2>Panier</h2>
-                <span>Vider le panier</span>
+                <span  onClick={removeAll} >Vider le panier</span>
             </div>
             <ul>
                 {cartProducts.map((item) => <li key={item.id}> <CartProductCard cartProduct={item} /></li>)}
