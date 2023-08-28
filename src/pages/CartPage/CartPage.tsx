@@ -3,7 +3,7 @@ import style from './CartPage.module.scss'
 import { useCartContext } from 'contextes/CartContext'
 
 const CartPage = () => {
-    const { cartProducts, removeAll, GetTotalProduct } = useCartContext();
+    const { cartProducts, removeAll, GetTotalProduct, getTotalCartPrice} = useCartContext();
     console.log(cartProducts);
     return (
         <main>
@@ -20,7 +20,7 @@ const CartPage = () => {
             </div>
             <div className={style.lastSection}>
                 <p>Total : </p>
-                <p> €</p>
+                <p>{getTotalCartPrice()} €</p>
             </div>
         </main>
 

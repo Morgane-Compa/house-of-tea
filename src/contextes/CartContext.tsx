@@ -27,6 +27,7 @@ cartProducts: ICartProduct[];
     removeOneById: (productId: string) => void;
     removeAll: () => void;
     GetTotalProduct: () => number;
+    getTotalCartPrice: () => number
 };
 
 // On créer un Panier vide par defaut
@@ -37,7 +38,8 @@ const defaultCart: ICart = {
     removeOneById: () => { },
     removeAll: () => { },
     // ici on va retourner un chiffre par defaut, ici on met 0 par defaut car quand le panier est vide il y a 0 produits
-    GetTotalProduct: () => 0
+    GetTotalProduct: () => 0,
+    getTotalCartPrice: () => 0
 }
 
 const CartContext = createContext<ICart>(defaultCart)
@@ -94,6 +96,13 @@ const CartProvider = (props: CartProviderProps) => {
         return cardProducts.reduce((total, cartProduct) => total + cartProduct.quantity, 0);
     };
 
+    // Ma fonction pour retourner le prix total de mon panier
+    const getTotalCartPrice = () => {
+        return cardProducts.reduce((totalPrice, cartProduct) => {
+            return totalPrice + cartProduct.product.price * cartProduct.quantity;
+        }, 0);
+    };
+
 
     // Je définit mon panier 
     const cart: ICart = {
@@ -103,6 +112,7 @@ const CartProvider = (props: CartProviderProps) => {
         removeOneById,
         removeAll,
         GetTotalProduct,
+        getTotalCartPrice,
     }
     return <CartContext.Provider value={cart}>{children}</CartContext.Provider>
 }
