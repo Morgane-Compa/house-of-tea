@@ -14,7 +14,7 @@ const CartProductCard = (props: CartProductCardProps) => {
   const { cartProduct } = props;
   const { product } = cartProduct;
   const formatedPrice = formatNumber(product.price);
-  const { removeOneById, getProductQuantity, removeOnlyOne, addOneToCart} = useCartContext();
+  const { removeOneById, getProductQuantity, removeOnlyOne, addOneToCart } = useCartContext();
 
   const extrasMock: { extra: string; quantity: number }[] = [
     {
@@ -37,12 +37,12 @@ const CartProductCard = (props: CartProductCardProps) => {
   // const total = picker;
 
   const increment = () => {
-   addOneToCart(cartProduct.id);
+    addOneToCart(cartProduct.id);
   };
 
   const decrement = () => {
     removeOnlyOne(cartProduct.id);
-    
+
   };
 
 
@@ -58,13 +58,17 @@ const CartProductCard = (props: CartProductCardProps) => {
         <img src={product.image.src} alt={product.image.alt} />
         <div className={style.infos}>
           <span>{product.name} {cartProduct.quantity}</span>
-          <span>{cartProduct.finalPrice/cartProduct.quantity}€</span>
-          {/* faire pour un produit non custom aussi */}
-          {/* <span>{cartProduct.finalPrice/cartProduct.quantity}€</span> */}
+          {
+          cartProduct.extras ? 
+          <span>{cartProduct.finalPrice / cartProduct.quantity}€</span> 
+          :
+            <span>{cartProduct.finalPrice}€</span>
+          }
           <span>{cartProduct.intensity}, {cartProduct.temp}</span>
           <ul>
-            {/* Il faut boucler sur les extras + quantité */}
-            Extras : <li>Sucre(2)</li>,<li>Menthe</li>,<li>Miel</li>,
+            {
+              cartProduct.extras?.map(extras => <li key={extras.id}>{extras.name}({extras.quantity}),</li>)
+            }
           </ul>
         </div>
       </div>
