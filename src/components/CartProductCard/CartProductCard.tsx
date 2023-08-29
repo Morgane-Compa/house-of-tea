@@ -14,7 +14,7 @@ const CartProductCard = (props: CartProductCardProps) => {
   const { cartProduct } = props;
   const { product } = cartProduct;
   const formatedPrice = formatNumber(product.price);
-  const { removeOneById, getProductQuantity } = useCartContext();
+  const { removeOneById, getProductQuantity, removeOnlyOne, addOneToCart} = useCartContext();
 
   const extrasMock: { extra: string; quantity: number }[] = [
     {
@@ -32,22 +32,17 @@ const CartProductCard = (props: CartProductCardProps) => {
   ];
 
   // ************* QuantityPicker (extraCard) *****************
-  const [picker, setPicker] = useState(Number);
+  // const [picker, setPicker] = useState(Number);
 
-  const total = picker;
+  // const total = picker;
 
   const increment = () => {
-    if (picker === 6) {
-      return;
-    }
-    setPicker(picker + 1);
+   addOneToCart(cartProduct.id);
   };
 
   const decrement = () => {
-    if (picker === 0) {
-      return;
-    }
-    setPicker(picker - 1);
+    removeOnlyOne(cartProduct.id);
+    
   };
 
 
@@ -62,9 +57,9 @@ const CartProductCard = (props: CartProductCardProps) => {
       <div className={style.details}>
         <img src={product.image.src} alt={product.image.alt} />
         <div className={style.infos}>
-          <span>{product.name}</span>
+          <span>{product.name} {cartProduct.quantity}</span>
           <span>{formatedPrice}€</span>
-          <span>Moyen, Chaud</span>
+          <span>{cartProduct.intensity}, Chaud</span>
           <ul>
             Extras : <li>Sucre(2)</li>,<li>Menthe</li>,<li>Miel</li>,
           </ul>
@@ -74,7 +69,7 @@ const CartProductCard = (props: CartProductCardProps) => {
         <QuantityPicker
           increment={increment}
           decrement={decrement}
-          totalPicker={total}
+          totalPicker={cartProduct.quantity}
         />
         <button className={style.trashButton} onClick={() => handleRemoveOne(cartProduct.id)}>
           <img src="/assets/icons/bin.svg" alt="bin icon" />
