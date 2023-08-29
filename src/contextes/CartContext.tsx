@@ -57,7 +57,6 @@ interface CartProviderProps {
 }
 
 
-
 // Mon provier qui engloble le contexte pour l'utiliser ailleurs (mon paquet cadeau)
 const CartProvider = (props: CartProviderProps) => {
     // J'appele mon children
@@ -154,7 +153,6 @@ const CartProvider = (props: CartProviderProps) => {
     }
     return <CartContext.Provider value={cart}>{children}</CartContext.Provider>
 }
-
 
 
 // Attention de bien exporter le contexte grâce à cette fonction
