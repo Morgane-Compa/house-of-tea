@@ -20,7 +20,7 @@ export interface ICartProduct {
 interface ICart {
     cartProducts: ICartProduct[];
     // on importe notre fonction addToCart dans le produit et on dit quelle ne renvoie rien
-    addToCart: (newproduct: IFormValue) => void;
+    addToCart: (newproduct: IFormValue, newQuantity: number) => void;
     addOneToCart: (cartProductId: string) => void;
     removeOneById: (productId: string) => void;
     removeOnlyOne: (cartProductId: string) => void;
@@ -63,12 +63,12 @@ const CartProvider = (props: CartProviderProps) => {
     const [cardProducts, setProducts] = useState<ICartProduct[]>([])
 
     // dans mes arguments j'importe le type de mon mock
-    const addToCart = (newproduct: IFormValue) => {
+    const addToCart = (newproduct: IFormValue, newQuantity: number) => {
 
         const newCartProduct: ICartProduct = {
             id: uuidv4(),
             product: newproduct.product,
-            quantity: newproduct.finalQuantity,
+            quantity: newQuantity,
             finalPrice: newproduct.finalPrice,
             size: newproduct.size,
             temp: newproduct.temp,
@@ -82,14 +82,14 @@ const CartProvider = (props: CartProviderProps) => {
         //  && p.extras === newCartProduct.extras
          && p.size === newCartProduct.size
          && p.temp === newCartProduct.temp
-         && p.finalPrice === newCartProduct.finalPrice
+        //  && p.finalPrice === newCartProduct.finalPrice
          );
 
         // Si mon produit n'existe pas, le créer
         if (!foundProduct) {
             setProducts([...cardProducts, newCartProduct]);
         } else { //Si mon produit existe, ajouter +1 a sa quantité
-            foundProduct.quantity += newproduct.finalQuantity;
+            foundProduct.quantity += newQuantity;
             setProducts([...cardProducts]);
         }
     }
