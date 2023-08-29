@@ -14,7 +14,7 @@ const CartProductCard = (props: CartProductCardProps) => {
   const { cartProduct } = props;
   const { product } = cartProduct;
   const formatedPrice = formatNumber(product.price);
-
+  const { removeOneById, getProductQuantity } = useCartContext();
 
   const extrasMock: { extra: string; quantity: number }[] = [
     {
@@ -33,6 +33,7 @@ const CartProductCard = (props: CartProductCardProps) => {
 
   // ************* QuantityPicker (extraCard) *****************
   const [picker, setPicker] = useState(Number);
+
   const total = picker;
 
   const increment = () => {
@@ -52,8 +53,6 @@ const CartProductCard = (props: CartProductCardProps) => {
 
   // ************* CartContext fonction *****************
   // ************* enlever un produit par son id *****************
-  const { removeOneById } = useCartContext();
-
   const handleRemoveOne = (productId: string) => {
     removeOneById(productId);
   };

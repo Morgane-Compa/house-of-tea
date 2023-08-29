@@ -176,7 +176,7 @@ export const PRODUCTS: IProduct[] = [
     description: "Thé vert et noir floral",
     price: 3,
     image: {
-      src: "/assets/products/teas/thé blanc.svg",
+      src: "/assets/products/teas/the-stevia-dans-tasse-verre-table.svg",
       alt: "image du thé des moines",
     },
     allergens: ["théine", "tanin", "vegan", "sans gluten"],
@@ -525,7 +525,7 @@ export const PRODUCTS: IProduct[] = [
     description: " viennoiserie originaire de Suède composé de brioche roulé avec de la pâte d'épice, notament de la canelle",
     price: 2.2,
     image: {
-      src: "/assets/products/pastrys/croissants.svg",
+      src: "/assets/products/pastrys/cinnamon-roll.svg",
       alt: "image de croissants",
     },
     allergens: ["lactose", "gluten"],
