@@ -3,7 +3,7 @@ import style from './CallToActionButton.module.scss';
 interface CallToActionButtonProps {
     title: string;
     buttonType: "submit" | "button" | "reset" | undefined;
-    callback: () => void; // pas besoin puisque submit
+    callback: () => void | undefined | string; 
 }
 
 const CallToActionButton = (props: CallToActionButtonProps) => {

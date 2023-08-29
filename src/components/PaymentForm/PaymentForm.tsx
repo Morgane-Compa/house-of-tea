@@ -11,7 +11,7 @@ interface FormValue {
   cvv: string;
 }
 const PaymentForm = () => {
-  const {getTotalCartPrice} = useCartContext();
+  const {getTotalCartPrice, createOrderNumber} = useCartContext();
   const {
     register,
     handleSubmit,
@@ -121,7 +121,7 @@ const PaymentForm = () => {
       <CallToActionButton
         buttonType="submit"
         title="Payer"
-        callback={() => {}}
+        callback={() => {createOrderNumber()}}
       />
     </form>
   );

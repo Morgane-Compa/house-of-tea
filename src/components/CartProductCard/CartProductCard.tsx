@@ -2,8 +2,9 @@ import { IProduct, PRODUCTS } from "mocks/product.mock";
 import style from "./CartProductCard.module.scss";
 import { formatNumber } from "services/globalMethods";
 import QuantityPicker from "components/QuantityPicker/QuantityPicker";
-import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { ICartProduct, useCartContext } from "contextes/CartContext";
+import { Link } from "react-router-dom";
 
 interface CartProductCardProps {
   cartProduct: ICartProduct
@@ -16,25 +17,8 @@ const CartProductCard = (props: CartProductCardProps) => {
   const formatedPrice = formatNumber(product.price);
   const { removeOneById, getProductQuantity, removeOnlyOne, addOneToCart } = useCartContext();
 
-  const extrasMock: { extra: string; quantity: number }[] = [
-    {
-      extra: "sucre",
-      quantity: 2,
-    },
-    {
-      extra: "menthe",
-      quantity: 1,
-    },
-    {
-      extra: "miel",
-      quantity: 1,
-    },
-  ];
-
+  const location = useLocation();
   // ************* QuantityPicker (extraCard) *****************
-  // const [picker, setPicker] = useState(Number);
-
-  // const total = picker;
 
   const increment = () => {
     addOneToCart(cartProduct.id);
@@ -42,7 +26,6 @@ const CartProductCard = (props: CartProductCardProps) => {
 
   const decrement = () => {
     removeOnlyOne(cartProduct.id);
-
   };
 
 
@@ -55,34 +38,39 @@ const CartProductCard = (props: CartProductCardProps) => {
   return (
     <article className={style.card}>
       <div className={style.details}>
-        <img src={product.image.src} alt={product.image.alt} />
+        <Link to={`/product/${product.id}`}><img src={product.image.src} alt={product.image.alt} /></Link>
         <div className={style.infos}>
-          <span>{product.name} {cartProduct.quantity}</span>
+          <span>{product.name}</span>
           {
           cartProduct.extras ? 
-          <span>{cartProduct.finalPrice / cartProduct.quantity}€</span> 
+          <span>{cartProduct.finalPrice}€</span> 
           :
             <span>{cartProduct.finalPrice}€</span>
           }
-          <span>{cartProduct.intensity}, {cartProduct.temp}</span>
-          <ul>
+          <span>{cartProduct.size?.name}, {cartProduct.intensity}, {cartProduct.temp}</span>
+          {cartProduct.extras?.length ? 
+          <ul>Extras : 
             {
-              cartProduct.extras?.map(extras => <li key={extras.id}>{extras.name}({extras.quantity}),</li>)
+              cartProduct.extras?.map(extra => <li key={extra.id}>{extra.name}({extra.quantity}), </li>)
             }
-          </ul>
+          </ul> : ''}
         </div>
       </div>
+
+        {location.pathname === '/cart' ? 
       <div className={style.actions}>
         <QuantityPicker
           increment={increment}
           decrement={decrement}
           totalPicker={cartProduct.quantity}
-        />
+        /> 
         <button className={style.trashButton} onClick={() => handleRemoveOne(cartProduct.id)}>
           <img src="/assets/icons/bin.svg" alt="bin icon" />
         </button>
-
       </div>
+      : 
+        <span className={style.quantity}>{getProductQuantity(cartProduct.id)}</span>
+        }
     </article>
   );
 };
