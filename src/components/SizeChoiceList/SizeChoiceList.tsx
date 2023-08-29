@@ -1,4 +1,4 @@
-import { CurrencyFormater } from "utilities/CurrencyFormater";
+import { formatNumber } from "services/globalMethods";
 import style from "./SizeChoiceList.module.scss";
 import { ISizeChoice, SIZE_CHOICE } from 'mocks/product.mock';
 
@@ -23,7 +23,7 @@ const SizeChoiceList = (props: SizeChoiceListProps) => {
   return (
       <button className={`${style.button} ${size.isSelected === true && style.isActive}`} type="button" onClick={() => selectSize()}>
         <img src={size.icon} alt={size.name} className={style.icon} />
-        <div className={style.price}>+{CurrencyFormater(size.price)}</div>
+        <div className={style.price}>+{formatNumber(size.price)},00€</div>
       </button>
   )
 };

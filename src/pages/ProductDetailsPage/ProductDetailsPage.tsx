@@ -5,11 +5,11 @@ import IntensityChoiceList from "components/IntensityChoiceList/IntensityChoiceL
 import ExtraList from "components/ExtraList/ExtraList";
 import CallToActionButton from "components/CallToActionButton/CallToActionButton";
 import QuantityPicker from "components/QuantityPicker/QuantityPicker";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProductDetailCard from "components/ProductDetailCard/ProductDetailCard";
 import { useCartContext } from "contextes/CartContext";
-import { IProduct, ISizeChoice, PRODUCTS, SIZE_CHOICE } from "mocks/product.mock";
-import { ActionFunctionArgs, useLoaderData, useParams } from "react-router-dom";
+import { IProduct, ISizeChoice, SIZE_CHOICE } from "mocks/product.mock";
+import { ActionFunctionArgs, useLoaderData } from "react-router-dom";
 import { getProductById } from "services/product.service";
 
 // productLoader qui utilise la méthode de recherche du produit par id du productService

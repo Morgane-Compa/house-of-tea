@@ -11,7 +11,6 @@ const ExtraList = () => {
         if (!id) {
             return <div>Invalid product ID</div>;
           }
-        // Ancien code => const product: IProduct = PRODUCTS[0];
         // Je passe l'ID de string à Number
         const parsedId = parseInt(id, 10);
         // Je vais chercher quel idProduit correspond à l'id de l'url
@@ -22,7 +21,7 @@ const ExtraList = () => {
             {
             product?.customization?.extras.map((extra, index) => {
                 //console.log(index);
-                return <ExtraCard key={index} name={extra.name} image={extra.image.src} price={extra.price} maxQuantity={extra.maxQuantity} />})
+                return <ExtraCard key={index} id={extra.id} name={extra.name} image={extra.image.src} price={extra.price} maxQuantity={extra.maxQuantity} />})
             }
         </div>
     )

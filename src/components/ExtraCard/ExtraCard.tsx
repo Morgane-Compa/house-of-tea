@@ -1,10 +1,10 @@
 import QuantityPicker from 'components/QuantityPicker/QuantityPicker';
 import { useState } from 'react';
 import style from './ExtraCard.module.scss'
-import { CurrencyFormater } from 'utilities/CurrencyFormater';
+import { formatNumber } from 'services/globalMethods';
 
 interface IExtraCardProps {
-    id?: number;
+    id: number;
     name: string;
     image: string;
     price: number;
@@ -13,13 +13,22 @@ interface IExtraCardProps {
 
 const ExtraCard = (props: IExtraCardProps) => {
     
-    const { name, image, price, maxQuantity} = props;
+    const { id, name, image, price, maxQuantity } = props;
 
-    
     // ************* QuantityPicker (extraCard) *****************
     const [picker, setPicker] = useState(Number);
     const [extraName, setExtraName] = useState<String>("");
     const [extraPrice, setExtraPrice] = useState(Number);
+
+    // ******** Récupération des données dans un tableau*********
+    // Je récupère mes compteurs dans un tableau de type number ?
+    const pickerArray: any[] = [];
+    pickerArray.push(id, picker, name, price);
+    console.log(pickerArray);
+    // const generalArray: any[] = [];
+    // generalArray.push(...pickerArray, ...generalArray);
+    // console.log(generalArray);
+
     // let picker: number = 0;
     // let extraName: string = "";
     // let extraPrice: number = 0;
@@ -59,7 +68,6 @@ const ExtraCard = (props: IExtraCardProps) => {
         return extraName && extraPrice && picker;
     };
 
-
     return (
         <div className={style.container}>
             <div className={style.infoContainer}>
@@ -70,7 +78,7 @@ const ExtraCard = (props: IExtraCardProps) => {
                     <p>{name}</p>
                 </div>
                 <div>
-                    <span>{CurrencyFormater(price)}</span>
+                    <span>{formatNumber(price)},00€</span>
                 </div>
             </div>
             {/* Il faut que je communique au picker le name et le price */}
