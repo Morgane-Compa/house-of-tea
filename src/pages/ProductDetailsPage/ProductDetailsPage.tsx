@@ -35,7 +35,6 @@ export interface IFormValue {
   temp?: string,
   intensity?: string,
   extras?: IExtra[],
-  finalQuantity: number
 }
 // J'exporte pour l'utiliser dans ExtraList
 export interface IExtra {
@@ -110,16 +109,12 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
     //Je modifie mes states extraQ et le extraP
     const quantity = finalQuantity + 1;
     setFinalQuantity(quantity);
-    finalProduct.finalQuantity = quantity;
-    setFinalProduct({ ...finalProduct });
   };
 
   const decrement = () => {
     if (finalQuantity >= 2) {
       const quantity = finalQuantity - 1;
       setFinalQuantity(quantity);
-      finalProduct.finalQuantity = quantity;
-      setFinalProduct({ ...finalProduct });
     }
   };
 
@@ -134,7 +129,6 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
     temp: temp,
     intensity: int,
     extras: extraList,
-    finalQuantity: finalQuantity
   }
 
   // *** PRODUCT ***
@@ -195,7 +189,7 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
           <QuantityPicker increment={increment} decrement={decrement} totalPicker={finalQuantity} />
         </div>
       </div>
-      <CallToActionButton buttonType="button" title={"Ajouter au panier"} callback={() => { addToCart(finalProduct) }} />
+      <CallToActionButton buttonType="button" title={"Ajouter au panier"} callback={() => { addToCart(finalProduct, finalQuantity) }} />
   
     </form >
   );

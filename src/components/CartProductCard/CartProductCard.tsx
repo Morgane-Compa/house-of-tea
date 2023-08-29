@@ -58,9 +58,12 @@ const CartProductCard = (props: CartProductCardProps) => {
         <img src={product.image.src} alt={product.image.alt} />
         <div className={style.infos}>
           <span>{product.name} {cartProduct.quantity}</span>
-          <span>{formatedPrice}€</span>
-          <span>{cartProduct.intensity}, Chaud</span>
+          <span>{cartProduct.finalPrice/cartProduct.quantity}€</span>
+          {/* faire pour un produit non custom aussi */}
+          {/* <span>{cartProduct.finalPrice/cartProduct.quantity}€</span> */}
+          <span>{cartProduct.intensity}, {cartProduct.temp}</span>
           <ul>
+            {/* Il faut boucler sur les extras + quantité */}
             Extras : <li>Sucre(2)</li>,<li>Menthe</li>,<li>Miel</li>,
           </ul>
         </div>
