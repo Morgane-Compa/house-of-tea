@@ -26,7 +26,6 @@ export interface ISizeChoice {
   isSelected: boolean
 }
 
-
 export interface IImage {
   src: string;
   alt: string;

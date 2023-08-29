@@ -1,5 +1,5 @@
-import { IProduct } from "mocks/product.mock";
-import { IFormValue } from "pages/ProductDetailsPage/ProductDetailsPage";
+import { IProduct, ISizeChoice } from "mocks/product.mock";
+import { IExtra, IFormValue } from "pages/ProductDetailsPage/ProductDetailsPage";
 import { createContext, useContext, useState } from "react";
 import { formatNumber } from "services/globalMethods";
 import { v4 as uuidv4 } from "uuid"
@@ -10,22 +10,17 @@ export interface ICartProduct {
     product: IProduct,
     quantity: number,
     finalPrice: number,
-    size?: string,
+    size?: ISizeChoice,
     temp?: string,
     intensity?: string,
-    extras?:
-    {
-        name: string,
-        quantity: number,
-    }[]
-
+    extras?: IExtra[]
 }
 
 // Mon panier
 interface ICart {
     cartProducts: ICartProduct[];
     // on importe notre fonction addToCart dans le produit et on dit quelle ne renvoie rien
-    addToCart: (newproduct: IFormValue, newquantity: number) => void;
+    addToCart: (newproduct: IFormValue) => void;
     addOneToCart: (cartProductId: string) => void;
     removeOneById: (productId: string) => void;
     removeOnlyOne: (cartProductId: string) => void;
@@ -68,12 +63,12 @@ const CartProvider = (props: CartProviderProps) => {
     const [cardProducts, setProducts] = useState<ICartProduct[]>([])
 
     // dans mes arguments j'importe le type de mon mock
-    const addToCart = (newproduct: IFormValue, newquantity: number) => {
+    const addToCart = (newproduct: IFormValue) => {
 
         const newCartProduct: ICartProduct = {
             id: uuidv4(),
             product: newproduct.product,
-            quantity: newquantity,
+            quantity: newproduct.finalQuantity,
             finalPrice: newproduct.finalPrice,
             size: newproduct.size,
             temp: newproduct.temp,
@@ -94,7 +89,7 @@ const CartProvider = (props: CartProviderProps) => {
         if (!foundProduct) {
             setProducts([...cardProducts, newCartProduct]);
         } else { //Si mon produit existe, ajouter +1 a sa quantité
-            foundProduct.quantity += newquantity;
+            foundProduct.quantity += newproduct.finalQuantity;
             setProducts([...cardProducts]);
         }
     }
@@ -126,7 +121,7 @@ const CartProvider = (props: CartProviderProps) => {
         if(!foundProduct) {
             return;
         } else {
-            if (foundProduct.quantity > 1) {
+            if (foundProduct.quantity >= 1) {
                 foundProduct.quantity -= 1;
                 setProducts([...cardProducts]);
             } else {
