@@ -1,6 +1,7 @@
 import CartProductCard from 'components/CartProductCard/CartProductCard'
 import style from './CartPage.module.scss'
 import { useCartContext } from 'contextes/CartContext'
+import { Link } from 'react-router-dom';
 
 const CartPage = () => {
     const { cartProducts, removeAll, GetTotalProduct, getTotalCartPrice} = useCartContext();
@@ -22,6 +23,7 @@ const CartPage = () => {
                 <p>Total : </p>
                 <p>{getTotalCartPrice()} €</p>
             </div>
+            <Link to='/products' className={style.link}>Ajouter des produits</Link>
         </main>
 
     )

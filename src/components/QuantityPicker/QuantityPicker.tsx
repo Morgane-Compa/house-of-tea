@@ -1,7 +1,7 @@
 import style from "./QuantityPicker.module.scss";
 
 interface QuantityPickerProps {
-  totalPicker: any;
+  totalPicker: number;
   increment: () => void;
   decrement: () => void;
 }

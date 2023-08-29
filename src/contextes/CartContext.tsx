@@ -26,8 +26,9 @@ interface ICart {
     cartProducts: ICartProduct[];
     // on importe notre fonction addToCart dans le produit et on dit quelle ne renvoie rien
     addToCart: (newproduct: IFormValue, newquantity: number) => void;
+    addOneToCart: (cartProductId: string) => void;
     removeOneById: (productId: string) => void;
-    removeOnlyOne: (product: IProduct) => void;
+    removeOnlyOne: (cartProductId: string) => void;
     removeAll: () => void;
     GetTotalProduct: () => number;
     getTotalCartPrice: () => number;
@@ -39,6 +40,7 @@ const defaultCart: ICart = {
     cartProducts: [],
     // DefaultCart est de type ICart donc on doit aussi déclarer les fonctions qu'on à mis dans notre type et les déclarer comme vide 
     addToCart: () => { },
+    addOneToCart: () => {},
     removeOneById: () => { },
     removeOnlyOne: () => { },
     removeAll: () => { },
@@ -79,16 +81,35 @@ const CartProvider = (props: CartProviderProps) => {
             extras: newproduct.extras
         }
         //je regarde si le produit n'existe pas déja
-        const foundProduct = cardProducts.find((p) => p.product === newCartProduct.product);
+        const foundProduct = cardProducts.find((p) =>
+         p.product === newCartProduct.product 
+         && p.intensity === newCartProduct.intensity 
+        //  && p.extras === newCartProduct.extras
+         && p.size === newCartProduct.size
+         && p.temp === newCartProduct.temp
+         && p.finalPrice === newCartProduct.finalPrice
+         );
 
         // Si mon produit n'existe pas, le créer
         if (!foundProduct) {
             setProducts([...cardProducts, newCartProduct]);
         } else { //Si mon produit existe, ajouter +1 a sa quantité
-            foundProduct.quantity += 1;
+            foundProduct.quantity += newquantity;
             setProducts([...cardProducts]);
         }
     }
+
+    const addOneToCart = (cartProductId: string) => {
+        const foundProduct = cardProducts.find((p) => p.id === cartProductId);
+                // Si mon produit n'existe pas, le créer
+                if (!foundProduct) {
+                    return;
+                } else { //Si mon produit existe, ajouter +1 a sa quantité
+                    foundProduct.quantity += 1;
+                    setProducts([...cardProducts]);
+                }
+                console.log('ajouté')
+    }    
 
     // ma fonction pour retirer un produit par son Id (si il y a deux produit avec la même id il les retirera tout les deux) 
     const removeOneById = (productId: string) => {
@@ -97,21 +118,22 @@ const CartProvider = (props: CartProviderProps) => {
     };
 
     // Ma fonction pour ne retirer qu''un seul produit
-    const removeOnlyOne = (product: IProduct) => {
+    const removeOnlyOne = (cartProductId: string) => {
         //je regarde si le produit n'existe pas déja
-         const foundProduct = cardProducts.find((p) => p.product.id === product.id);
+        const foundProduct = cardProducts.find((p) => p.id === cartProductId);
+        console.log('retiré')
         // Si mon produit n'existe pas alors ne rien retourner
         if(!foundProduct) {
             return;
         } else {
-            // if (foundProduct.quantity > 1) {
+            if (foundProduct.quantity > 1) {
                 foundProduct.quantity -= 1;
                 setProducts([...cardProducts]);
-            // } else {
-                
-            //     setProducts([...cardProducts]);
-            // }
+            } else {
+                removeOneById(foundProduct.id);
+            }
         } 
+        
     }
 
     // Ma fonction pour vider tout le panier
@@ -144,6 +166,7 @@ const CartProvider = (props: CartProviderProps) => {
         cartProducts: cardProducts,
         // Mes fonctions
         addToCart,
+        addOneToCart,
         removeOneById,
         removeOnlyOne,
         removeAll,
