@@ -4,7 +4,7 @@ import { useCartContext } from 'contextes/CartContext'
 import { Link } from 'react-router-dom';
 
 const CartPage = () => {
-    const { cartProducts, removeAll, GetTotalProduct, getTotalCartPrice} = useCartContext();
+    const { cartProducts, removeAll, getTotalProduct, getTotalCartPrice} = useCartContext();
     console.log(cartProducts);
     return (
         <main>
@@ -17,7 +17,7 @@ const CartPage = () => {
             </ul>
             <div className={style.lastSection}>
                 <p>Articles : </p>
-                <p>{GetTotalProduct()}</p>
+                <p>{getTotalProduct()}</p>
             </div>
             <div className={style.lastSection}>
                 <p>Total : </p>

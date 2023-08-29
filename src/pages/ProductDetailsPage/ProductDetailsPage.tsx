@@ -1,4 +1,4 @@
-import SizeChoiceList from "components/SizeChoiceList/SizeChoiceList";
+import SizeChoiceButton from "components/SizeChoiceButton/SizeChoiceButton";
 import style from "./ProductDetailsPage.module.scss";
 import TemperatureChoiceList from "components/TemperatureChoiceList/TemperatureChoiceList";
 import IntensityChoiceList from "components/IntensityChoiceList/IntensityChoiceList";
@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import ProductDetailCard from "components/ProductDetailCard/ProductDetailCard";
 import { useCartContext } from "contextes/CartContext";
 import { IProduct, ISizeChoice, SIZE_CHOICE } from "mocks/product.mock";
-import { ActionFunctionArgs, useLoaderData } from "react-router-dom";
+import { ActionFunctionArgs, useLoaderData, useNavigate } from "react-router-dom";
 import { getProductById } from "services/product.service";
 
 // productLoader qui utilise la méthode de recherche du produit par id du productService
@@ -47,12 +47,13 @@ export interface IExtra {
 
 const ProductDetailsPage: React.FC = (extraPrice) => {
 
+  const navigate = useNavigate()
   const foundProduct = useLoaderData() as IProduct;
-
-  // ******************************************************************
-  // **********General QuantityPicker pour nombre d'items *************
   const { addToCart } = useCartContext();
-
+  const addProductToCart = (product: IFormValue, quantity: number) => {
+    addToCart(product, quantity);
+    navigate('/cart');
+  }
   //Test de quantités du produit commandé => à développer
 
 
@@ -141,7 +142,7 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
       }, 0)
       const price = foundProduct.price + size.price + extraPrice;
       setFinalPrice(price);
-      finalProduct.finalPrice = price * finalQuantity;
+      finalProduct.finalPrice = price;
       setFinalProduct({ ...finalProduct });
     }
     
@@ -158,7 +159,7 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
         <> <span className={style.interligne}></span>
           <ul className={style.size}>
             {sizeList.map((item) => <li key={item.id}>
-              <SizeChoiceList CallBackSize={handleCallBackSize} size={item} />
+              <SizeChoiceButton CallBackSize={handleCallBackSize} size={item} />
             </li>)
             }
           </ul>
@@ -189,7 +190,7 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
           <QuantityPicker increment={increment} decrement={decrement} totalPicker={finalQuantity} />
         </div>
       </div>
-      <CallToActionButton buttonType="button" title={"Ajouter au panier"} callback={() => { addToCart(finalProduct, finalQuantity) }} />
+      <CallToActionButton buttonType="button" title={"Ajouter au panier"} callback={() => {addProductToCart(finalProduct, finalQuantity) }} />
   
     </form >
   );

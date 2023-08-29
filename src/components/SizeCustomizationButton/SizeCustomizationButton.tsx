@@ -3,6 +3,7 @@ import { CurrencyFormater } from "utilities/CurrencyFormater";
 import style from "./SizeCustomizationButton.module.scss";
 import "./SizeCustomizationButton.module.scss";
 
+// !!!! COMPOSANT PAS UTILISE !!!!
 interface SizeCustomizationButtonProps {
   id: number;
   icon: string;
@@ -18,8 +19,6 @@ const SizeCustomizationButton = (props: SizeCustomizationButtonProps) => {
   function handleClick() {
     setIsSelected(!isSelected);
     setButtonId(id);
-    console.log(isSelected);
-    console.log(buttonId);
   }
 
   return (

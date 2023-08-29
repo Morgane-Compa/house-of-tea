@@ -1,13 +1,13 @@
 import { formatNumber } from "services/globalMethods";
-import style from "./SizeChoiceList.module.scss";
+import style from "./SizeChoiceButton.module.scss";
 import { ISizeChoice, SIZE_CHOICE } from 'mocks/product.mock';
 
-interface SizeChoiceListProps {
+interface SizeChoiceButtonProps {
   CallBackSize: (data: ISizeChoice) => void;
   size: ISizeChoice
 }
 
-const SizeChoiceList = (props: SizeChoiceListProps) => {
+const SizeChoiceButton = (props: SizeChoiceButtonProps) => {
 
   const {CallBackSize, size} = props;
 
@@ -28,4 +28,4 @@ const SizeChoiceList = (props: SizeChoiceListProps) => {
   )
 };
 
-export default SizeChoiceList;
+export default SizeChoiceButton;

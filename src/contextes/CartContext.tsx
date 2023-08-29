@@ -19,20 +19,23 @@ export interface ICartProduct {
 // Mon panier
 interface ICart {
     cartProducts: ICartProduct[];
+    orderNumber: string | undefined;
     // on importe notre fonction addToCart dans le produit et on dit quelle ne renvoie rien
     addToCart: (newproduct: IFormValue, newQuantity: number) => void;
     addOneToCart: (cartProductId: string) => void;
     removeOneById: (productId: string) => void;
     removeOnlyOne: (cartProductId: string) => void;
     removeAll: () => void;
-    GetTotalProduct: () => number;
+    getTotalProduct: () => number;
     getTotalCartPrice: () => number;
     getProductQuantity: (productId: string) => number;
+    createOrderNumber: () => void;
 };
 
 // On créer un Panier vide par defaut
 const defaultCart: ICart = {
     cartProducts: [],
+    orderNumber: undefined,
     // DefaultCart est de type ICart donc on doit aussi déclarer les fonctions qu'on à mis dans notre type et les déclarer comme vide 
     addToCart: () => { },
     addOneToCart: () => {},
@@ -40,9 +43,10 @@ const defaultCart: ICart = {
     removeOnlyOne: () => { },
     removeAll: () => { },
     // ici on va retourner un chiffre par defaut, ici on met 0 par defaut car quand le panier est vide il y a 0 produits
-    GetTotalProduct: () => 0,
+    getTotalProduct: () => 0,
     getTotalCartPrice: () => 0,
     getProductQuantity: () => 0,
+    createOrderNumber: () => {}
 }
 
 const CartContext = createContext<ICart>(defaultCart)
@@ -56,6 +60,7 @@ interface CartProviderProps {
 
 // Mon provier qui engloble le contexte pour l'utiliser ailleurs (mon paquet cadeau)
 const CartProvider = (props: CartProviderProps) => {
+
     // J'appele mon children
     const { children } = props;
 
@@ -137,35 +142,42 @@ const CartProvider = (props: CartProviderProps) => {
     };
 
     // Ma fonction pour retourner le nombre de produits dans mon panier
-    const GetTotalProduct = () => {
+    const getTotalProduct = () => {
         return cardProducts.reduce((total, cartProduct) => total + cartProduct.quantity, 0);
     };
 
     // Ma fonction pour retourner le prix total de mon panier
     const getTotalCartPrice = () => {
         const totalPrice = cardProducts.reduce((totalPrice, cartProduct) => {
-            return totalPrice + cartProduct.product.price * cartProduct.quantity;
+            return totalPrice + cartProduct.finalPrice * cartProduct.quantity;
         }, 0);
         return formatNumber(totalPrice);
     };
 
     // Ma fonction pour récupérer la quantité d'un produit de mon panier
-    const getProductQuantity = (productId: string) => {
-        const cartProduct = cardProducts.find(product => product.id === productId);
+    const getProductQuantity = (cartProductId: string) => {
+        const cartProduct = cardProducts.find(product => product.id === cartProductId);
         return cartProduct ? cartProduct.quantity : 0;
     };
 
+    const [orderNumber, setOrderNumber] = useState<string>('')
+    const createOrderNumber = () => {
+        const orderNumber =  uuidv4();
+        setOrderNumber(orderNumber);
+    }
 
     // Je définit mon panier 
     const cart: ICart = {
         cartProducts: cardProducts,
+        orderNumber: orderNumber,
+        createOrderNumber,
         // Mes fonctions
         addToCart,
         addOneToCart,
         removeOneById,
         removeOnlyOne,
         removeAll,
-        GetTotalProduct,
+        getTotalProduct,
         getTotalCartPrice,
         getProductQuantity
     }

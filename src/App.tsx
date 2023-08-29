@@ -15,33 +15,60 @@ function App() {
     navigate(-1);
   };
   const location = useLocation();
-
-  return (
-    <>
-      <Header />
-      <Hero />
-      {location.pathname!=='/products' && <BackButton callback={back} />}
-
-      <main>
-          <Outlet />
-        <ul className={style.navigation}>
-          {" "}
-          Menu temporaire :
-          {NAV_LINKS.map((navLink) => (
-            <li key={navLink.id}>
-              <NavLink
-                className={({ isActive }) => (isActive ? style.activeLink : "")}
-                to={navLink.path}
-              >
-                {navLink.name}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </main>
-      <Footer />
-    </>
-  );
+  if(location.pathname !== "/recap" && location.pathname !== "/products" && location.pathname !== "/"  ){
+    return (
+      <>
+        <Header />
+        <Hero />
+          <BackButton callback={back} />
+        {/* {location.pathname !== "/recap" && location.pathname !== "/products" && location.pathname !== "/" &&  <BackButton callback={back} />} */}
+      
+        <main>
+            <Outlet />
+          <ul className={style.navigation}>
+            {" "}
+            Menu temporaire :
+            {NAV_LINKS.map((navLink) => (
+              <li key={navLink.id}>
+                <NavLink
+                  className={({ isActive }) => (isActive ? style.activeLink : "")}
+                  to={navLink.path}
+                >
+                  {navLink.name}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </main>
+        <Footer />
+      </>
+    ) 
+  } else {
+    return (
+      <>
+        <Header />
+        <Hero />
+        <main>
+            <Outlet />
+          <ul className={style.navigation}>
+            {" "}
+            Menu temporaire :
+            {NAV_LINKS.map((navLink) => (
+              <li key={navLink.id}>
+                <NavLink
+                  className={({ isActive }) => (isActive ? style.activeLink : "")}
+                  to={navLink.path}
+                >
+                  {navLink.name}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </main>
+        <Footer />
+      </>
+    );
+  }
 }
 
 export default App;
