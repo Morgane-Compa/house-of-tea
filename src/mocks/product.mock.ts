@@ -540,21 +540,21 @@ export const SIZE_CHOICE: ISizeChoice[] = [
   {
     id: 1,
     name: "Petit",
-    icon: "/assets/icons/small-cup.svg",
+    icon: "/assets/icons/small-cup.png",
     price: 0,
     isSelected: true
   },
   {
     id: 2,
     name: "Moyen",
-    icon: "/assets/icons/mid-cup.svg",
+    icon: "/assets/icons/mid-cup.png",
     price: 2,
     isSelected: false
   },
   {
     id: 3,
     name: "Grand",
-    icon: "/assets/icons/big-cup.svg",
+    icon: "/assets/icons/big-cup.png",
     price: 4,
     isSelected: false
   },

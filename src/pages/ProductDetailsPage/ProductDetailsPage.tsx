@@ -12,12 +12,13 @@ import { IProduct, ISizeChoice, PRODUCTS, SIZE_CHOICE } from "mocks/product.mock
 import { ActionFunctionArgs, useLoaderData, useParams } from "react-router-dom";
 import { getProductById } from "services/product.service";
 
-// Loader
+// productLoader qui utilise la méthode de recherche du produit par id du productService
 export const oneProductLoader = async(args: ActionFunctionArgs): Promise<IProduct | undefined> => {
   const {params: {id}} = args;
   const productId = Number(id);
   const foundProduct = await getProductById(productId);
 
+  // Faire la redirection en cas de non dispo (navigate)
   // if(!foundProduct) {
   //   throw new Response("", {
   //     status: 404,
@@ -51,24 +52,7 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
   const total = picker;
   const { addToCart } = useCartContext();
 
-
-  const testProduct: IFormValue = {
-    product: PRODUCTS[0],
-    finalPrice: 2,
-    size: 'Moyen',
-    temp: 'chaud',
-    intensity: 'délicat',
-    extras: [
-      {
-        name: "Lait",
-        quantity: 2
-      },
-      {
-        name: "Miel",
-        quantity: 2
-      }
-    ]
-  }
+  //Test de quantités du produit commandé => à développer
   const testQuantity = 1;
 
   const increment = () => {
@@ -84,10 +68,6 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
     }
     setPicker(picker - 1);
   };
-
-
-
-
 
   // *** SIZE ***
   // Utilisée pour boucler dans le jsx

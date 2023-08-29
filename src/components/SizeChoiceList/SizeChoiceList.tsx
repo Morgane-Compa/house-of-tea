@@ -1,3 +1,4 @@
+import { CurrencyFormater } from "utilities/CurrencyFormater";
 import style from "./SizeChoiceList.module.scss";
 import { ISizeChoice, SIZE_CHOICE } from 'mocks/product.mock';
 
@@ -12,7 +13,7 @@ const SizeChoiceList = (props: SizeChoiceListProps) => {
 
   const selectSize = () => {
     CallBackSize(size);
-    // Pour que la couleur jaune se désactive au clique d'un autre btn
+    // Pour que la couleur jaune se désactive au cliqk d'un autre btn
     // Tous les btn se mettre en blanc
     SIZE_CHOICE.map(item => item.isSelected = false);
     // ... et celui qui est actif prend sa couleur jaune
@@ -22,7 +23,7 @@ const SizeChoiceList = (props: SizeChoiceListProps) => {
   return (
       <button className={`${style.button} ${size.isSelected === true && style.isActive}`} type="button" onClick={() => selectSize()}>
         <img src={size.icon} alt={size.name} className={style.icon} />
-        <div className={style.price}>+{size.price}</div>
+        <div className={style.price}>+{CurrencyFormater(size.price)}</div>
       </button>
   )
 };
