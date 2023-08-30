@@ -38,7 +38,7 @@ const CartProductCard = (props: CartProductCardProps) => {
   return (
     <article className={style.card}>
       <div className={style.details}>
-        <Link to={`/product/${product.id}`}><img src={product.image.src} alt={product.image.alt} /></Link>
+        <Link to={`/product/${product.id}`} className={style.productImg}><img src={product.image.src} alt={product.image.alt} /></Link>
         <div className={style.infos}>
           <span>{product.name}</span>
           {

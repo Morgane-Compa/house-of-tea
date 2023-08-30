@@ -6,10 +6,11 @@
     display: flex;
     justify-content: space-between;
     font-size: 35px;
+    position: relative;
 
     @media screen and (max-width: 1000px) {
         font-size: 14px;
-        height: 104px;
+        height: 120px;
         padding: 9px;
     }
 
@@ -25,18 +26,26 @@
     .details {
         display: flex;
         gap: 1rem;
-        border: 1px solid black;
-        width: 70%;
+        // border: 1px solid black;
+        width: 100%;
+
         @media screen and (max-width: 1000px) {
-            height: 104px
+            height: 104px;
+            gap: 16px;
+        }
+
+        .productImg {
+            width: 30%;
         }
 
         img {
             width: 100%;
             max-height: 260px;
             object-fit: cover;
-            @media screen and (max-width: 1000px) {
-                width: 35%;
+
+            @media screen and (max-width: 900px) {
+                height: 104px;
+                min-width: 96px;
             }
         }
 
@@ -45,10 +54,15 @@
             flex-direction: column;
             gap: 1rem;
 
+            @media screen and (max-width: 1000px) {
+                gap: 9px;
+            }
+
             ul {
                 display: flex;
                 list-style: none;
             }
+
             li {
                 padding-left: 10px;
             }
@@ -57,10 +71,14 @@
 
     .actions {
         display: flex;
-        align-items: flex-start;
-        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+        gap: 13px;
+        position: absolute;
+        right: 0;
     }
-    .quantity{
+
+    .quantity {
         width: 1.5rem;
         height: 1.5rem;
         border-radius: 100%;
@@ -71,13 +89,16 @@
         font-size: 1.2rem;
     }
 
-}
+    .trashButton {
+        background-color: var(--blanc);
 
-.trashButton {
-    background-color: var(--blanc);
-
-    @media screen and (max-width: 1200px) {
-        width: 30px;
-        height: 30px;
+        @media screen and (max-width: 900px) {
+            width: 30px;
+            height: 30px;
+            padding-left: 10px;
+        }
+        @media screen and (max-width: 500px) {
+            padding-left: 3px;
+        }
     }
 }
