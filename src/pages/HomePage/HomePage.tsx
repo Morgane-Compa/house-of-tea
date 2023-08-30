@@ -1,8 +1,7 @@
-import style from './HomePage.module.scss'
-
 const HomePage = () => {
     return(
-        <></>
+        <>
+    </>
     )
 }
 

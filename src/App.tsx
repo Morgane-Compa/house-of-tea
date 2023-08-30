@@ -8,14 +8,13 @@ import { NAV_LINKS } from "mocks/navigation.mock";
 
 
 function App() {
-
   // ************* BackButton *****************
   const navigate = useNavigate();
   const back = (): void => {
     navigate(-1);
   };
   const location = useLocation();
-  if(location.pathname !== "/recap" && location.pathname !== "/products" && location.pathname !== "/"  ){
+  if(location.pathname !== "/recap" && location.pathname !== "/products" && location.pathname !== "/"){
     return (
       <>
         <Header />
