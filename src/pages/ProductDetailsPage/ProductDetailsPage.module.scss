@@ -6,7 +6,8 @@
     flex-wrap: wrap;
     gap: 2rem;
     position: relative;
-    top: -30vh
+    top: -30vh;
+    margin-bottom: -30vh;
 }
 
 .size {
@@ -41,7 +42,7 @@
     margin-bottom: 4.93rem;
 
     .totalPrice {
-        font-size: 3.4375rem;
+        font-size: 3rem;
     }
 }
 
@@ -50,6 +51,7 @@
     .extraContainer {
         gap: 0rem;
         top: -15vh;
+        margin-bottom: -15vh;
     }
 
     .intense {
@@ -68,10 +70,6 @@
 
         .totalPrice {
             font-size: 1.25rem;
-        }
-        
-        .picker {
-            transform: scale(0.7);
         }
    }
   }
