@@ -42,6 +42,30 @@ function App() {
         <Footer />
       </>
     ) 
+  } else if(location.pathname === "/") {
+    return (
+      <>
+        <Header />
+        <main>
+            <Outlet />
+          <ul className={style.navigation}>
+            {" "}
+            Menu temporaire :
+            {NAV_LINKS.map((navLink) => (
+              <li key={navLink.id}>
+                <NavLink
+                  className={({ isActive }) => (isActive ? style.activeLink : "")}
+                  to={navLink.path}
+                >
+                  {navLink.name}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </main>
+        <Footer />
+      </>
+    );
   } else {
     return (
       <>
