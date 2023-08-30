@@ -13,11 +13,9 @@ const CartPage = () => {
     };
 
     const { cartProducts, removeAll, getTotalProduct, getTotalCartPrice } = useCartContext();
-    console.log(cartProducts);
 
     return (
-        <main>
-
+        <section className={style.cart}>
             <div className={style.firstSection}>
                 <h2>Panier</h2>
                 <span onClick={removeAll} >Vider le panier</span>
@@ -41,8 +39,7 @@ const CartPage = () => {
             <div className={style.button}>
                 <CallToActionButton buttonType="button" title={"Valider le panier"} callback={redirect} />
             </div>
-
-        </main>
+            </section>
     )
 }
 

@@ -24,9 +24,9 @@ function App() {
       
         <main>
             <Outlet />
-          <ul className={style.navigation}>
+          {/* <ul className={style.navigation}>
             {" "}
-            {/* Menu temporaire :
+            Menu temporaire :
             {NAV_LINKS.map((navLink) => (
               <li key={navLink.id}>
                 <NavLink
@@ -36,8 +36,8 @@ function App() {
                   {navLink.name}
                 </NavLink>
               </li>
-            ))} */}
-          </ul>
+            ))}
+          </ul> */}
         </main>
         <Footer />
       </>
@@ -73,7 +73,7 @@ function App() {
         <Hero />
         <main>
             <Outlet />
-          <ul className={style.navigation}>
+          {/* <ul className={style.navigation}>
             {" "}
             Menu temporaire :
             {NAV_LINKS.map((navLink) => (
@@ -86,7 +86,7 @@ function App() {
                 </NavLink>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </main>
         <Footer />
       </>

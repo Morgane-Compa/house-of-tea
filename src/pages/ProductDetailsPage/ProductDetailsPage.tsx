@@ -17,14 +17,6 @@ export const oneProductLoader = async (args: ActionFunctionArgs): Promise<IProdu
   const { params: { id } } = args;
   const productId = Number(id);
   const foundProduct = await getProductById(productId);
-
-  // Faire la redirection en cas de non dispo (navigate)
-  // if(!foundProduct) {
-  //   throw new Response("", {
-  //     status: 404,
-  //     statusText: "Ce produit n'existe pas",
-  //   })
-  // }
   return foundProduct;
 }
 
@@ -47,6 +39,8 @@ export interface IExtra {
 
 const ProductDetailsPage: React.FC = (extraPrice) => {
 
+
+
   const navigate = useNavigate()
   const foundProduct = useLoaderData() as IProduct;
   const { addToCart } = useCartContext();
@@ -54,29 +48,34 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
     addToCart(product, quantity);
     navigate('/cart');
   }
-  //Test de quantités du produit commandé => à développer
-
+  useEffect(() => {
+    if(!foundProduct.isAvailable){
+      navigate('/unknown')
+    }
+  },[foundProduct, navigate])
 
   // *** SIZE ***
   // Utilisée pour boucler dans le jsx
   const sizeList: ISizeChoice[] = SIZE_CHOICE;
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [size, setSize] = useState<ISizeChoice>({
-    id: 1,
-    name: "Petit",
-    icon: "/assets/icons/smallcup.png",
-    price: 0,
-    isSelected: true
-  });
+  const defaultSize = !foundProduct.isCustomizable ? undefined : SIZE_CHOICE[0];
+  const [size, setSize] = useState<ISizeChoice | undefined>(defaultSize);
   const handleCallBackSize = (sizeChoice: ISizeChoice) => {
     setSize(sizeChoice);
     finalProduct.size = sizeChoice;
     setFinalProduct({ ...finalProduct });
   }
+  useEffect(() => {
+    SIZE_CHOICE.filter((item) => { 
+      return item.id !== 1; 
+    }).map((size) => size.isSelected = false);
+    SIZE_CHOICE[0].isSelected = true;
+  },[])
 
   // *** TEMPERATURE ***
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [temp, setTemp] = useState<string>("Chaud");
+  const defaultTemp = !foundProduct.isCustomizable ? undefined : 'Chaud';
+  const [temp, setTemp] = useState<string | undefined>(defaultTemp);
   const handleCallBackTemp = (temperature: string) => {
     setTemp(temperature);
     finalProduct.temp = temperature;
@@ -85,7 +84,8 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
 
   // *** INTENSITY ***
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [int, setInt] = useState<string>("Délicat");
+  const defaultIntensity = !foundProduct.isCustomizable ? undefined : 'Délicat';
+  const [int, setInt] = useState<string | undefined>(defaultIntensity);
   const handleCallBackIntensity = (intensity: string) => {
     setInt(intensity);
     finalProduct.intensity = intensity;
@@ -93,7 +93,7 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
   }
 
   // *** EXTRALIST ***
-  // Je passe la focntion de création d'une liste à l'enfant sous buildExtraList
+  // Je passe la fonction de création d'une liste à l'enfant sous buildExtraList
   const [extraList, setExtraList] = useState<IExtra[]>([]);
   const getExtraList = (list: IExtra[]) => {
     setExtraList(list);
@@ -140,10 +140,17 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
       const extraPrice = extraList.reduce((totalPrice, extra) => {
         return totalPrice += extra.finalPrice
       }, 0)
-      const price = foundProduct.price + size.price + extraPrice;
-      setFinalPrice(price);
-      finalProduct.finalPrice = price;
-      setFinalProduct({ ...finalProduct });
+      if(size){
+        const price = foundProduct.price + size.price + extraPrice;
+        setFinalPrice(price);
+        finalProduct.finalPrice = price;
+        setFinalProduct({ ...finalProduct });
+      }else{
+        const price = foundProduct.price + extraPrice;
+        setFinalPrice(price);
+        finalProduct.finalPrice = price;
+        setFinalProduct({ ...finalProduct });
+      }
     }
     
     getFinalPrice();
@@ -167,7 +174,7 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
       }
       {/* Condition apparition de la température et de l'intensité */}
       {
-        foundProduct.customization ?
+        foundProduct.isCustomizable ?
           <>
             <span className={style.interligne}></span>
             <TemperatureChoiceList sendTempToDetailsPage={handleCallBackTemp} />
