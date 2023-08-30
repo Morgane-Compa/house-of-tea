@@ -1,20 +1,22 @@
 .submit {
     width: 95%;
-    height: 3rem;
+    height: 106px;
+    padding: 25.7px;
     text-align: center;
     cursor: pointer;
     border: none;
     background-color: var(--yellow);
     border-radius: 5px;
     font-family: var(--font-text);
-    font-size: 1.5rem;
+    font-size: 50px;
     color: var(--black);
 }
 
 @media screen and (max-width: 900px) {
     .submit {
         width: 20.56rem;
-        height: 2.875rem;
-        font-size: 1.25rem;
+        height: 44px;
+        padding: 12px;
+        font-size: 20px;
     }
 }

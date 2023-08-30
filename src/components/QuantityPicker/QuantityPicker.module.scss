@@ -5,28 +5,43 @@
     width: auto;
     font-size: 1.5rem;
 
+    @media screen and (max-width: 1000px) {
+        font-size: 10px;
+        height: 15px;;
+    }
+
     .increase {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 3.31rem;
-        width: 3.31rem;
+        width: 53px;
+        height: 52px;
         background-color: var(--yellow);
-        border-bottom-right-radius: 20%;
-        border-top-right-radius: 20%;
+        border-radius: 0px 20px 20px 0px;
         font-size: 1.875rem;
+
+        @media screen and (max-width: 1000px) {
+            width: 15.749px;
+            height: 15.451px;
+            font-size: 12px;
+        }
     }
 
     .decrease {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 3.31rem;
-        width: 3.31rem;
+        width: 53px;
+        height: 52px;
         background-color: var(--yellow);
-        border-bottom-left-radius: 20%;
-        border-top-left-radius: 20%;
+        border-radius: 20px 0px 0px 20px;
         font-size: 1.875rem;
+
+        @media screen and (max-width: 1000px) {
+            width: 15.749px;
+            height: 15.451px;
+            font-size: 12px;
+        }
     }
 
     .quantity {

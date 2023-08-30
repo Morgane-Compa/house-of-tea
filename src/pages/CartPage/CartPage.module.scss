@@ -1,5 +1,5 @@
 .firstSection {
-    width: 73.25rem;
+    width: 90vw;
     padding: 2rem 1rem;
     display: flex;
     justify-content: space-between;
@@ -9,11 +9,17 @@
         font-size: 60px;
         font-weight: 700;
         font-family: var(--font-text);
+        @media screen and (max-width: 900px) {
+            font-size: 25px;
+        }
     }
 
     span {
         font-family: var(--font-text);
         font-size: 35px;
+        @media screen and (max-width: 900px) {
+            font-size: 20px;
+        }
     }
 }
 
@@ -24,7 +30,7 @@
 }
 
 .lastSection {
-    width: 73.25rem;
+    width: 90vw;
     padding: 2rem 1rem;
     display: flex;
     justify-content: space-between;
@@ -33,6 +39,9 @@
     p {
         font-family: var(--font-text);
         font-size: 50px;
+        @media screen and (max-width: 900px) {
+            font-size: 20px;
+        }
     }
 }
 
@@ -40,4 +49,15 @@
     text-decoration-line: underline;
     font-family: var(--font-text);
     font-size: 50px;
+    padding-bottom: 51px;
+
+    @media screen and (max-width: 900px) {
+        font-size: 20px;
+    }
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    width: 90vw;
 }
