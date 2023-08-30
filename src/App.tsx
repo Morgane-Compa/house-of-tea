@@ -26,7 +26,7 @@ function App() {
             <Outlet />
           <ul className={style.navigation}>
             {" "}
-            Menu temporaire :
+            {/* Menu temporaire :
             {NAV_LINKS.map((navLink) => (
               <li key={navLink.id}>
                 <NavLink
@@ -36,7 +36,7 @@ function App() {
                   {navLink.name}
                 </NavLink>
               </li>
-            ))}
+            ))} */}
           </ul>
         </main>
         <Footer />
