@@ -2,13 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 3.6875rem;
+    // gap: 3.6875rem;
+    gap: clamp(0rem, -3.9063rem + 12.5vw, 3.125rem);
     flex-wrap: wrap;
     max-width: 80%;
 }
-
-@media screen and (max-width: 900px) {
-    .container {
-        gap: 3rem; 
-   }
-  }

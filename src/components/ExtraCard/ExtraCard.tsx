@@ -72,9 +72,10 @@ const ExtraCard = (props: IExtraCardProps) => {
                     <span>{formatNumber(price)},00€</span>
                 </div>
             </div>
-            {/* Il faut que je communique au picker le name et le price */}
+            <div>
             <QuantityPicker increment={addExtra}
             decrement={removeExtra} totalPicker={extraQuantity} />
+            </div>
         </div>
     )
 

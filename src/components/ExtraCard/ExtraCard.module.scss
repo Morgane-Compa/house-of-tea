@@ -3,21 +3,29 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 
     .infoContainer {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 12.875rem;
-        height: 17.875rem;
+        // width: 12.875rem;
+        // height: 17.875rem;
+        width: 10.80rem;
+        height: 15rem;
         background-color: var(--white);
-        margin-bottom: 0.9375rem;
     } 
 }
 
 @media screen and (max-width: 900px) {
+
     .container {
-        transform: scale(0.7);
+        gap: 0px;
     }
+
+    .infoContainer {
+        transform: scale(0.6);
+    }
+
 }
