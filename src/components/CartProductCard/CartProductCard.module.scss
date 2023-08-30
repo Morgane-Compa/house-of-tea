@@ -26,7 +26,7 @@
     .details {
         display: flex;
         gap: 1rem;
-        border: 1px solid black;
+        // border: 1px solid black;
         width: 100%;
 
         @media screen and (max-width: 1000px) {
@@ -87,16 +87,18 @@
         justify-content: center;
         align-items: center;
         font-size: 1.2rem;
-
-
     }
 
     .trashButton {
         background-color: var(--blanc);
 
-        @media screen and (max-width: 1200px) {
+        @media screen and (max-width: 900px) {
             width: 30px;
             height: 30px;
+            padding-left: 10px;
+        }
+        @media screen and (max-width: 500px) {
+            padding-left: 3px;
         }
     }
 }
