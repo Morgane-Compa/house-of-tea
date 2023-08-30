@@ -10,7 +10,7 @@ const Header = () => {
           <p className={style.subtitle}>Le bar à thés d'exception</p>
         </Link>
       </div>
-      <div>
+      <div className={style.lastSection}>
         <Link to="/cart">
         <img
           src="/assets/icons/cart-icon.svg"
