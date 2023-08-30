@@ -1,0 +1,78 @@
+.main {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.background {
+    width: 100vw;
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.content {
+    position: absolute;
+    top: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7rem;
+    // max-width: 77%;
+
+    @media screen and (max-width: 1100px) {
+        top: 0;
+    }
+
+    @media screen and (max-width: 530px) {
+        max-width: 259px;
+    }
+}
+
+.button {
+    width: 41rem;
+    height: 6.625rem;
+    padding: 25.7px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--yellow);
+    color: var(--black);
+    text-align: center;
+    font-family: var(--font-text);
+    font-size: 3.125rem;
+    font-style: normal;
+    font-weight: 700;
+    @media screen and (max-width: 900px) {
+        width: 20.56rem;
+        height: 55px;
+        padding: 15px;
+        font-size: 1.25rem;
+    }
+}
+
+.takeAway {
+    width: 41rem;
+    height: 6.625rem;
+    padding: 25.7px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--orange);
+    color: var(--black);
+    text-align: center;
+    font-family: var(--font-text);
+    font-size: 3.125rem;
+    font-style: normal;
+    font-weight: 700;
+    @media screen and (max-width: 900px) {
+        width: 20.56rem;
+        height: 55px;
+        padding: 15px;
+        font-size: 1.25rem;
+    }
+}

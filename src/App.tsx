@@ -48,7 +48,7 @@ function App() {
         <Header />
         <main>
             <Outlet />
-          <ul className={style.navigation}>
+          {/* <ul className={style.navigation}>
             {" "}
             Menu temporaire :
             {NAV_LINKS.map((navLink) => (
@@ -61,7 +61,7 @@ function App() {
                 </NavLink>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </main>
         <Footer />
       </>
