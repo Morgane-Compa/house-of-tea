@@ -8,14 +8,13 @@ import { NAV_LINKS } from "mocks/navigation.mock";
 
 
 function App() {
-
   // ************* BackButton *****************
   const navigate = useNavigate();
   const back = (): void => {
     navigate(-1);
   };
   const location = useLocation();
-  if(location.pathname !== "/recap" && location.pathname !== "/products" && location.pathname !== "/"  ){
+  if(location.pathname !== "/recap" && location.pathname !== "/products" && location.pathname !== "/"){
     return (
       <>
         <Header />
@@ -43,6 +42,30 @@ function App() {
         <Footer />
       </>
     ) 
+  } else if(location.pathname === "/") {
+    return (
+      <>
+        <Header />
+        <main>
+            <Outlet />
+          {/* <ul className={style.navigation}>
+            {" "}
+            Menu temporaire :
+            {NAV_LINKS.map((navLink) => (
+              <li key={navLink.id}>
+                <NavLink
+                  className={({ isActive }) => (isActive ? style.activeLink : "")}
+                  to={navLink.path}
+                >
+                  {navLink.name}
+                </NavLink>
+              </li>
+            ))}
+          </ul> */}
+        </main>
+        <Footer />
+      </>
+    );
   } else {
     return (
       <>
