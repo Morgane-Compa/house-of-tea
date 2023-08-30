@@ -19,9 +19,10 @@ export interface ICartProduct {
 // Mon panier
 interface ICart {
     cartProducts: ICartProduct[];
-    orderNumber: string | undefined;
+    orderNumber: number | undefined;
+    orderMode: string;
     // on importe notre fonction addToCart dans le produit et on dit quelle ne renvoie rien
-    addToCart: (newproduct: IFormValue, newQuantity: number) => void;
+    addToCart: (newProduct: IFormValue, newQuantity: number) => void;
     addOneToCart: (cartProductId: string) => void;
     removeOneById: (productId: string) => void;
     removeOnlyOne: (cartProductId: string) => void;
@@ -30,12 +31,14 @@ interface ICart {
     getTotalCartPrice: () => number;
     getProductQuantity: (productId: string) => number;
     createOrderNumber: () => void;
+    chooseOrderMode: (mode: string) => void;
 };
 
 // On créer un Panier vide par defaut
 const defaultCart: ICart = {
     cartProducts: [],
     orderNumber: undefined,
+    orderMode: 'A emporter',
     // DefaultCart est de type ICart donc on doit aussi déclarer les fonctions qu'on à mis dans notre type et les déclarer comme vide 
     addToCart: () => { },
     addOneToCart: () => {},
@@ -46,7 +49,8 @@ const defaultCart: ICart = {
     getTotalProduct: () => 0,
     getTotalCartPrice: () => 0,
     getProductQuantity: () => 0,
-    createOrderNumber: () => {}
+    createOrderNumber: () => {},
+    chooseOrderMode: () => {}
 }
 
 const CartContext = createContext<ICart>(defaultCart)
@@ -68,27 +72,28 @@ const CartProvider = (props: CartProviderProps) => {
     const [cardProducts, setProducts] = useState<ICartProduct[]>([])
 
     // dans mes arguments j'importe le type de mon mock
-    const addToCart = (newproduct: IFormValue, newQuantity: number) => {
+    const addToCart = (newProduct: IFormValue, newQuantity: number) => {
 
         const newCartProduct: ICartProduct = {
             id: uuidv4(),
-            product: newproduct.product,
+            product: newProduct.product,
             quantity: newQuantity,
-            finalPrice: newproduct.finalPrice,
-            size: newproduct.size,
-            temp: newproduct.temp,
-            intensity: newproduct.intensity,
-            extras: newproduct.extras
+            finalPrice: newProduct.finalPrice,
+            size: newProduct.size,
+            temp: newProduct.temp,
+            intensity: newProduct.intensity,
+            extras: newProduct.extras
         }
         //je regarde si le produit n'existe pas déja
         const foundProduct = cardProducts.find((p) =>
          p.product === newCartProduct.product 
          && p.intensity === newCartProduct.intensity 
-        //  && p.extras === newCartProduct.extras
-         && p.size === newCartProduct.size
+         && p.size?.name === newCartProduct.size?.name
          && p.temp === newCartProduct.temp
-        //  && p.finalPrice === newCartProduct.finalPrice
+         && p.finalPrice === newCartProduct.finalPrice
+        && JSON.stringify(p.extras) === JSON.stringify(newCartProduct.extras)
          );
+         
 
         // Si mon produit n'existe pas, le créer
         if (!foundProduct) {
@@ -160,16 +165,21 @@ const CartProvider = (props: CartProviderProps) => {
         return cartProduct ? cartProduct.quantity : 0;
     };
 
-    const [orderNumber, setOrderNumber] = useState<string>('')
+    const [orderNumber, setOrderNumber] = useState<number>(145263)
     const createOrderNumber = () => {
-        const orderNumber =  uuidv4();
-        setOrderNumber(orderNumber);
+        const order = orderNumber + 1  ;
+        setOrderNumber(order);
     }
 
+    const [orderMode, setOrderMode] = useState<string>('A emporter')
+    const chooseOrderMode = (mode: string) => {
+        setOrderMode(mode);
+    }
     // Je définit mon panier 
     const cart: ICart = {
         cartProducts: cardProducts,
         orderNumber: orderNumber,
+        orderMode: orderMode,
         createOrderNumber,
         // Mes fonctions
         addToCart,
@@ -179,7 +189,8 @@ const CartProvider = (props: CartProviderProps) => {
         removeAll,
         getTotalProduct,
         getTotalCartPrice,
-        getProductQuantity
+        getProductQuantity,
+        chooseOrderMode
     }
     return <CartContext.Provider value={cart}>{children}</CartContext.Provider>
 }

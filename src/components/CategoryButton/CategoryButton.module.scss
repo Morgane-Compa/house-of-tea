@@ -2,9 +2,13 @@
     padding: 2.8rem 7.7rem;
     background-color: var(--white);
     border: 0.1rem solid var(--black);
-    font-size: 2.2rem;
+    font-size: clamp(1.1rem, 3vw, 2.2rem);
     font-family: var(--font-text);
     width: 33.33vw;
+    height: 6vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .active{
     background-color: var(--yellow);

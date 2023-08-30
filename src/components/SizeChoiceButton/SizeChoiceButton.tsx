@@ -1,6 +1,7 @@
 import { formatNumber } from "services/globalMethods";
 import style from "./SizeChoiceButton.module.scss";
 import { ISizeChoice, SIZE_CHOICE } from 'mocks/product.mock';
+import {useEffect} from "react";
 
 interface SizeChoiceButtonProps {
   CallBackSize: (data: ISizeChoice) => void;
@@ -19,6 +20,7 @@ const SizeChoiceButton = (props: SizeChoiceButtonProps) => {
     // ... et celui qui est actif prend sa couleur jaune
     size.isSelected = !size.isSelected;
   }
+
 
   return (
       <button className={`${style.button} ${size.isSelected === true && style.isActive}`} type="button" onClick={() => selectSize()}>
