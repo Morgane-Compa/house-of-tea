@@ -47,8 +47,7 @@ const CartProductCard = (props: CartProductCardProps) => {
 
           {product.isCustomizable && (
             <span>
-              {cartProduct.size?.name}, {cartProduct.intensity},
-              {cartProduct.temp}
+              {cartProduct.size?.name}, {cartProduct.intensity}, {cartProduct.temp}
             </span>
           )}
           {cartProduct.extras?.length ? (
@@ -56,7 +55,7 @@ const CartProductCard = (props: CartProductCardProps) => {
               Extras :
               {cartProduct.extras?.map((extra) => (
                 <li key={extra.id}>
-                  {extra.name}({extra.quantity}),{" "}
+                  {extra.name}({extra.quantity}),  
                 </li>
               ))}
             </ul>

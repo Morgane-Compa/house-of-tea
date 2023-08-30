@@ -13,19 +13,19 @@ const IntensityChoiceList = (props: any) => {
     const intensity: HTMLButtonElement = event.currentTarget;
     
     if(intensity.id === "soft") {
-      props.sendIntensityToDetailsPage("soft")
+      props.sendIntensityToDetailsPage("Délicat")
       setIsSoft(true)
       setIsRegular(false)
       setIsStrong(false)
     }
     if(intensity.id === "regular") {
-      props.sendIntensityToDetailsPage("regular")
+      props.sendIntensityToDetailsPage("Moyen")
       setIsSoft(false)
       setIsRegular(true)
       setIsStrong(false)
     }
     if(intensity.id === "strong") {
-      props.sendIntensityToDetailsPage("strong")
+      props.sendIntensityToDetailsPage("Puissant")
       setIsSoft(false)
       setIsRegular(false)
       setIsStrong(true)

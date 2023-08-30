@@ -11,12 +11,12 @@ const TemperatureChoiceList = (props: any) => {
       const temp: HTMLButtonElement = event.currentTarget;
   
       if(temp.id === "hot") {
-        props.sendTempToDetailsPage("chaud")
+        props.sendTempToDetailsPage("Chaud")
         setIsHot(true)
         setIsCold(false)
       }
       if(temp.id === "cold") {
-        props.sendTempToDetailsPage("glacé")
+        props.sendTempToDetailsPage("Glacé")
         setIsHot(false)
         setIsCold(true)
       }

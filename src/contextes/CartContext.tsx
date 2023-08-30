@@ -131,7 +131,7 @@ const CartProvider = (props: CartProviderProps) => {
         if(!foundProduct) {
             return;
         } else {
-            if (foundProduct.quantity >= 1) {
+            if (foundProduct.quantity > 1) {
                 foundProduct.quantity -= 1;
                 setProducts([...cardProducts]);
             } else {
