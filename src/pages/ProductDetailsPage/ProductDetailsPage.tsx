@@ -191,7 +191,6 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
         </div>
       </div>
       <CallToActionButton buttonType="button" title={"Ajouter au panier"} callback={() => {addProductToCart(finalProduct, finalQuantity) }} />
-  
     </form >
   );
 };

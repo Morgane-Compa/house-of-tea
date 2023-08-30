@@ -5,6 +5,9 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
+    position: relative;
+    top: -30vh;
+    margin-bottom: -30vh;
 }
 
 .size {
@@ -15,16 +18,19 @@
 .intense {
     text-align: center;
     font-family: var(--font-text);
-    font-size: 3.75rem;
+    // 3.75
+    font-size: 3rem;
     font-weight: 100;
-    margin-bottom: 3.125rem;
+    // 3.125
+    margin-bottom: 2.125rem;
 }
 
 .interligne {
     border-bottom: 2px solid var(--black);
     width: 50%;
-    margin-bottom: 4.93rem;
-    margin-top: 4.93rem;
+    // 4.93
+    margin-bottom: 2.93rem;
+    margin-top: 2.93rem;
 }
 
 .total {
@@ -36,7 +42,7 @@
     margin-bottom: 4.93rem;
 
     .totalPrice {
-        font-size: 3.4375rem;
+        font-size: 3rem;
     }
 }
 
@@ -44,6 +50,8 @@
 
     .extraContainer {
         gap: 0rem;
+        top: -15vh;
+        margin-bottom: -15vh;
     }
 
     .intense {
@@ -62,10 +70,6 @@
 
         .totalPrice {
             font-size: 1.25rem;
-        }
-        
-        .picker {
-            transform: scale(0.7);
         }
    }
   }

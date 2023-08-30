@@ -4,7 +4,7 @@ import { ISizeChoice, SIZE_CHOICE } from 'mocks/product.mock';
 
 interface SizeChoiceButtonProps {
   CallBackSize: (data: ISizeChoice) => void;
-  size: ISizeChoice
+  size: ISizeChoice;
 }
 
 const SizeChoiceButton = (props: SizeChoiceButtonProps) => {
@@ -22,7 +22,8 @@ const SizeChoiceButton = (props: SizeChoiceButtonProps) => {
 
   return (
       <button className={`${style.button} ${size.isSelected === true && style.isActive}`} type="button" onClick={() => selectSize()}>
-        <img src={size.icon} alt={size.name} className={style.icon} />
+        <p className={style.text}>{size.name}</p>
+        {/* <img src={size.icon} alt={size.name} className={style.icon} /> */}
         <div className={style.price}>+{formatNumber(size.price)},00€</div>
       </button>
   )
