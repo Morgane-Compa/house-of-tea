@@ -257,7 +257,7 @@ export const PRODUCTS: IProduct[] = [
         },
         {
           id: 8,
-          name: "Fruit rouges",
+          name: "Fruits rouges",
           image: {
             src: "/assets/products/extras/baies-fraiches-forets-blanc (1).svg",
             alt: "image de fruits rouges pour extra",
@@ -357,7 +357,7 @@ export const PRODUCTS: IProduct[] = [
         },
         {
           id: 8,
-          name: "Fruit rouges",
+          name: "Fruits rouges",
           image: {
             src: "/assets/products/extras/baies-fraiches-forets-blanc (1).svg",
             alt: "image de fruits rouges pour extra",
@@ -389,12 +389,12 @@ export const PRODUCTS: IProduct[] = [
   },
   {
     id: 4,
-    name: "Expresso",
+    name: "Espresso",
     description: " café court est un café très corsé avec un fort arôme, obtenu par percolation sous haute pression",
     price: 3.5,
     image: {
       src: "/assets/products/coffees/expresso.svg",
-      alt: "image d'expresso'",
+      alt: "image d'espresso'",
     },
     allergens: ["caféine", "vegan", "sans gluten"],
     category: 2,
@@ -423,7 +423,7 @@ export const PRODUCTS: IProduct[] = [
   {
     id: 6,
     name: "Chocolat à l'ancienne",
-    description: "Chocolat chaud préparé de fançon ancienne, moins sucré et plus onctueux",
+    description: "Chocolat chaud préparé de façon ancienne, moins sucré et plus onctueux",
     price: 4,
     image: {
       src: "/assets/products/chocolates/old-chocolate.svg",
@@ -440,8 +440,8 @@ export const PRODUCTS: IProduct[] = [
   // jus
   {
     id: 7,
-    name: "smootie fraise citron",
-    description: "Recette traditionnelle de boisson crémeuse mixée avec des fraises, du citron, du yaourt et de la glace pilé ",
+    name: "Smoothie fraise citron",
+    description: "Recette traditionnelle de boisson crémeuse mixée avec des fraises, du citron, du yaourt et de la glace pilée ",
     price: 4,
     image: {
       src: "/assets/products/juice/cocktail fraise-citron.svg",
@@ -455,8 +455,8 @@ export const PRODUCTS: IProduct[] = [
   },
   {
     id: 8,
-    name: "smootie banane annanas",
-    description: "Recette traditionnelle de boisson crémeuse mixée avec des babanes, de l'annanas, du yaourt et de la glace pilé ",
+    name: "Smoothie banane annanas",
+    description: "Recette traditionnelle de boisson crémeuse mixée avec des babanes, de l'annanas, du yaourt et de la glace pilée ",
     price: 4,
     image: {
       src: "/assets/products/juice/verre-cocktails-glaces-plage-mer 1.svg",
@@ -489,11 +489,11 @@ export const PRODUCTS: IProduct[] = [
   {
     id: 10,
     name: "Assortiment de six macarons",
-    description: "Petits gâteaux français à l'amande, granuleux et moelleux, à la forme arrondie et à la ganache gout chocolat, framboise, pistache et café",
+    description: "Petits gâteaux français à l'amande, granuleux et moelleux, à la forme arrondie et à la ganache goût chocolat, framboise, pistache et café",
     price: 6,
     image: {
       src: "/assets/products/desserts/macarrons.svg",
-      alt: "image de macarons de différent gouts",
+      alt: "image de macarons de différents gouts",
     },
     allergens: ["lactose", "fruit à coques", "gluten"],
     category: 3,
@@ -521,11 +521,11 @@ export const PRODUCTS: IProduct[] = [
   {
     id: 12,
     name: " Cinnamon roll",
-    description: " viennoiserie originaire de Suède composé de brioche roulé avec de la pâte d'épice, notament de la canelle",
+    description: " viennoiserie originaire de Suède composée de brioche roulée avec de la pâte d'épice, notamment de la canelle",
     price: 2.2,
     image: {
       src: "/assets/products/pastrys/cinnamon-roll.svg",
-      alt: "image de croissants",
+      alt: "image de rolls",
     },
     allergens: ["lactose", "gluten"],
     category: 3,
