@@ -1,10 +1,27 @@
-# Getting Started with Create React App
+# Description du projet "House Of Tea"
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Diambéré, Morgane et Jérôme ont été approché par la gérante de House Of Tea, Madame Machin afin de développer une version de type "borne" et "mobile"
+d'une application de gestion et de vente des produits House Of Tea. 
+House Of Tea est une jeune entreprise, spécialisée dans la vente sur place ou à emportée, de thés d'exceptions mais également de diverses boissons, 
+snacks et patisseries. L'enseigne lance sa première boutique dans le 18ème arrondissement.
 
-## Available Scripts
+## Statut du projet "House Of Tea"
 
-In the project directory, you can run:
+La présente version du projet est fonctionnelle :
+- Page "Home" pour le choix d'une consommation "sur place" ou "à emporter";
+- Page "Liste des produits" avec affichage de tous les produits, un menu d'accès aux catégories produits, un produit est sélectionnable;
+- Page "Détails du Produit" avec affichage, sélection et quantité modifiable des extras possible selon le produit, quantité sélectionnable du produit sélectionné et mise en panier;
+- Page "Panier" avec liste des articles sélectionnés, prix unitaire du articles, liste des éventuels extras sélectionnés liée à chaque article, quantités modifiables et
+  suppression possible pour chaque article, quantité totale des articles indiquée + prix total facturé et accès à la page de paiement;
+- Page "Paiement" avec la sélection possible du réglement en espèces ou en carte bancaire :
+  => La sélection des espèces renvoie à un affichage du total à régler et le message d'impression du ticket à présenter au comptoir => il est possible d'accéder
+  à la page "Récapitulatif de commande" décrite ci-après via CTA;
+  => La sélection du paiement CB est présélectionnée et le formulaire est sur la même page
+  => Les champs de formulaire sont gérés avec des Regex et renvoient les erreurs de format (longueur, omission, ...);
+- Page "Récapitulatif de commande" qui indique le numéro de commande, les produits séléctionnés, leurs éventuels extras et quantités, les quantités produits,
+  le montant total facturé et le mode de consommation du client;
+  - Page 404 en cas de mauvaise redirection ou produit indisponible
+
 
 ### `npm start`
 
