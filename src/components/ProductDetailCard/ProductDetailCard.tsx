@@ -13,8 +13,8 @@ const ProductDetailCard = (props: ProductDetailCardProps) => {
             <img src={product.image.src} alt={product.image.alt} />
             <div className={`${style.infos}`}>
                 <h2>{product.name}</h2>
-                <span>{product.price}€</span>
                 <span>{product.description}</span>
+                <span>{product.price}€</span>
             </div>
         </article>)
 }
