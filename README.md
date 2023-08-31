@@ -8,7 +8,7 @@ snacks et patisseries. L'enseigne lance sa première boutique dans le 18ème arr
 ### Description des techonologies et descriptif de l'installation du projet
 
 - Application développée en React + Typescript
-- Dépendances spécifiques => Sass (scss), react-router-don, react-hook-form, uuid
+- Dépendances spécifiques => Sass (scss), react-router-dom, react-hook-form, uuid (n° de commande)
 - Cloner le projet 
     - **git clone https://github.com/Morgane-Compa/house-of-tea.git**
     - Faire un **npm install** afin d'installer les dépendances nécessaires au projet
