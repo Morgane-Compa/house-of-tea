@@ -4,27 +4,32 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-
     .infoContainer {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        // width: 12.875rem;
-        // height: 17.875rem;
-        width: 10.80rem;
+        width: 206px;
         height: 15rem;
         background-color: var(--white);
-    } 
+        border-radius: 5px;
+        @media screen and (max-width: 900px) {
+             width: 108px;
+        } 
+    }
 }
 
 @media screen and (max-width: 900px) {
 
     .container {
-        gap: 0px;
+        gap: 10px;
+        height: 192px;
+        width: 108px;
+        margin: 10px 15px;
     }
 
-    .infoContainer {
-        transform: scale(0.6);
+    .responsive {
+        width: 74px;
+        height: 77px;
     }
 }
