@@ -33,6 +33,7 @@ La présente version du projet est fonctionnelle (pas de persistance des donnée
 - Page "Récapitulatif de commande" qui indique le numéro de commande, les produits séléctionnés, leurs éventuels extras et quantités, les quantités produits,
   le montant total facturé et le mode de consommation du client;
   - Page 404 en cas de mauvaise redirection ou produit indisponible
+  - L'application est responsive
  
 ### Bugs (B) relevés et améliorations (A) prévues de la V2
 
