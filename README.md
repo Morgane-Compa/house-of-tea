@@ -17,8 +17,8 @@ snacks et patisseries. L'enseigne lance sa première boutique dans le 18ème arr
 - Organisation
   => Trello **https://trello.com/b/JYDUwoCm/unprojetparfait**
 - Documents de travail
-  => **https://www.figma.com/file/IeKDOv6NGnujRhZP33rpEg/House-of-Tea?type=design&node-id=41-326&mode=design&t=DIMhknbULts9yqWs-0**
-  => **https://www.canva.com/design/DAFl5YlsXmc/ur_ewfJ220MmSOuDi5lhdw/edit?utm_content=DAFl5YlsXmc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton**
+  - **https://www.figma.com/file/IeKDOv6NGnujRhZP33rpEg/House-of-Tea?type=design&node-id=41-326&mode=design&t=DIMhknbULts9yqWs-0**
+  - **https://www.canva.com/design/DAFl5YlsXmc/ur_ewfJ220MmSOuDi5lhdw/edit?utm_content=DAFl5YlsXmc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton**
 
 ### Statut V1 du projet "House Of Tea"
 
