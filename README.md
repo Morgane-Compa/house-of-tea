@@ -35,6 +35,7 @@ La présente version du projet est fonctionnelle (pas de persistance des donnée
 - (B) Page "récapitulatif de commande" => redirection automatique à la page Home ne fonctionne pas;
 - (A) Mise en place de la persistance des données avec le LocalStorage, voir mise en place d'une base de données mySql;
 - (A) Envisager la possibilité d'utiliser un Context pour la gestion de la customisation d'un produit (props pour le moment)
+- (A) Optimiser le poids des photos pour le chargement rapide des pages
 
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
