@@ -41,6 +41,11 @@ La présente version du projet est fonctionnelle (pas de persistance des donnée
 - (A) Mise en place de la persistance des données avec le LocalStorage, voir mise en place d'une base de données mySql;
 - (A) Envisager la possibilité d'utiliser un Context pour la gestion de la customisation d'un produit (props pour le moment)
 - (A) Optimiser le poids des photos pour le chargement rapide des pages
+- (A) <Modale pour confirmer l'abandon de la commande
+- (A) nombres d'article dans le panier rappelé dans l'icône basket du header
+- (A) Système de notation des thés
+- (A) Ajouter l'affichage de la TVA
+- (A) Ajouter un numéro de table au récapitulatif pour les consommations sur place
 
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
