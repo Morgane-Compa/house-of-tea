@@ -3,7 +3,7 @@
 Diambéré, Morgane et Jérôme ont été approché par la gérante de House Of Tea, Madame Maria Paffoto afin de développer une version de type "borne" et "mobile"
 d'une application de gestion et de vente des produits House Of Tea. 
 House Of Tea est une jeune entreprise, spécialisée dans la vente sur place ou à emportée, de thés d'exceptions mais également de diverses boissons, 
-snacks et patisseries. L'enseigne lance sa première boutique dans le 18ème arrondissement.
+snacks et patisseries. L'enseigne lance sa première boutique dans le 18ème arrondissement de Paris.
 
 ### Description des techonologies et descriptif de l'installation du projet
 
