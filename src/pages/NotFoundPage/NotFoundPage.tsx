@@ -9,7 +9,7 @@ const NotFoundPage = () => {
             <Header />
             <main className={style.main}>
                 <div className={style.background}>
-                    <img src="/assets/other-images/bg-img.svg" alt="" />
+                    <img src="/assets/other-images/bg-img.svg" alt="not-found" />
                 </div>
                 <div className={style.content}>
                     <h2>Oups,</h2>

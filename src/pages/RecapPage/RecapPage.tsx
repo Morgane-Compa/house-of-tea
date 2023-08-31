@@ -34,7 +34,7 @@ const RecapPage = () => {
   return (
     <section className={style.recap}>
       <p>
-        Vous serez redirigé vers l'accueil dans <br />
+        Vous serez redirigés vers l'accueil dans <br />
         <span className={style.timer}>{timer}s.</span>
       </p>
       {orderNumber && (
