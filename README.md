@@ -7,8 +7,8 @@ snacks et patisseries. L'enseigne lance sa première boutique dans le 18ème arr
 
 ### Description des techonologies et descriptif de l'installation du projet
 
-- Application développée en Reactjs + Typescript
-- Dépendances spécifiques => Sass (scss), UUID (gestion des ids)
+- Application développée en React + Typescript
+- Dépendances spécifiques => Sass (scss), react-router-don, react-hook-form, uuid
 - Cloner le projet 
     - **git clone https://github.com/Morgane-Compa/house-of-tea.git**
     - Faire un **npm install** afin d'installer les dépendances nécessaires au projet
@@ -40,9 +40,8 @@ La présente version du projet est fonctionnelle (pas de persistance des donnée
 - Page 404 en cas de mauvaise redirection ou produit indisponible
 - L'application est responsive
  
-### Bugs (B) relevés et améliorations (A) prévues de la V2
+### Améliorations (A) prévues de la V2
 
-- (B) Page "récapitulatif de commande" => redirection automatique à la page Home ne fonctionne pas;
 - (A) Mise en place de la persistance des données avec le LocalStorage, voir mise en place d'une base de données mySql;
 - (A) Envisager la possibilité d'utiliser un Context pour la gestion de la customisation d'un produit (props pour le moment)
 - (A) Optimiser le poids des photos pour le chargement rapide des pages
