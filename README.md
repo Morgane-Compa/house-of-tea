@@ -12,6 +12,10 @@ snacks et patisseries. L'enseigne lance sa première boutique dans le 18ème arr
 => Cloner le projet avec un **git clone https://github.com/Morgane-Compa/house-of-tea.git**
 => Faire un **npm install** afin d'installer les dépendances nécessaires au projet
 
+### Organisation du travail de développement
+
+=> Trello **https://trello.com/b/JYDUwoCm/unprojetparfait**
+
 ### Statut V1 du projet "House Of Tea"
 
 La présente version du projet est fonctionnelle (pas de persistance des données):
