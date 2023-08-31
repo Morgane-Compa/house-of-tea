@@ -6,7 +6,7 @@
     align-items: center;
     gap: 17px;
     padding: 94px 0 105px;
-    margin-top: clamp(5rem, 3vw, 12rem);
+    // margin-top: clamp(5rem, 3vw, 12rem);
     @media screen and (max-width: 900px) {
         gap: 5px;
         padding: 10px 0 16px;
