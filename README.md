@@ -9,8 +9,9 @@ snacks et patisseries. L'enseigne lance sa première boutique dans le 18ème arr
 
 - Application développée en Reactjs + Typescript
 - Dépendances spécifiques => Sass (scss), UUID (gestion des ids)
-=> Cloner le projet avec un **git clone https://github.com/Morgane-Compa/house-of-tea.git**
-=> Faire un **npm install** afin d'installer les dépendances nécessaires au projet
+- Cloner le projet 
+    - **git clone https://github.com/Morgane-Compa/house-of-tea.git**
+    - Faire un **npm install** afin d'installer les dépendances nécessaires au projet
 
 ### Organisation du travail de développement et documents
 
