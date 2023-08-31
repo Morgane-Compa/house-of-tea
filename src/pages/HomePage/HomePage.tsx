@@ -10,7 +10,7 @@ const HomePage = () => {
                 </div>
                 <div className={style.content}>
                     <OrderChoiceButton text={"Sur place"} css={style.button}/>
-                    <OrderChoiceButton text={"A emporter"} css={style.takeAway}/>
+                    <OrderChoiceButton text={"À emporter"} css={style.takeAway}/>
                 </div>
             </main>
         </>

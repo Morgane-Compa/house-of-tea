@@ -11,7 +11,7 @@ type AllergenType =
   | "tanin"
   | "théine"
   | "caféine"
-  | "fruit à coques"
+  | "fruits à coques"
   | "lactose"
   | "gluten"
   | "fructose"
@@ -455,8 +455,8 @@ export const PRODUCTS: IProduct[] = [
   },
   {
     id: 8,
-    name: "Smoothie banane annanas",
-    description: "Recette traditionnelle de boisson crémeuse mixée avec des babanes, de l'annanas, du yaourt et de la glace pilée ",
+    name: "Smoothie banane ananas",
+    description: "Recette traditionnelle de boisson crémeuse mixée avec des babanes, de l'ananas, du yaourt et de la glace pilée ",
     price: 4,
     image: {
       src: "/assets/products/juice/verre-cocktails-glaces-plage-mer 1.svg",
@@ -480,7 +480,7 @@ export const PRODUCTS: IProduct[] = [
       src: "/assets/products/desserts/moelleux-chocolat.svg",
       alt: "image de moelleux au chocolat",
     },
-    allergens: ["lactose", "fruit à coques", "gluten", "fructose"],
+    allergens: ["lactose", "fruits à coques", "gluten", "fructose"],
     category: 3,
     subCategory: "dessert",
     isCustomizable: false,
@@ -495,7 +495,7 @@ export const PRODUCTS: IProduct[] = [
       src: "/assets/products/desserts/macarrons.svg",
       alt: "image de macarons de différents gouts",
     },
-    allergens: ["lactose", "fruit à coques", "gluten"],
+    allergens: ["lactose", "fruits à coques", "gluten"],
     category: 3,
     subCategory: "dessert",
     isCustomizable: false,
