@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import style from "./Header.module.scss";
+import { useCartContext } from "contextes/CartContext";
 
 const Header = () => {
+
+  const {removeAll} = useCartContext()
+
   return (
     <header className={style.header}>
       <div>
@@ -18,7 +22,7 @@ const Header = () => {
           className={style.cart}
         />
         </Link>
-        <Link to="/cart" className={style.redo}>
+        <Link to="/cart" className={style.redo} onClick={removeAll}>
           Recommencer la commande
         </Link>
       </div>
