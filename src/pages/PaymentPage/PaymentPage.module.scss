@@ -23,3 +23,9 @@
 .isSelected{
     background-color: var(--yellow);
 }
+
+.titre {
+  font-family: var(--font-text);
+  font-size: clamp(1.5625rem, -1.1719rem + 8.75vw, 3.75rem);
+  font-weight: bold;
+}
