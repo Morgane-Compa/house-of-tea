@@ -10,19 +10,20 @@ snacks et patisseries. L'enseigne lance sa première boutique dans le 18ème arr
 - Application développée en Reactjs
 - Dépendances spécifiques => Sass (scss), UUID (gestion des ids)
 => Cloner le projet avec un **git clone https://github.com/Morgane-Compa/house-of-tea.git**
-=> Faire un **npm install** afin d'installer les dépendances nécessaire au lancement du projet
+=> Faire un **npm install** afin d'installer les dépendances nécessaires au projet
 
 ### Statut V1 du projet "House Of Tea"
 
-La présente version du projet est fonctionnelle :
-- Page "Home" pour le choix d'une consommation "sur place" ou "à emporter";
-- Page "Liste des produits" avec affichage de tous les produits, un menu d'accès aux catégories produits, un produit est sélectionnable;
-- Page "Détails du Produit" avec affichage, sélection et quantité modifiable des extras possible selon le produit, quantité sélectionnable du produit sélectionné et mise en panier;
-- Page "Panier" avec liste des articles sélectionnés, prix unitaire du articles, liste des éventuels extras sélectionnés liée à chaque article, quantités modifiables et
-  suppression possible pour chaque article, quantité totale des articles indiquée + prix total facturé et accès à la page de paiement;
-- Page "Paiement" avec la sélection possible du réglement en espèces ou en carte bancaire :
+La présente version du projet est fonctionnelle (pas de persistance des données):
+- Page "Home" pour le choix de consommation "sur place" ou "à emporter" (CTA);
+- Page "Liste des produits" avec affichage de tous les produits, menu d'accès aux catégories produits (CTA), un produit est sélectionnable (CTA);
+- Page "Détails du Produit" avec affichage des customisations possibles (selon le produit), liste et quantités modifiables des extras (selon le produit),
+  quantité totale du produit sélectionné modifiable + mise en panier (CTA);
+- Page "Panier" avec liste des articles sélectionnés, prix unitaire du articles, liste des éventuels extras sélectionnés et liés à chaque article, quantités modifiables et
+  suppression possible pour chaque article, quantité totale de tous les articles + prix total facturé et accès à la page de paiement (CTA);
+- Page "Paiement" avec la sélection possible du réglement en espèces ou en carte bancaire (CTA):
   => La sélection des espèces renvoie à un affichage du total à régler et le message d'impression du ticket à présenter au comptoir => il est possible d'accéder
-  à la page "Récapitulatif de commande" décrite ci-après via CTA;
+  à la page "Récapitulatif de commande" décrite ci-après (CTA);
   => La sélection du paiement CB est présélectionnée et le formulaire est sur la même page
   => Les champs de formulaire sont gérés avec des Regex et renvoient les erreurs de format (longueur, omission, ...);
 - Page "Récapitulatif de commande" qui indique le numéro de commande, les produits séléctionnés, leurs éventuels extras et quantités, les quantités produits,
