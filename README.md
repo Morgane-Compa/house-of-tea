@@ -23,14 +23,14 @@ La présente version du projet est fonctionnelle (pas de persistance des donnée
 - Page "Liste des produits" avec affichage de tous les produits, menu d'accès aux catégories produits (CTA), un produit est sélectionnable (CTA);
 - Page "Détails du Produit" avec affichage des customisations possibles (selon le produit), liste et quantités modifiables des extras (selon le produit),
   quantité totale du produit sélectionné modifiable + mise en panier (CTA);
-- Page "Panier" avec liste des articles sélectionnés, prix unitaire du articles, liste des éventuels extras sélectionnés et liés à chaque article, quantités modifiables et
-  suppression possible pour chaque article, quantité totale de tous les articles + prix total facturé et accès à la page de paiement (CTA);
+- Page "Panier" avec liste des articles sélectionnés, prix unitaire des articles, liste des éventuels extras sélectionnés et liés à chaque article, quantités modifiables et
+  suppression possible de chaque article, quantité totale de tous les articles + prix total facturé et accès à la page de paiement (CTA);
 - Page "Paiement" avec la sélection possible du réglement en espèces ou en carte bancaire (CTA):
   => La sélection des espèces renvoie à un affichage du total à régler et le message d'impression du ticket à présenter au comptoir => il est possible d'accéder
   à la page "Récapitulatif de commande" décrite ci-après (CTA);
-  => La sélection du paiement CB est présélectionnée et le formulaire est sur la même page
+  => La sélection du paiement par CB est présélectionnée et le formulaire est sur la même page
   => Les champs de formulaire sont gérés avec des Regex et renvoient les erreurs de format (longueur, omission, ...);
-- Page "Récapitulatif de commande" qui indique le numéro de commande, les produits séléctionnés, leurs éventuels extras et quantités, les quantités produits,
+- Page "Récapitulatif de commande" qui indique le numéro de commande, les produits séléctionnés, les quantités et leurs éventuels extras, les quantités produits,
   le montant total facturé et le mode de consommation du client;
 - Page 404 en cas de mauvaise redirection ou produit indisponible
 - L'application est responsive
