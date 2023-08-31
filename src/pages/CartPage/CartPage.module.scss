@@ -7,43 +7,34 @@
     margin-bottom: 10vh;
     @media screen and (max-width: 900px) {
         min-height: 70vh;
-        margin-bottom: 0vh;
+        margin-bottom: 5vh;
         justify-content: center;
     }
 }
 
 .firstSection {
     width: 90vw;
-    padding: 2rem 1rem;
+    margin-top: clamp(0rem, 5vw, 4rem);
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     h2 {
-        font-size: 60px;
+        font-size: clamp(1.8rem, 5vw, 4rem);
         font-weight: 700;
         font-family: var(--font-text);
-        @media screen and (max-width: 900px) {
-            font-size: 25px;
-        }
     }
 
     span {
         font-family: var(--font-text);
-        font-size: 35px;
+        font-size: clamp(1rem, 3vw, 2rem);
         cursor: pointer;
-        @media screen and (max-width: 900px) {
-            font-size: 20px;
-        }
     }
 }
 
 .ProductCard {
     li {
-        margin-bottom: 47px;
-        @media screen and (max-width: 900px) {
-            margin-bottom: 9px;
-        }
+        margin-bottom: clamp(1rem, 4vw, 3.2rem);
     }
 }
 
@@ -55,22 +46,15 @@
 
     p {
         font-family: var(--font-text);
-        font-size: 50px;
-        @media screen and (max-width: 900px) {
-            font-size: 20px;
-        }
+        font-size:clamp(1.2rem, 4vw, 2.7rem);
     }
 }
 
 .link {
     text-decoration-line: underline;
     font-family: var(--font-text);
-    font-size: 50px;
-    padding-bottom: 51px;
-
-    @media screen and (max-width: 900px) {
-        font-size: 20px;
-    }
+    font-size: clamp(1.1rem, 3.5vw, 2.5rem);
+    margin-block: clamp(1rem, 3vw, 1.7rem);
 }
 
 .button {

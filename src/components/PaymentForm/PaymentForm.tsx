@@ -11,7 +11,7 @@ interface FormValue {
   cvv: string;
 }
 const PaymentForm = () => {
-  const {getTotalCartPrice, createOrderNumber} = useCartContext();
+  const {getTotalCartPrice, createOrderNumber, choosePaymentMode} = useCartContext();
   const {
     register,
     handleSubmit,
@@ -20,7 +20,8 @@ const PaymentForm = () => {
   } = useForm<FormValue>();
 
   const submitForm = (data: any) => {
-    console.log(data);
+    createOrderNumber();
+    choosePaymentMode('Carte bleue');
     navigate("/recap");
   };
 
@@ -70,7 +71,7 @@ const PaymentForm = () => {
         )}
       </div>
       <div className={style.flexRow}>
-        <div className={style.flexColumn}>
+        <div className={`${style.flexColumn} ${style['two-fields']}`}>
           <label className={style.label}>Date d'expiration</label>
           <input
             type="text"
@@ -90,7 +91,7 @@ const PaymentForm = () => {
             </span>
           )}
         </div>
-        <div className={style.flexColumn}>
+        <div className={`${style.flexColumn} ${style['two-fields']}`}>
           <label className={style.label}>CVV</label>
           <input
             type="text"
@@ -117,7 +118,7 @@ const PaymentForm = () => {
           )}
         </div>
       </div>
-      <span className={style.total}>Total: {getTotalCartPrice()}€</span>
+      <span className={style.total}>Total: {getTotalCartPrice().toFixed(2)}€</span>
       <CallToActionButton
         buttonType="submit"
         title="Payer"

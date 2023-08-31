@@ -5,6 +5,7 @@ import Footer from "components/Footer/Footer";
 import { Outlet, useNavigate, NavLink, useLocation } from "react-router-dom";
 import BackButton from "components/BackButton/BackButton";
 import { NAV_LINKS } from "mocks/navigation.mock";
+import { useEffect } from "react";
 
 
 function App() {
@@ -14,30 +15,20 @@ function App() {
     navigate(-1);
   };
   const location = useLocation();
+  useEffect(() =>{
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+   
+  },[])
+  
   if(location.pathname !== "/recap" && location.pathname !== "/products" && location.pathname !== "/"){
     return (
       <>
         <Header />
         <Hero />
           <BackButton callback={back} />
-        {/* {location.pathname !== "/recap" && location.pathname !== "/products" && location.pathname !== "/" &&  <BackButton callback={back} />} */}
       
         <main>
             <Outlet />
-          {/* <ul className={style.navigation}>
-            {" "}
-            Menu temporaire :
-            {NAV_LINKS.map((navLink) => (
-              <li key={navLink.id}>
-                <NavLink
-                  className={({ isActive }) => (isActive ? style.activeLink : "")}
-                  to={navLink.path}
-                >
-                  {navLink.name}
-                </NavLink>
-              </li>
-            ))}
-          </ul> */}
         </main>
         <Footer />
       </>
@@ -48,20 +39,6 @@ function App() {
         <Header />
         <main>
             <Outlet />
-          {/* <ul className={style.navigation}>
-            {" "}
-            Menu temporaire :
-            {NAV_LINKS.map((navLink) => (
-              <li key={navLink.id}>
-                <NavLink
-                  className={({ isActive }) => (isActive ? style.activeLink : "")}
-                  to={navLink.path}
-                >
-                  {navLink.name}
-                </NavLink>
-              </li>
-            ))}
-          </ul> */}
         </main>
         <Footer />
       </>
@@ -73,20 +50,6 @@ function App() {
         <Hero />
         <main>
             <Outlet />
-          {/* <ul className={style.navigation}>
-            {" "}
-            Menu temporaire :
-            {NAV_LINKS.map((navLink) => (
-              <li key={navLink.id}>
-                <NavLink
-                  className={({ isActive }) => (isActive ? style.activeLink : "")}
-                  to={navLink.path}
-                >
-                  {navLink.name}
-                </NavLink>
-              </li>
-            ))}
-          </ul> */}
         </main>
         <Footer />
       </>

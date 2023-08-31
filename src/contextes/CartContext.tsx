@@ -21,6 +21,7 @@ interface ICart {
     cartProducts: ICartProduct[];
     orderNumber: number | undefined;
     orderMode: string;
+    paymentMode: string | undefined;
     // on importe notre fonction addToCart dans le produit et on dit quelle ne renvoie rien
     addToCart: (newProduct: IFormValue, newQuantity: number) => void;
     addOneToCart: (cartProductId: string) => void;
@@ -32,6 +33,7 @@ interface ICart {
     getProductQuantity: (productId: string) => number;
     createOrderNumber: () => void;
     chooseOrderMode: (mode: string) => void;
+    choosePaymentMode: (mode: string) => void;
 };
 
 // On créer un Panier vide par defaut
@@ -39,6 +41,7 @@ const defaultCart: ICart = {
     cartProducts: [],
     orderNumber: undefined,
     orderMode: 'A emporter',
+    paymentMode: undefined,
     // DefaultCart est de type ICart donc on doit aussi déclarer les fonctions qu'on à mis dans notre type et les déclarer comme vide 
     addToCart: () => { },
     addOneToCart: () => {},
@@ -50,7 +53,8 @@ const defaultCart: ICart = {
     getTotalCartPrice: () => 0,
     getProductQuantity: () => 0,
     createOrderNumber: () => {},
-    chooseOrderMode: () => {}
+    chooseOrderMode: () => {},
+    choosePaymentMode: () => {}
 }
 
 const CartContext = createContext<ICart>(defaultCart)
@@ -144,7 +148,6 @@ const CartProvider = (props: CartProviderProps) => {
     // Ma fonction pour vider tout le panier
     const removeAll = () => {
         setProducts([]); // Retire tous les éléments du panier
-        alert("Votre panier à bien été vidé")
     };
 
     // Ma fonction pour retourner le nombre de produits dans mon panier
@@ -176,11 +179,16 @@ const CartProvider = (props: CartProviderProps) => {
     const chooseOrderMode = (mode: string) => {
         setOrderMode(mode);
     }
+    const [paymentMode, setPaymentMode] = useState<string|undefined>(undefined)
+    const choosePaymentMode = (mode: string) => {
+        setPaymentMode(mode);
+    }
     // Je définit mon panier 
     const cart: ICart = {
         cartProducts: cardProducts,
         orderNumber: orderNumber,
         orderMode: orderMode,
+        paymentMode: paymentMode,
         createOrderNumber,
         // Mes fonctions
         addToCart,
@@ -191,7 +199,8 @@ const CartProvider = (props: CartProviderProps) => {
         getTotalProduct,
         getTotalCartPrice,
         getProductQuantity,
-        chooseOrderMode
+        chooseOrderMode,
+        choosePaymentMode
     }
     return <CartContext.Provider value={cart}>{children}</CartContext.Provider>
 }

@@ -1,41 +1,69 @@
-.recap{
+.recap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(1.7rem, 5vw, 3.5rem);
+  margin-top: clamp(3rem, 15vw, 8rem);
+  margin-bottom: clamp(3rem, 15vw, 8rem);
+
+  .order-infos {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    @media screen and (max-width: 460px){
+        flex-direction: column;
+        gap: .8rem;
+    }
+    .orderNumber {
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: 700;
+    }
+    .orderMode {
+        font-size: clamp(1.2rem, 3vw, 2rem);
+    }
+  }
+  .cartProducts {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 3rem;
-    margin-top: 8rem;
-    margin-bottom: 10vh;
-    @media screen and (max-width: 900px) {
-        margin-top: 10vh;
-      }
-    .orderNumber{
-        font-size: 2rem;
-        font-weight: 700;
-    }
-    .cartProducts{
+    gap: 47px;
+  }
+
+  .payment-mode{
         display: flex;
-        flex-direction: column;
-        gap: 47px;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: clamp(1.5rem, 8vw, 4rem);
+        .payment{
+            font-size: clamp(1rem, 3vw, 2rem);
+        }
+        .price {
+            font-size: clamp(1.2rem, 3vw, 2.5rem);
+            font-weight: 700;
+          }
+  }
+  p{
+    align-self: center;
+    text-align: center;
+    font-size: clamp(1rem, 3vw, 2rem);
+  }
+  .redirection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: clamp(.6rem, 3vw,2rem);
+    margin-bottom: 2rem;
+    .timer {
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: 700;
     }
-    .price{
-        align-self: center;
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-top: 2rem;
-        
-    }
-    .payment, p, .orderMode{
-        align-self: center;
-        text-align: center;
-        line-height: rem;
-        font-size: 1.7rem;
-    }
-    .orderMode{
-        margin-top: 2rem;
-        line-height: 0rem;
-    }
-    .timer{
-        font-size: 2rem;
-        margin-top: 5rem;
-    }
+  }
+  .more-infos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: clamp(.8rem, 3vw, 1.2rem);
+  }
+
 }

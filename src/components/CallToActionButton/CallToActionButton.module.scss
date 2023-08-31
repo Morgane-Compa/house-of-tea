@@ -1,22 +1,12 @@
 .submit {
-    width: 95%;
-    height: 106px;
-    padding: 25.7px;
+    width: 100%;
+    padding: clamp(.1rem, 2vw, 1.2rem);
     text-align: center;
     cursor: pointer;
     border: none;
     background-color: var(--yellow);
     border-radius: 5px;
     font-family: var(--font-text);
-    font-size: 50px;
+    font-size: clamp(1.3rem,4vw,2.5rem);
     color: var(--black);
-}
-
-@media screen and (max-width: 900px) {
-    .submit {
-        width: 20.56rem;
-        height: 44px;
-        padding: 12px;
-        font-size: 20px;
-    }
 }

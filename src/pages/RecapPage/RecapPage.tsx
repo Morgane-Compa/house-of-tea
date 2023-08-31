@@ -5,10 +5,14 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const RecapPage = () => {
+  useEffect(() =>{
+    window.scrollTo({ top: 0 , left: 0, behavior: 'smooth' });
+   
+  },[])
+
   const navigate = useNavigate();
   const [timer, setTimer] = useState<number>(10);
-  const maximumTime = 0;
-  const { cartProducts, orderNumber, getTotalCartPrice, orderMode, removeAll } =
+  const { cartProducts, orderNumber, getTotalCartPrice, orderMode, removeAll, paymentMode } =
     useCartContext();
 
   const getTimer = () => {
@@ -19,27 +23,33 @@ const RecapPage = () => {
       setTimer(0);
     }
   };
-
   useEffect(() => {
     const interval = setInterval(() => getTimer(), 1000);
-    const timeout = setTimeout(() => {
-      clearInterval(interval);
-      // removeAll();
-      console.log()
-      // navigate("/");
-    }, 10000);
-    // setTimeout(() => {clearTimeout(timeout) }, 10001)
+    return () => {clearInterval(interval)};
   }, [timer]);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      removeAll();
+      console.log();
+      navigate("/");
+    }, 10000);
+    return () => {
+      clearTimeout(timeout);
+    };
+  },[]);
 
   return (
     <section className={style.recap}>
-      <p>
-        Vous serez redirigés vers l'accueil dans <br />
+      <div className={style.redirection}>
+        <p>Vous serez redirigé vers l'accueil dans </p>
         <span className={style.timer}>{timer}s.</span>
-      </p>
-      {orderNumber && (
-        <span className={style.orderNumber}>Commande n° {orderNumber}</span>
-      )}
+      </div>
+      <div className={style["order-infos"]}>
+        {orderNumber && (
+          <span className={style.orderNumber}>Commande n° {orderNumber}</span>
+        )}
+        <span className={style.orderMode}>{orderMode}</span>
+      </div>
       <ul className={style.cartProducts}>
         {cartProducts.map((item) => (
           <li key={item.id}>
@@ -47,11 +57,14 @@ const RecapPage = () => {
           </li>
         ))}
       </ul>
-      <span className={style.price}>{getTotalCartPrice()}€</span>
-      <span className={style.orderMode}>{orderMode}</span>
-      <span className={style.payment}></span>
-      <p>Votre commande est en cours de préparation.</p>
-      <p>N'oubliez pas votre ticket</p>
+      <div className={style["more-infos"]}>
+       <div className={style["payment-mode"]}>
+        <span className={style.price}>{getTotalCartPrice().toFixed(2)}€</span>
+        <span className={style.payment}>{paymentMode}</span>
+      </div>
+        <p>Votre commande est en cours de préparation.</p>
+        <p>N'oubliez pas votre ticket</p>
+      </div>
     </section>
   );
 };
