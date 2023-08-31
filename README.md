@@ -40,7 +40,7 @@ La présente version du projet est fonctionnelle (pas de persistance des donnée
 - Page 404 en cas de mauvaise redirection ou produit indisponible
 - L'application est responsive
  
-### Améliorations (A) prévues de la V2
+### Bugs à corriger (B) & Améliorations (A) prévues sur la V2
 
 - (A) Mise en place de la persistance des données avec le LocalStorage, voir mise en place d'une base de données mySql;
 - (A) Envisager la possibilité d'utiliser un Context pour la gestion de la customisation d'un produit (props pour le moment)
