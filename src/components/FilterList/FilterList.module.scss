@@ -1,5 +1,5 @@
 .filters{
     display: flex;
     justify-content: space-between;
-    gap: 10rem;
+    gap: clamp(2rem, 10vw, 10rem);
 }

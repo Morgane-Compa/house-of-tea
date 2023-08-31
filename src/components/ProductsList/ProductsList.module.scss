@@ -1,8 +1,9 @@
 .productList {
+    padding-inline: clamp(5rem, 3vw, 10rem);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 3rem;
+    gap: 5rem;
 
     li{
         list-style: none;

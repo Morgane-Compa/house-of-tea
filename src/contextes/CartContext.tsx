@@ -144,7 +144,6 @@ const CartProvider = (props: CartProviderProps) => {
     // Ma fonction pour vider tout le panier
     const removeAll = () => {
         setProducts([]); // Retire tous les éléments du panier
-        alert("Votre panier à bien été vidé")
     };
 
     // Ma fonction pour retourner le nombre de produits dans mon panier
