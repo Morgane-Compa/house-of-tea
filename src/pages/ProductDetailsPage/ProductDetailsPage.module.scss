@@ -8,6 +8,7 @@
     position: relative;
     top: -30vh;
     margin-bottom: -15vh;
+    min-height: 70vh;
 }
 
 .size {
@@ -50,8 +51,8 @@
 
     .extraContainer {
         gap: 0rem;
-        top: 0vh;
-        margin-bottom: 5vh;
+        top: -2vh;
+        margin-bottom: -5vh;
     }
 
     .intense {
