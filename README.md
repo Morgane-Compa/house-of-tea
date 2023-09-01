@@ -46,7 +46,6 @@ La présente version du projet est fonctionnelle (pas de persistance des donnée
 - (A) Envisager la possibilité d'utiliser un Context pour la gestion de la customisation d'un produit (props pour le moment)
 - (A) Optimiser le poids des photos pour le chargement rapide des pages
 - (A) Modale pour confirmer l'abandon de la commande
-- (A) Nombre d'articles dans le panier rappelé au niveau de l'icône "basket" du header
 - (A) Système de notation des thés
 - (A) Ajouter l'affichage de la TVA
 - (A) Ajouter un numéro de table au récapitulatif pour les consommations sur place
