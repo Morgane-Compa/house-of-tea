@@ -5,7 +5,7 @@ d'une application de gestion et de vente des produits House Of Tea.
 House Of Tea est une jeune entreprise, spécialisée dans la vente sur place ou à emporter, de thés d'exceptions mais également de diverses boissons, 
 snacks et patisseries. L'enseigne lance sa première boutique dans le 18ème arrondissement de Paris.
 
-### Description des techonologies et descriptif de l'installation du projet
+### Description des technologies et descriptif de l'installation du projet
 
 - Application développée en React + Typescript
 - Dépendances spécifiques => Sass (scss), react-router-dom, react-hook-form, uuid (n° de commande)
