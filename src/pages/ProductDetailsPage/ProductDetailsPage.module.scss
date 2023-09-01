@@ -9,6 +9,7 @@
     top: -30vh;
     margin-bottom: -15vh;
     min-height: 70vh;
+    width: 100%;
 }
 
 .size {
@@ -35,7 +36,7 @@
 }
 
 .total {
-    width: 90vw;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -43,7 +44,7 @@
     margin-bottom: 4.93rem;
 
     .totalPrice {
-        font-size: 3rem;
+        font-size: clamp(1.2rem, 4vw, 3rem);
     }
 }
 
@@ -59,18 +60,9 @@
         font-size: 2.125rem;
     }
 
-    .interligne {
-        width: 30%;
-        margin-bottom: 2.875rem;
-    }
-
     .total {
-        width: 19.25rem;
         height: auto;
         margin-bottom: 2.8125rem;
 
-        .totalPrice {
-            font-size: 1.25rem;
-        }
    }
   }

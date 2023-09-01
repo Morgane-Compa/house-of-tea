@@ -39,7 +39,10 @@ export interface IExtra {
 
 const ProductDetailsPage: React.FC = (extraPrice) => {
 
-
+  useEffect(() =>{
+    window.scrollTo({ top: 0 , left: 0, behavior: 'smooth' });
+   
+  },[])
 
   const navigate = useNavigate()
   const foundProduct = useLoaderData() as IProduct;
@@ -158,7 +161,7 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
   }, [size, extraList, finalQuantity]);
 
   return (
-    <form className={style.extraContainer}>
+    <section className={style.extraContainer}>
       <ProductDetailCard product={foundProduct} />
       {/* Condition apparition de la taille */}
       {
@@ -191,14 +194,14 @@ const ProductDetailsPage: React.FC = (extraPrice) => {
       <div className={style.total}>
         <div className={style.totalPrice}>
           {/* Récupérer les datas des childs pour le total */}
-          <span>{finalPrice * finalQuantity}€</span>
+          <span>{(finalPrice * finalQuantity).toFixed(2)}€</span>
         </div>
         <div className={style.picker}>
           <QuantityPicker increment={increment} decrement={decrement} totalPicker={finalQuantity} />
         </div>
       </div>
       <CallToActionButton buttonType="button" title={"Ajouter au panier"} callback={() => {addProductToCart(finalProduct, finalQuantity) }} />
-    </form >
+    </section >
   );
 };
 export default ProductDetailsPage;

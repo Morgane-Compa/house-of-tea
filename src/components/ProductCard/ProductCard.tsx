@@ -8,14 +8,12 @@ interface ProductCardProps {
 }
 const ProductCard = (props: ProductCardProps) => {
   const { product } = props;
-
-  const formatedPrice = formatNumber(product.price);
   return (
     <Link to={`/product/${product.id}`}>
       <article className={`${style.productCard}`}>
         <img src={product.image.src} alt={product.image.alt} />
         <div className={style.priceCard}>
-          <p>{formatedPrice}€</p>
+          <p>{product.price.toFixed(2)}€</p>
         </div>
         <h4>{product.name}</h4>
         <ul>

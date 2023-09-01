@@ -14,7 +14,7 @@ const ProductDetailCard = (props: ProductDetailCardProps) => {
             <div className={`${style.infos}`}>
                 <h2>{product.name}</h2>
                 <span>{product.description}</span>
-                <span>{product.price}€</span>
+                <span className={style.price}>{product.price.toFixed(2)}€</span>
             </div>
         </article>)
 }

@@ -1,9 +1,13 @@
 import PaymentForm from "components/PaymentForm/PaymentForm";
 import style from "./PaymentPage.module.scss";
-import {useState} from "react";
-import CashPayment from "pages/CashPayment/CashPayment";
+import {useEffect, useState} from "react";
+import CashPayment from "components/CashPayment/CashPayment";
 
 const PaymentPage = () => {
+  useEffect(() =>{
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+   
+  },[])
   const [payByCard, setPayByCard] = useState<boolean>(true)
   return (
     <section className={style.payment}>

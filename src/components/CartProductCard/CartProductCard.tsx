@@ -43,7 +43,7 @@ const CartProductCard = (props: CartProductCardProps) => {
         </Link>
         <div className={style.infos}>
           <span>{product.name}</span>
-          <span>{cartProduct.finalPrice}€</span>
+          <span>{(cartProduct.finalPrice).toFixed(2)}€</span>
 
           {product.isCustomizable && (
             <span>

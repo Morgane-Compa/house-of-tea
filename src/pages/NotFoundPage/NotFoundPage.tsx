@@ -2,8 +2,13 @@ import Header from 'components/Header/Header'
 import style from './NotFoundPage.module.scss'
 import Footer from 'components/Footer/Footer'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const NotFoundPage = () => {
+    useEffect(() =>{
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+       
+      },[])
     return (
         <>
             <Header />

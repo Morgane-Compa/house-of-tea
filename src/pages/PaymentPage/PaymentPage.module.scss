@@ -1,21 +1,27 @@
 .payment {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: clamp(4rem, 3vw,5rem);
   margin-bottom : 10vh;
   @media screen and (max-width: 900px) {
     margin-top: 3vh;
-    gap: 2rem;
+  }
+  @media screen and (max-width: 900px) {
+    width: 70vw;
+  }
+  @media screen and (max-width: 500px) {
+    width: 85vw;
   }
   &-choice {
     display: flex;
     justify-content: center;
   }
   &-option {
-    width: 11rem;
+    width: clamp(9rem, 25vw, 11rem);
     background-color: var(--white);
-    padding: 1rem 2rem;
-    font-size: 1.3rem;
+    padding-block: clamp(.8rem, 2vw, 1.2rem) ;
+    padding-inline: clamp(1rem, 2vw, 2rem);
+    font-size: clamp(1.2rem, 3vw, 1.3rem);
     font-family: var(--font-text);
   }
 }
@@ -25,7 +31,9 @@
 }
 
 .titre {
-  font-family: var(--font-text);
-  font-size: clamp(1.5625rem, -1.1719rem + 8.75vw, 3.75rem);
-  font-weight: bold;
+  text-align: center;
+        font-size: clamp(1.8rem, 5vw, 4rem);
+        font-weight: 700;
+        font-family: var(--font-text);
+  
 }

@@ -5,7 +5,7 @@ import FilterList from 'components/FilterList/FilterList'
 import { getAllProducts, getProductsByCategory, getProductsBySubCategory } from 'services/product.service'
 import { useLoaderData } from 'react-router-dom'
 import ProductsList from 'components/ProductsList/ProductsList'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export const productsLoader = async (): Promise<IProduct[]> => {
     const products = await getAllProducts();
@@ -24,6 +24,10 @@ const ProductListPage = () => {
         setSubCategory(subCategory);
         setProducts(getProductsBySubCategory(subCategory.type));
     }
+    useEffect(() =>{
+        window.scrollTo({ top: 0 , left: 0, behavior: 'smooth' });
+       
+      },[])
     return(
         <section className={style['products-list']}>
             <ul className={style['category-list']}>

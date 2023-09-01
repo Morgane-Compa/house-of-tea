@@ -3,6 +3,7 @@ import style from './CartPage.module.scss'
 import { useCartContext } from 'contextes/CartContext'
 import { Link, useNavigate } from 'react-router-dom';
 import CallToActionButton from 'components/CallToActionButton/CallToActionButton';
+import { useEffect } from 'react';
 
 const CartPage = () => {
 
@@ -11,7 +12,10 @@ const CartPage = () => {
     const redirect = () => {
         navigate("/payment")
     };
-
+    useEffect(() =>{
+        window.scrollTo({ top: 0 , left: 0, behavior: 'smooth' });
+       
+      },[])
     const { cartProducts, removeAll, getTotalProduct, getTotalCartPrice } = useCartContext();
 
     return (
@@ -31,7 +35,7 @@ const CartPage = () => {
             </div>
             <div className={style.lastSection}>
                 <p>Total : </p>
-                <p>{getTotalCartPrice()} €</p>
+                <p>{getTotalCartPrice().toFixed(2)} €</p>
             </div>
 
             <Link to='/products' className={style.link}>Ajouter des produits</Link>
